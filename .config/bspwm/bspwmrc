@@ -1,0 +1,12 @@
+#! /bin/sh
+sxhkd &
+conky &
+
+bspc monitor -d I II III IV V VI VII VIII
+
+bspc config border_width         0
+bspc config window_gap		 8
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true

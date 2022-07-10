@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# set env variables
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export XDG_RUNTIME_DIR="$(mktemp -d)"
+export XDG_CACHE_HOME="$HOME/.cache"
+export WLR_LIBINPUT_NO_DEVICES=1
+export MOZ_ENABLE_WAYLAND=1
+export LANG="en_US.UTF-8"
+export LC_ALL="C"
+export EDITOR="nvim"
+#export WLR_BACKENDS=headless
+#export SOCKS_PROXY="socks5://127.0.0.1:9050"
+
+# enable pipewire
+/usr/bin/pipewire &
+/usr/bin/pipewire-alsa &
+/usr/bin/pipewire-media-session &
+
+# launch graphical session
+sx sh "$HOME"/.config/x11/xinitrc ||
+startx "$HOME"/.config/x11/xinitrc ||
+qtile start -b wayland 

@@ -1,0 +1,15 @@
+# monitor system
+conky &
+# set color temperature
+gammastep -PO 2400 &
+# launch panel
+~/.config/polybar/launch.sh &
+# set wallpaper
+feh --bg-fill ~/.config/wall/a.jpg &
+# merge urxvt config
+xrdb -merge "$HOME"/.config/x11/xresources &
+# start compositor
+picom & #--experimental-backends
+# launch window manager
+qtile start ||
+exec dbus-launch --sh-syntax --exit-with-session bspwm 
