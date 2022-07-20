@@ -1,15 +1,19 @@
 #!/bin/sh
 
 # function
-manual         () {
+manual       () {
   "$@" --help | less
 }   
-run_as_root    () {
+run_as_root  () {
   su root -c "$(echo $@)"
 }
-play_media     () {
+play_media   () {
   ffplay -af atempo="$2" "$1" -vf setpts="1/$2*PTS" 
 }
+calculate () {
+	awk "BEGIN { print $*}"
+}
+
 
 # alias
 alias \
@@ -18,13 +22,15 @@ alias \
         h="manual" \
         e="nvim -n" \
         n="nix-env" \
-        pl="play_media" \
         r="run_as_root" \
-        p="r pacman $(echo $@)" \
-        sus="su root -c 'printf mem > /sys/power/state'" \
+        p="r pacman $@" \
+        pl="play_media" \
+	cal="calculate" \
+        sus="r 'printf mem > /sys/power/state'" \
+        hib="r 'printf disk > /sys/power/state'" \
+	dot="git --git-dir=$HOME/.dot --work-tree=$HOME" \
         ls="ls -hN --color=auto --group-directories-first" \
 	up="r sh $HOME/.config/shell/scripts/backupgrade.sh" \
-	dot="/usr/bin/git --git-dir=$HOME/.dot --work-tree=$HOME" \
         vm="mkdir /tmp/mytpm1 & swtpm socket --tpmstate dir=/tmp/mytpm1 --ctrl type=unixio,path=/tmp/mytpm1/swtpm-sock --log level=20 --tpm2 & qemu-system-x86_64 -enable-kvm -boot menu=on -m 2g -cpu host -vga virtio -chardev socket,id=chrtpm,path=/tmp/mytpm1/swtpm-sock -tpmdev emulator,id=tpm0,chardev=chrtpm -device tpm-tis,tpmdev=tpm0" \
 	# -bios /usr/share/ovmf/x64/OVMF.fd " \ 
         # -drive file=img,if=none,id=nvm -device nvme,serial=deadbeef,drive=nvm \
