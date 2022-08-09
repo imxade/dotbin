@@ -17,11 +17,11 @@ COLORS = {
     "black":  "#00000000",
     "red":    "#cc6666",
     "green":  "#a9b665",
-    "yellow": "#f0c674",
+    "yellow": "#e1b060",
     "blue":   "#81a2be",
     "magenta":"#d3869b",
     "cyan":   "#70c0ba",
-    "white":  "#282a2e",
+    "white":  "#ffffff",
     "pitch":  "#32302f",
 }
 
@@ -241,7 +241,7 @@ screens = [
             [
                 widget.GroupBox(
                     borderwidth=2,
-                    active=COLORS["red"],
+                    active=COLORS["yellow"],
                     inactive=COLORS["black"],
                     highlight_color=COLORS["black"],
                     highlight_method="line",
@@ -249,10 +249,10 @@ screens = [
                 ),
                 widget.Spacer(),
                 #widget.Systray(),
-                widget.Volume(foreground=COLORS["red"], fmt=" 墳 {} "),
+                widget.Volume(foreground=COLORS["yellow"], fmt=" 墳 {} "),
                 widget.Net(
-                    foreground=COLORS["green"],
-                    format='  {down}  {up} ',
+                    foreground=COLORS["yellow"],
+                    format='  {down}  {up}  ',
                     fmt="{}",
                 ),
                 widget.Clock(
@@ -260,16 +260,18 @@ screens = [
                     format=" %a %b %d - %H:%M ",
                 ),
                 widget.CPU(
-                    foreground=COLORS["blue"],
+                    foreground=COLORS["yellow"],
                     format='{load_percent}%',
                     fmt=' CPU {} ',
                 ),
                 widget.Memory(
-                    foreground=COLORS["magenta"],
+                    foreground=COLORS["yellow"],
                     format='{MemPercent}%',
                     fmt=' RAM {} ',
                 ),
-                widget.BatteryIcon(foreground=COLORS["cyan"]),
+                widget.BatteryIcon(
+                    foreground=COLORS["yellow"]
+                ),
             ],
             22,
             margin = [8, 8, 0, 8],

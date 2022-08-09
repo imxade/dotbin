@@ -11,5 +11,4 @@ xrdb -merge "$HOME"/.config/x11/xresources &
 # start compositor
 picom & #--experimental-backends
 # launch window manager
-qtile start ||
 exec dbus-launch --sh-syntax --exit-with-session bspwm 

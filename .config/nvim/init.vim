@@ -16,7 +16,8 @@ set incsearch		" Searches for strings incrementally
 set autoindent		" Auto-indent new lines
 set smartindent		" Enable smart-indent
 set smarttab		" Enable smart-tabs
-set cursorline		" Autohighlight the line you are currently on
+set cursorline		" Highlight current line
+set cursorcolumn	" Highlight current column
 set noshowcmd		" Show command in bottom bar
 set cmdheight=1		" More space to display commands
 set wildmenu		" Visual autocomplete for command menu
@@ -24,8 +25,9 @@ set wildmode=list:full	" Expands wildmenu
 set showmatch		" highlight matching [{()}]
 set incsearch		" search as characters are entered
 set hlsearch		" highlight matches
-set signcolumn=yes	" error signs
 set noruler		" Don't show row and column ruler information
+set scrolloff=999	" Keep the cursor at middle of screen 
+"set signcolumn=yes	" error signs
 "set expandtab		" Use spaces instead of tabs
 "set softtabstop=4	" Number of spaces per Tab
 "set shiftwidth=4	" Number of auto-indent spaces
@@ -64,7 +66,7 @@ set clipboard=unnamedplus	" Saves copied text from vim ro general clipboard
 " Switch to the prior tab page
 
 "" Theme
-colorscheme morning
+colorscheme torte
 highlight LineNr ctermfg=lightgray
 
 "" Statusline

@@ -18,6 +18,9 @@ calculate () {
 # alias
 alias \
         g="git" \
+	gcm="g add -u; g commit --amend -m $@" \
+	dot="g --git-dir=$HOME/.dot --work-tree=$HOME" \
+	dcm="dot add -u; dot commit --amend -m $@" \
         t="trizen" \
         h="manual" \
         e="nvim -n" \
@@ -28,8 +31,8 @@ alias \
 	cal="calculate" \
         sus="r 'printf mem > /sys/power/state'" \
         hib="r 'printf disk > /sys/power/state'" \
-	dot="git --git-dir=$HOME/.dot --work-tree=$HOME" \
         ls="ls -hN --color=auto --group-directories-first" \
+	ch="chromium --user-data-dir=/tmp & disown && exit" \
 	up="r sh $HOME/.config/shell/scripts/backupgrade.sh" \
         vm="mkdir /tmp/mytpm1 & swtpm socket --tpmstate dir=/tmp/mytpm1 --ctrl type=unixio,path=/tmp/mytpm1/swtpm-sock --log level=20 --tpm2 & qemu-system-x86_64 -enable-kvm -boot menu=on -m 2g -cpu host -vga virtio -chardev socket,id=chrtpm,path=/tmp/mytpm1/swtpm-sock -tpmdev emulator,id=tpm0,chardev=chrtpm -device tpm-tis,tpmdev=tpm0" \
 	# -bios /usr/share/ovmf/x64/OVMF.fd " \ 
