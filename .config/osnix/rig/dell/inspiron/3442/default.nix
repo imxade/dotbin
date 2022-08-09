@@ -29,11 +29,15 @@
 		    ];
 	    };
     };
+
+    networking = {
+	    enableB43Firmware = true;
+    }
     
-#   boot = {
-#   	extraModprobeConfig = ''
-#   		options snd slots=snd-hda-intel		# set hda-intel as default card
-#   	    	options snd_hda_intel enable=0,1	# disable first card, but enable the second one
-#   	'';
-#   };
+    boot = {
+    	extraModprobeConfig = ''
+    		options snd slots=snd-hda-intel		# set hda-intel as default card
+    	    	options snd_hda_intel enable=0,1	# disable first card, but enable the second one
+    	'';
+    };
  }

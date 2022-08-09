@@ -33,6 +33,8 @@
  
  # Tell Flake what to use and what to do with the dependencies.
  outputs = { self	#fix
+#	   , lib
+#	   , system
 	   , nixpkgs
 	   , home-manager
 	   , nixos-hardware
@@ -66,7 +68,7 @@
   in								# Use Above variables in ...
   {
 	nixosConfiguration = {
-#	        NIXOS = lib.nixosSystem {
+#	        NIXOS = lib.nixosSystem { #fix
  	        nixos = lib.nixosSystem {
 	      	  inherit system pkgs;
                   modules = [
@@ -88,6 +90,8 @@
 		    { config
 		    , pkgs
 		    , lib
+		    , nixpkgs #fix
+		    , system #fix
 		    , ...
 		    }: 
 		    {
@@ -273,7 +277,7 @@
 	      	               };
 
 	      	       	# List packages installed in system profile.
-	      	               defaultPackages	= [];	# Do not install anything by default
+ 	      	               defaultPackages	= [];	# Do not install anything by default
 	      	               systemPackages	= with pkgs; [
 	      	             		git		# To take Care of Git repositories
 					gawk		# Text processing Language
@@ -312,7 +316,7 @@
 	      	       		allowReboot 	= false;
 #	      	       		channel 	= "https://nixos.org/channels/nixos-unstable";
 	      	               };
-	      	               stateVersion 	= "21.11"; # Do not modify, before going through the manual.
+	      	               stateVersion 	= "21.11"; # No need to modify
 	      	       };
  		      };
  		  }
@@ -324,30 +328,30 @@
 	      					    useUserPackages	= true;
 	      					    useGlobalPkgs	= true;
 	      					    users		= {
-	      						    ${USER} = {
-#	      							    imports = [
-#	      							      ./gui/${GUI}/home.nix #fix
-#	      							      ./gui/${GUI}
+	      						${USER} = {
+#	      						    imports = [
+#	      						      ./gui/${GUI}/home.nix #fix
+#	      						      ./gui/${GUI}
 
-#								      (  
-#								      home = {
-#									      username = "${USER}";
-#									      homeDirectory = "/home/${USER}";
-#								      }
-#								      )
-#								      ./gui/${GUI}/home.nix
-#								    ];
-	      							    imports = [
-								      (  
-								      {
- 								        home = {
- 								                username = "${USER}";
- 								                homeDirectory = "/home/${USER}";
- 								        };
-								      }
- 								      )
-								      ] ++ [(import ./gui/${GUI}/home.nix)];
-							    };
+#							      (  
+#							      home = {
+#							              username = "${USER}";
+#							              homeDirectory = "/home/${USER}";
+#							      }
+#							      )
+#							      ./gui/${GUI}/home.nix
+#							    ];
+	      						    imports = [
+							      (  
+							      {
+ 							        home = {
+ 							              username = "${USER}";
+ 							              homeDirectory = "/home/${USER}";
+ 							        };
+							      }
+ 							      )
+							    ] ++ [(import ./gui/${GUI}/home.nix)];
+							};
 						    };
 					    };
 		  }
