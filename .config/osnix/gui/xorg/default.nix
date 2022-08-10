@@ -1,80 +1,67 @@
 
- { config
+ { lib
  , pkgs
- , user
- , lib
+ , config
  , ...
  }:
 
  {
-    home = {
-	    packages = with pkgs; [
-    		# List packages installed in xorg profile.
-#    		packages  = with pkgs; [
-    		systemPackages	= with pkgs; [
-			brave		# Browser
-			seatd		# elogind Replacement
-			xclip		# Clipboard for xorg
-			ffmpeg		# Audio Video
-			exiftool	# Manipulate Metadata
-			alacritty	# Terminal Emulator
-			gammastep	# Manage Screen Color Temperature
-			btrfs-progs	# Manage BTRFS
-    		];
+    environment = {
+	    # Define Environment xorg wide variables
+	    variables	= {
+		TERMINAL = "alacritty";
+	    };
+
+	    # List packages installed in xorg profile.
+ 	    systemPackages = with pkgs; [
+#		seatd		# elogind Replacement
+		xclip		# Clipboard for xorg
+		ffmpeg		# Audio Video
+		exiftool	# Manipulate Metadata
+ 		alacritty	# Terminal Emulator
+		gammastep	# Manage Screen Color Temperature
+	    ];
     };
 
     # Configure the X11 windowing system.
     services = {
-	xserver = {
-		  enable	 = true;
-		  # Configure keymap in X11
-#		  layout	 = "us";
-#		  xkbOptions	 = "eurosign:e";
-#	
-#		  # Configure DisplayManager
-#		  displayManager = {
-#			  lightdm = {
-#				  enable = true;
-#				  defaultSession = "none+qtile";
-#			  };
-#		  };
+	    xserver = {
+		enable	 = true;
+	    	# Configure keymap in X11
+#	    	layout	 = "us";
+#	    	xkbOptions	 = "eurosign:e";
+#	    	
+#	    	# Configure DisplayManager
+#	    	displayManager = {
+#	    	        lightdm = {
+#	    	      	  enable = true;
+#	    	      	  defaultSession = "none+qtile";
+#	    	        };
+#	    	};
 
-	  	  # Configure DesktopManager
-	  	  desktopManager = {
-	  	          xterm   = {
-	  	        	  enable = false; # Do not install xterm
-	  	          };
-	  	  };
+	    	# Configure DesktopManager
+	    	desktopManager = {
+	    	        xterm   = {
+	    	      	  enable = false; # Do not install xterm
+	    	        };
+	    	};
 
-	  	  # Enable touchpad support
-	  	  libinput = {
-	  	          enable		= true;
-	  	          tapping		= true;
-	  	          naturalScrolling	= true;
-	  	  };
-	};
+	    	# Enable touchpad support
+	    	libinput = {
+	    	        enable   = true;
+			touchpad = {
+				tapping	= true;
+				naturalScrolling = true;
+			};
+		};
+	    };
     };
 
-#   programs = {
-#           home-manager = {
-#       	    enable = true;
-#           };
-#   };
-
-#   # GTK Theme
-#    gtk = {
-#	    enable = true;
-#	    theme = {
-#		    name = "Dracula";
-#		    package = pkgs.dracula-theme;
-#	    };
-#	    iconTheme = {
-#		    name = "Papirus-Dark";
-#		    package = pkgs.papirus-icon-theme;
-#	    };
-#	    font = {
-#		    name = "Hurmit Nerd Font Mono Medium";
-#	    };
-#   };
+    # QT  Theme
+    qt5 = {
+    	    enable = true;
+            style = "gtk2";
+            platformTheme = "gtk2";
+    };
  }
 

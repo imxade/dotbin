@@ -1,3 +1,4 @@
+
 {
 
  description = "Have Some Flake";
@@ -33,8 +34,6 @@
  
  # Tell Flake what to use and what to do with the dependencies.
  outputs = { self	#fix
-#	   , lib
-#	   , system
 	   , nixpkgs
 	   , home-manager
 	   , nixos-hardware
@@ -47,7 +46,8 @@
     GUI		= "xorg/qtile";					# Graphical Environment
 #   GUI		= "wayland/qtile"
     USER 	= "x";						# Username
-    HOST	= "dell";					# Hostname for the system
+    HOST	= "nixos";					# Hostname of current system
+#   HOST	= "$(cat /etc/hostname)";			# Hostname of current system
     ZONE 	= "Asia/Kolkata"; 				# Set your time zone
     DISK 	= "/dev/sda"; 					# Disk for Boot Loader
     FUID 	= "B3CE-491A"; 					# UUID of Fat partition holding grub.cfg
@@ -57,7 +57,6 @@
     OFFSET	= "";						# Offset value of swapfile, To Hibernate
     system 	= "x86_64-linux";				# Platform #fix
 #   system 	= "$(uname -m)-linux";
-#   system	= builtins.currentSystem;			#fix check if works instead of x86_64-linux
     lib	 	= nixpkgs.lib;
     pkgs   	= import nixpkgs {
   	  inherit system;
@@ -67,31 +66,36 @@
     };
   in								# Use Above variables in ...
   {
-	nixosConfiguration = {
-#	        NIXOS = lib.nixosSystem { #fix
- 	        nixos = lib.nixosSystem {
+	nixosConfigurations = {
+ 	        ${HOST} = lib.nixosSystem {
 	      	  inherit system pkgs;
                   modules = [
 		    # If Path to File is specified, it will be imported
 		    # If Path to Directory is specified, 'default.nix' inside that will be imported
 
-		    # add your model from this list: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
+		    # add model from this list: github.com/NixOS/nixos-hardware/blob/master/flake.nix
 #		    nixos-hardware.nixosModules.dell-xps-13-9380
 
 	      	    # Include the results of the hardware scan.
-	      	    /etc/nixos/hardware-configuration.nix
+#	      	    /etc/nixos/hardware-configuration.nix
+	      	    ./hardware-configuration.nix
 
 	      	    # Include Machine Profile
-#	      	    ./rig/${RIG}/default.nix	#fix
 	      	    ./rig/${RIG}
+
+	      	    # Include GUI Profile
+	      	    ./gui/${GUI}
+
+		    # Include Hardened Profile
+#	      	    ./rig/hardened.nix
 
 	      	    # configuration.nix : Universal System Configuration for all Profiles
 	      	    (
-		    { config
+		    { lib
 		    , pkgs
-		    , lib
-		    , nixpkgs #fix
-		    , system #fix
+		    , config
+		    , system
+		    , nixpkgs
 		    , ...
 		    }: 
 		    {
@@ -118,14 +122,15 @@
 	      	             				configfile /grub/grub.cfg }'';
 	      	             		};
 	      	             		efi 	= {
-	      	             			efiSysMountPoint 	= "/fat"; # Mount Point for Fat Partition
+						# Mount Point for Fat Partition
+	      	             			efiSysMountPoint 	= "/fat";
 	      	             		};
 	      	             		timeout = 2; # wait this much before auto-boot
 	      	        	};
 	      	       };
 	      	       
 	      	       networking = {
-	      	       	hostName    = "${HOST}"; # Define your hostname.
+ 	      	       	hostName    = "${HOST}"; # Define your hostname.
 	      	       	wireless    = {
 	      	       		enable = true;  # Enables wireless support via wpa_supplicant.
 	      	       	};
@@ -172,7 +177,7 @@
 	      	               fonts = with pkgs; [
 	      	                 (nerdfonts.override { 
 	      	             	    fonts = [ 
-	      	             	      "Hurmit" 
+	      	             	      "Hermit" 
 	      	             	    ]; })
 	      	               ];
 	      	       };
@@ -180,7 +185,7 @@
 		       # Enable sound
 		       sound	= {
 			       enable    = true;
-			       mediakeys = {
+			       mediaKeys = {
 				       enable = true;
 			       };
 		       };
@@ -213,7 +218,11 @@
 	      	       };
 	      	       
 	      	       # Configure SystemWide services
-	      	       services = {
+ 	      	       services = {
+			       getty = {
+				 autologinUser = "${USER}";
+			       };
+
 #	      	               # Enable CUPS to print documents.
 #	      	               printing = {
 #	      	       		enable = true;
@@ -252,11 +261,11 @@
 #
 #			       # Enable Flatpak
 #			       flatpak = {
-#				       enable = true;
+#				 enable = true;
 #			       };
-#	      	       };
+ 	      	       };
 #
-#		       xdg.portal = {					# Required for flatpak
+#		       xdg.portal = {					# Required by flatpak
 #			       enable = true;
 #			       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 #		       };
@@ -269,7 +278,7 @@
 	      	       };
 
 	      	       environment = {
-	      	               # Define Environment variables to be used System Wide
+	      	               # Define Environment System Wide variables
 	      	               variables	= {
 	      	       			EDITOR	 = "nvim";
 	      	             	  	VISUAL	 = "nvim";
@@ -314,13 +323,12 @@
 	      	               autoUpgrade 	= {
 	      	       		enable 	= true;
 	      	       		allowReboot 	= false;
-#	      	       		channel 	= "https://nixos.org/channels/nixos-unstable";
+ 	      	       		channel 	= "https://nixos.org/channels/nixos-unstable";
 	      	               };
-	      	               stateVersion 	= "21.11"; # No need to modify
+ 	      	               stateVersion 	= "21.11"; # Do not modify
 	      	       };
- 		      };
- 		  }
- 		  )
+		    }
+		    )
 
 	      	  # User Specific home-manager Profile
  		  home-manager.nixosModules.home-manager {
@@ -328,37 +336,32 @@
 	      					    useUserPackages	= true;
 	      					    useGlobalPkgs	= true;
 	      					    users		= {
-	      						${USER} = {
-#	      						    imports = [
-#	      						      ./gui/${GUI}/home.nix #fix
-#	      						      ./gui/${GUI}
-
-#							      (  
-#							      home = {
-#							              username = "${USER}";
-#							              homeDirectory = "/home/${USER}";
-#							      }
-#							      )
-#							      ./gui/${GUI}/home.nix
-#							    ];
-	      						    imports = [
-							      (  
-							      {
- 							        home = {
- 							              username = "${USER}";
- 							              homeDirectory = "/home/${USER}";
- 							        };
-							      }
- 							      )
-							    ] ++ [(import ./gui/${GUI}/home.nix)];
+	      						${USER} = { lib
+ 		    					  	  , pkgs
+								  , config
+								  , system
+								  , nixpkgs
+								  , ...
+							}:
+							{
+ 	      						    imports = [
+ 							      (  
+ 							      {
+  							        home = {
+  							          username = "${USER}";
+  							          homeDirectory = "/home/${USER}";
+								  stateVersion = "21.11"; # Do not modify
+  							        };
+ 							      }
+  							      )
+  							    ] ++ [(import ./gui/${GUI}/home.nix)];
 							};
 						    };
 					    };
 		  }
                 ];
+		};
 	};
-    };
   };
-
 }
 
