@@ -21,11 +21,11 @@
   # and also slow down the system when something crash
   systemd.coredump.enable = false;
 
-  # required to run chromium
-  security.chromiumSuidSandbox.enable = true;
+# # required to run chromium
+# security.chromiumSuidSandbox.enable = true;
 
-  # enable firejail
-  programs.firejail.enable = true;
+# # enable firejail
+# programs.firejail.enable = true;
 
 # # create system-wide executables firefox and chromium
 # # that will wrap the real binaries so everything
