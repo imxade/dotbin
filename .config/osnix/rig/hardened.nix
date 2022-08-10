@@ -9,7 +9,7 @@
 {
   imports = [ 
     # Include Official Hardened Profile
-    <nixpkgs/nixos/modules/profiles/hardened.nix>
+    <nixpkgs/nixos/modules/profiles/hardened.nix> #fix enable ntfs
   ];
 
   # enable firewall and block all ports

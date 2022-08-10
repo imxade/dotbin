@@ -42,17 +42,19 @@
 #   };
     
     boot = {
-	    extraModprobeConfig = ''
-    	      options snd slots=snd-hda-intel		# set hda-intel as default card
-    	      options snd_hda_intel enable=0,1		# disable first card, enable second card
-    	    '';
-	    extraModulePackages = [
-	      config.boot.kernelPackages.broadcom_sta
-	    ];
-	    blacklistedKernelModules = [
-	      "b43" 
-	      "bcma" 
-	    ];
+ 	    extraModprobeConfig = ''
+	      # set hda-intel as default card
+     	      options snd slots=snd-hda-intel
+	      # disable 1st card, enable 2nd card
+    	      options snd_hda_intel enable=0,1
+     	    '';
+ 	    blacklistedKernelModules = [
+ 	      "b43" 
+ 	      "bcma" 
+ 	    ];
+ 	    extraModulePackages = [
+ 	      config.boot.kernelPackages.broadcom_sta
+ 	    ];
 #	    kernelPackages = mkDefault pkgs.linuxPackages_hardened;
 #	    kernelModules = [
 #	      "kvm-intel"

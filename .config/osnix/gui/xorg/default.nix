@@ -33,9 +33,9 @@
 #	    	
 #	    	# Configure DisplayManager
 #	    	displayManager = {
+#	    	      	defaultSession = "none+qtile";
 #	    	        lightdm = {
 #	    	      	  enable = true;
-#	    	      	  defaultSession = "none+qtile";
 #	    	        };
 #	    	};
 

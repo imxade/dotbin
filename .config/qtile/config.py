@@ -119,6 +119,7 @@ groups = [
         ("2", {"matches": [
             Match(wm_class=["qutebrowser"]),
             Match(wm_class=["chromium"]),
+            Match(wm_class=["brave-browser"]),
             ]}),
         ("3", {"matches": [
             Match(wm_class=["ffplay"]),

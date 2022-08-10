@@ -43,8 +43,8 @@
   # The following Variables are defined for the Ease of Modification.
   let 
     RIG 	= "dell/inspiron/3442";				# Profile of machine to be used
-    GUI		= "xorg/qtile";					# Graphical Environment
-#   GUI		= "wayland/qtile"
+    GUI		= "wayland/qtile";
+#   GUI		= "xorg/qtile";
     USER 	= "x";						# Username
     HOST	= "nixos";					# Hostname of current system
 #   HOST	= "$(cat /etc/hostname)";			# Hostname of current system
@@ -143,13 +143,22 @@
 	      	       	# replicates the default behaviour.
 	      	       	useDHCP     = false;
 	      	       	interfaces  = {
-	      	       		eth0 	= {
-	      	       			useDHCP = true;
-	      	       		};
-	      	       		wlan0 	= {
-	      	       			useDHCP = true;
-	      	       		};
-	      	       	};
+				wlp6s0 	  = {
+ 	      	       			useDHCP = true;
+ 	      	       		};
+				enp0s20u1 = {
+ 	      	       			useDHCP = true;
+ 	      	       		};
+				enp7s0    = {
+ 	      	       			useDHCP = true;
+ 	      	       		};
+#	      	       		eth0 	  = {
+#	      	       			useDHCP = true;
+#	      	       		};
+#	      	       		wlan0 	  = {
+#	      	       			useDHCP = true;
+#	      	       		};
+  	      	       	};
 
 	      	       	# Configure network proxy if necessary
 #	      	       	proxy	   = {
@@ -223,6 +232,11 @@
 				 autologinUser = "${USER}";
 			       };
 
+			       dbus = { #fix
+#				 enable = lib.mkForce false;
+ 				 apparmor = "enabled";
+			       };
+
 #	      	               # Enable CUPS to print documents.
 #	      	               printing = {
 #	      	       		enable = true;
@@ -294,7 +308,28 @@
 	      	             		killall		# Stop Processes
 		       			libarchive	# bsdtar : Utility to work with archives
 	      	               ];
+
+			# Create file /etc/current-system-packages with List of all Packages
+			etc = {
+				"current-system-packages" = {
+					text =
+			let
+			packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
+			sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
+			formatted = builtins.concatStringsSep "\n" sortedUnique;
+			in
+			formatted;
+				};
+			};
 	      	       };
+
+#			environment.etc."current-system-packages".text =
+#			let
+#			packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
+#			sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
+#			formatted = builtins.concatStringsSep "\n" sortedUnique;
+#			in
+#			formatted;
 
 	      	       nix = {
 	      	               # Enable Automatic Optimisation.
