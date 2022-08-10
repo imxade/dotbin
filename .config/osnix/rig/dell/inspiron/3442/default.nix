@@ -12,7 +12,7 @@
 		    enable   = true;
 		    hsphfpd  = {
 			    enable  = true;
-		    }
+		    };
 		    settings = {
 			    General = {
 				    Enable ="Source,Sink,Media,Socket";
@@ -32,7 +32,7 @@
 
     networking = {
 	    enableB43Firmware = true;
-    }
+    };
     
     boot = {
     	extraModprobeConfig = ''

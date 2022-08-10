@@ -33,8 +33,6 @@
  
  # Tell Flake what to use and what to do with the dependencies.
  outputs = { self	#fix
-#	   , lib
-#	   , system
 	   , nixpkgs
 	   , home-manager
 	   , nixos-hardware
@@ -47,7 +45,8 @@
     GUI		= "xorg/qtile";					# Graphical Environment
 #   GUI		= "wayland/qtile"
     USER 	= "x";						# Username
-    HOST	= "dell";					# Hostname for the system
+    HOST	= "nixos";					# Hostname of current system
+#   HOST	= "$(cat /etc/hostname)";			# Hostname of current system
     ZONE 	= "Asia/Kolkata"; 				# Set your time zone
     DISK 	= "/dev/sda"; 					# Disk for Boot Loader
     FUID 	= "B3CE-491A"; 					# UUID of Fat partition holding grub.cfg
@@ -57,7 +56,6 @@
     OFFSET	= "";						# Offset value of swapfile, To Hibernate
     system 	= "x86_64-linux";				# Platform #fix
 #   system 	= "$(uname -m)-linux";
-#   system	= builtins.currentSystem;			#fix check if works instead of x86_64-linux
     lib	 	= nixpkgs.lib;
     pkgs   	= import nixpkgs {
   	  inherit system;
@@ -67,9 +65,8 @@
     };
   in								# Use Above variables in ...
   {
-	nixosConfiguration = {
-#	        NIXOS = lib.nixosSystem { #fix
- 	        nixos = lib.nixosSystem {
+	nixosConfigurations = {
+ 	        ${HOST} = lib.nixosSystem {
 	      	  inherit system pkgs;
                   modules = [
 		    # If Path to File is specified, it will be imported
@@ -79,19 +76,19 @@
 #		    nixos-hardware.nixosModules.dell-xps-13-9380
 
 	      	    # Include the results of the hardware scan.
-	      	    /etc/nixos/hardware-configuration.nix
+#	      	    /etc/nixos/hardware-configuration.nix
+	      	    ./hardware-configuration.nix
 
 	      	    # Include Machine Profile
-#	      	    ./rig/${RIG}/default.nix	#fix
 	      	    ./rig/${RIG}
 
 	      	    # configuration.nix : Universal System Configuration for all Profiles
 	      	    (
-		    { config
+		    { lib
 		    , pkgs
-		    , lib
-		    , nixpkgs #fix
-		    , system #fix
+		    , config
+		    , system
+		    , nixpkgs
 		    , ...
 		    }: 
 		    {
@@ -125,8 +122,8 @@
 	      	       };
 	      	       
 	      	       networking = {
-	      	       	hostName    = "${HOST}"; # Define your hostname.
-	      	       	wireless    = {
+ 	      	       	hostName    = "${HOST}"; # Define your hostname.
+	      	       	wireless    = { #fix move to rig
 	      	       		enable = true;  # Enables wireless support via wpa_supplicant.
 	      	       	};
 	      	       	nameservers = [
@@ -180,7 +177,7 @@
 		       # Enable sound
 		       sound	= {
 			       enable    = true;
-			       mediakeys = {
+			       mediaKeys = {
 				       enable = true;
 			       };
 		       };
@@ -213,7 +210,11 @@
 	      	       };
 	      	       
 	      	       # Configure SystemWide services
-	      	       services = {
+ 	      	       services = {
+			       getty = {
+				 autologinUser = "${USER}";
+			       };
+
 #	      	               # Enable CUPS to print documents.
 #	      	               printing = {
 #	      	       		enable = true;
@@ -252,11 +253,11 @@
 #
 #			       # Enable Flatpak
 #			       flatpak = {
-#				       enable = true;
+#				 enable = true;
 #			       };
-#	      	       };
+ 	      	       };
 #
-#		       xdg.portal = {					# Required for flatpak
+#		       xdg.portal = {					# Required by flatpak
 #			       enable = true;
 #			       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 #		       };
@@ -284,6 +285,7 @@
 	      	               		neovim		# Text Editor
 	      	             		killall		# Stop Processes
 		       			libarchive	# bsdtar : Utility to work with archives
+					linux
 	      	               ];
 	      	       };
 
@@ -314,13 +316,12 @@
 	      	               autoUpgrade 	= {
 	      	       		enable 	= true;
 	      	       		allowReboot 	= false;
-#	      	       		channel 	= "https://nixos.org/channels/nixos-unstable";
+ 	      	       		channel 	= "https://nixos.org/channels/nixos-unstable";
 	      	               };
 	      	               stateVersion 	= "21.11"; # No need to modify
 	      	       };
- 		      };
- 		  }
- 		  )
+		    }
+		    )
 
 	      	  # User Specific home-manager Profile
  		  home-manager.nixosModules.home-manager {
@@ -328,11 +329,20 @@
 	      					    useUserPackages	= true;
 	      					    useGlobalPkgs	= true;
 	      					    users		= {
-	      						${USER} = {
+	      						${USER} = { lib
+ 		    					  	  , pkgs
+								  , config
+								  , system
+								  , nixpkgs
+								  , ...
+							}:
+							{
 #	      						    imports = [
 #	      						      ./gui/${GUI}/home.nix #fix
 #	      						      ./gui/${GUI}
+#							    ]
 
+#	      						    imports = [
 #							      (  
 #							      home = {
 #							              username = "${USER}";
@@ -341,6 +351,7 @@
 #							      )
 #							      ./gui/${GUI}/home.nix
 #							    ];
+
 	      						    imports = [
 							      (  
 							      {
@@ -350,15 +361,15 @@
  							        };
 							      }
  							      )
-							    ] ++ [(import ./gui/${GUI}/home.nix)];
+#							    ] ++ [(import ./gui/${GUI})]; #fix
+ 							    ] ++ [(import ./gui/${GUI}/home.nix)];
 							};
 						    };
 					    };
 		  }
                 ];
+		};
 	};
-    };
   };
-
 }
 

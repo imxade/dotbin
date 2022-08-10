@@ -8,10 +8,9 @@
 
  {
     home = {
+#	    systemPackages = with pkgs; [
 	    packages = with pkgs; [
     		# List packages installed in xorg profile.
-#    		packages  = with pkgs; [
-    		systemPackages	= with pkgs; [
 			brave		# Browser
 			seatd		# elogind Replacement
 			xclip		# Clipboard for xorg
@@ -25,34 +24,34 @@
 
     # Configure the X11 windowing system.
     services = {
-	xserver = {
-		  enable	 = true;
-		  # Configure keymap in X11
-#		  layout	 = "us";
-#		  xkbOptions	 = "eurosign:e";
-#	
-#		  # Configure DisplayManager
-#		  displayManager = {
-#			  lightdm = {
-#				  enable = true;
-#				  defaultSession = "none+qtile";
-#			  };
-#		  };
+	    xserver = {
+		    enable	 = true;
+	    	    # Configure keymap in X11
+#	    	    layout	 = "us";
+#	    	    xkbOptions	 = "eurosign:e";
+#	    	    
+#	    	    # Configure DisplayManager
+#	    	    displayManager = {
+#	    	            lightdm = {
+#	    	          	  enable = true;
+#	    	          	  defaultSession = "none+qtile";
+#	    	            };
+#	    	    };
 
-	  	  # Configure DesktopManager
-	  	  desktopManager = {
-	  	          xterm   = {
-	  	        	  enable = false; # Do not install xterm
-	  	          };
-	  	  };
+	    	    # Configure DesktopManager
+	    	    desktopManager = {
+	    	            xterm   = {
+	    	          	  enable = false; # Do not install xterm
+	    	            };
+	    	    };
 
-	  	  # Enable touchpad support
-	  	  libinput = {
-	  	          enable		= true;
-	  	          tapping		= true;
-	  	          naturalScrolling	= true;
-	  	  };
-	};
+	    	    # Enable touchpad support
+	    	    libinput = {
+	    	            enable		= true;
+	    	            tapping		= true;
+	    	            naturalScrolling	= true;
+	    	    };
+	    };
     };
 
 #   programs = {
