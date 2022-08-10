@@ -12,6 +12,12 @@
            ];
    };
 
+   services = {
+	   logind = {
+		   lidSwitch = "ignore"; # Do not Suspend when Lid is Closed
+	   };
+   };
+
    hardware = {
 	    enableAllFirmware = true;
 	    # Enable Bluetooth

@@ -13,7 +13,7 @@
 
         # master channel for packages on the edge
         nixmaster	= {
-	        url = "github:NixOS/nixpkgs";
+		url = "github:NixOS/nixpkgs";
 	};
 
         # enable home-manager
@@ -87,7 +87,7 @@
 	      	    ./gui/${GUI}
 
 		    # Include Hardened Profile
-#	      	    ./rig/hardened.nix
+ 	      	    ./rig/hardened.nix
 
 	      	    # configuration.nix : Universal System Configuration for all Profiles
 	      	    (
@@ -131,12 +131,19 @@
 	      	       
 	      	       networking = {
  	      	       	hostName    = "${HOST}"; # Define your hostname.
+			dhcpcd      = {
+				enable = true;
+				wait   = "background";
+			};
 	      	       	wireless    = {
 	      	       		enable = true;  # Enables wireless support via wpa_supplicant.
 	      	       	};
 	      	       	nameservers = [
-	      	                 "9.9.9.9"
+	      	                "9.9.9.9"
 	      	       	];
+#			resolvconf = { #fix disable openresolv
+#				package = {};
+#			}
 
 	      	       	# The global useDHCP flag is deprecated, therefore explicitly set to false here.
 	      	       	# Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -253,25 +260,25 @@
 #			       };
 
 #	      	               # Enable the OpenSSH daemon.
-#			       openssh = {                              # SSH: secure shell (remote connection to shell of server)
-#			         enable = true;                         # local: $ ssh <user>@<ip>
-#			                                                # public:
-#			                                                #   - port forward 22 TCP to server
-#			                                                #   - in case you want to use the domain name insted of the ip:
-#			                                                #       - for me, via cloudflare, create an A record with name "ssh" to the correct ip without proxy
-#			                                                #   - connect via ssh <user>@<ip or ssh.domain>
-#			                                                # generating a key:
-#			                                                #   - $ ssh-keygen   |  ssh-copy-id <ip/domain>  |  ssh-add
-#			                                                #   - if ssh-add does not work: $ eval `ssh-agent -s`
-#			         allowSFTP = true;                      # SFTP: secure file transfer protocol (send file to server)
-#			                                                # connect: $ sftp <user>@<ip/domain>
-#			                                                # commands:
-#			                                                #   - lpwd & pwd = print (local) parent working directory
-#			                                                #   - put/get <filename> = send or receive file
-#			         extraConfig = ''
-#			           HostKeyAlgorithms +ssh-rsa
-#			         '';                                    # Temporary extra config so ssh will work in guacamole
-#			       };
+ 			       openssh = {                              # SSH: secure shell (remote connection to shell of server)
+ 			         enable = false;                        # local: $ ssh <user>@<ip>
+ 			                                                # public:
+ 			                                                #   - port forward 22 TCP to server
+ 			                                                #   - in case you want to use the domain name insted of the ip:
+ 			                                                #       - for me, via cloudflare, create an A record with name "ssh" to the correct ip without proxy
+ 			                                                #   - connect via ssh <user>@<ip or ssh.domain>
+ 			                                                # generating a key:
+ 			                                                #   - $ ssh-keygen   |  ssh-copy-id <ip/domain>  |  ssh-add
+ 			                                                #   - if ssh-add does not work: $ eval `ssh-agent -s`
+ 			         allowSFTP = true;                      # SFTP: secure file transfer protocol (send file to server)
+ 			                                                # connect: $ sftp <user>@<ip/domain>
+ 			                                                # commands:
+ 			                                                #   - lpwd & pwd = print (local) parent working directory
+ 			                                                #   - put/get <filename> = send or receive file
+ 			         extraConfig = ''
+ 			           HostKeyAlgorithms +ssh-rsa
+ 			         '';                                    # Temporary extra config so ssh will work in guacamole
+ 			       };
 #
 #			       # Enable Flatpak
 #			       flatpak = {
