@@ -1,7 +1,7 @@
 #!/bin/sh
-pushd "${HOME}/.config/osnix" || exit
+pushd "${HOME}/.config/osnix" &&
 su root -c "
-cp /etc/nixos/hardware-configuration.nix . || exit 1
-nixos-rebuild switch --impure --flake .# --show-trace # --arg USER ${USER} other variables
-"
+cp /etc/nixos/hardware-configuration.nix . &&
+nixos-rebuild switch --impure --flake .# --show-trace 
+" &&
 popd || exit

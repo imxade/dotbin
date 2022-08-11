@@ -1,7 +1,6 @@
 #!/bin/sh
-pushd "${HOME}/.config/osnix" || exit
-nix --experimental-features "nix-command flakes" flake update --commit-lock-file --show-trace
-su root -c "
-nixos-rebuild switch --impure --flake .# --show-trace # --arg USER ${USER} other variables"
-"
+
+pushd "${HOME}/.config/osnix" &&
+nix --experimental-features "nix-command flakes" flake update --commit-lock-file --show-trace &&
 popd || exit
+

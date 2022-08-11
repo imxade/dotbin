@@ -42,21 +42,19 @@
 
   # The following Variables are defined for the Ease of Modification.
   let 
-    RIG 	= "dell/inspiron/3442";				# Profile of machine to be used
-    GUI		= "wayland/qtile";
-#   GUI		= "xorg/qtile";
-    USER 	= "x";						# Username
-    HOST	= "nixos";					# Hostname of current system
-#   HOST	= "$(cat /etc/hostname)";			# Hostname of current system
-    ZONE 	= "Asia/Kolkata"; 				# Set your time zone
-    DISK 	= "/dev/sda"; 					# Disk for Boot Loader
-    FUID 	= "B3CE-491A"; 					# UUID of Fat partition holding grub.cfg
-    RUID 	= "7f21a58f-01c1-45c6-9081-911b62624dcd";	# UUID of Root device, To Hibernate
-#   FUID 	= "$(findmnt /fat -n -o uuid)"; 		# UUID of Fat partition holding grub.cfg
-#   RUID 	= "$(findmnt / -n -o uuid)";			# UUID of Root device, To Hibernate #fix
-    OFFSET	= "";						# Offset value of swapfile, To Hibernate
-    system 	= "x86_64-linux";				# Platform #fix
-#   system 	= "$(uname -m)-linux";
+    # Modify 'Values' of 'Keys' inside value.toml, instead of Modifying Variables here
+    # Read 'Keys' with their 'Values' from value.toml
+    Toml	= builtins.fromTOML (builtins.readFile ./value.toml);
+    RIG 	= Toml.RIG; 	# Profile of machine to be used
+    GUI		= Toml.GUI; 	# Profile for Graphical Environment
+    USER 	= Toml.USER;	# Username
+    ZONE 	= Toml.ZONE; 	# Set your time zone
+    HOST	= Toml.HOST; 	# Hostname of current system
+    DISK 	= Toml.DISK;	# Disk for Boot Loader
+    RUID 	= Toml.RUID; 	# UUID of Root device, For Hibernate
+    FUID 	= Toml.FUID;	# UUID of Fat partition holding grub.cfg
+    OFFSET	= Toml.OFFSET; 	# Offset value of swapfile, For Hibernate
+    system 	= Toml.system; 	# Platform Architecture
     lib	 	= nixpkgs.lib;
     pkgs   	= import nixpkgs {
   	  inherit system;
@@ -64,7 +62,7 @@
   		  allowUnfree = true;
   	  };
     };
-  in								# Use Above variables in ...
+  in				# Use Above Variables in ...
   {
 	nixosConfigurations = {
  	        ${HOST} = lib.nixosSystem {
@@ -87,7 +85,7 @@
 	      	    ./gui/${GUI}
 
 		    # Include Hardened Profile
- 	      	    ./rig/hardened.nix
+#	      	    ./rig/hardened.nix
 
 	      	    # configuration.nix : Universal System Configuration for all Profiles
 	      	    (
@@ -153,12 +151,12 @@
 				wlp6s0 	  = {
  	      	       			useDHCP = true;
  	      	       		};
-				enp0s20u1 = {
- 	      	       			useDHCP = true;
- 	      	       		};
-				enp7s0    = {
- 	      	       			useDHCP = true;
- 	      	       		};
+ 				enp7s0    = {
+  	      	       			useDHCP = false;
+  	      	       		};
+#				enp0s20u1 = {
+# 	      	       			useDHCP = true;
+# 	      	       		};
 #	      	       		eth0 	  = {
 #	      	       			useDHCP = true;
 #	      	       		};
@@ -259,25 +257,13 @@
 #			         pulse.enable = true;
 #			       };
 
-#	      	               # Enable the OpenSSH daemon.
- 			       openssh = {                              # SSH: secure shell (remote connection to shell of server)
- 			         enable = false;                        # local: $ ssh <user>@<ip>
- 			                                                # public:
- 			                                                #   - port forward 22 TCP to server
- 			                                                #   - in case you want to use the domain name insted of the ip:
- 			                                                #       - for me, via cloudflare, create an A record with name "ssh" to the correct ip without proxy
- 			                                                #   - connect via ssh <user>@<ip or ssh.domain>
- 			                                                # generating a key:
- 			                                                #   - $ ssh-keygen   |  ssh-copy-id <ip/domain>  |  ssh-add
- 			                                                #   - if ssh-add does not work: $ eval `ssh-agent -s`
- 			         allowSFTP = true;                      # SFTP: secure file transfer protocol (send file to server)
- 			                                                # connect: $ sftp <user>@<ip/domain>
- 			                                                # commands:
- 			                                                #   - lpwd & pwd = print (local) parent working directory
- 			                                                #   - put/get <filename> = send or receive file
+ 	      	               # Enable the OpenSSH daemon.
+ 			       openssh = {                              
+ 			         enable = false;                        
+ 			         allowSFTP = true;                      
  			         extraConfig = ''
  			           HostKeyAlgorithms +ssh-rsa
- 			         '';                                    # Temporary extra config so ssh will work in guacamole
+ 			         '';                                    
  			       };
 #
 #			       # Enable Flatpak
@@ -285,7 +271,7 @@
 #				 enable = true;
 #			       };
  	      	       };
-#
+ 
 #		       xdg.portal = {					# Required by flatpak
 #			       enable = true;
 #			       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
