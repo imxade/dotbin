@@ -151,9 +151,9 @@
 				wlp6s0 	  = {
  	      	       			useDHCP = true;
  	      	       		};
- 				enp7s0    = {
-  	      	       			useDHCP = false;
-  	      	       		};
+#				enp7s0    = {
+# 	      	       			useDHCP = false;
+# 	      	       		};
 #				enp0s20u1 = {
 # 	      	       			useDHCP = true;
 # 	      	       		};

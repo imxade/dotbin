@@ -43,9 +43,9 @@
 	    };
     };
 
-#   networking = {
-#           enableB43Firmware = true;
-#   };
+    networking = {
+            enableB43Firmware = true;
+    };
     
     boot = {
  	    extraModprobeConfig = ''
