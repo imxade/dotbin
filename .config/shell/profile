@@ -20,7 +20,7 @@ export EDITOR="nvim"
 /usr/bin/pipewire-media-session &
 
 # launch graphical session
-qtile start  ||
 qtile start -b wayland  ||
+qtile start  ||
 sx sh "$HOME"/.config/x11/xinitrc ||
 startx "$HOME"/.config/x11/xinitrc

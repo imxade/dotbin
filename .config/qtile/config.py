@@ -71,9 +71,9 @@ keys = [
     ###
     Key([MOD], "Return", lazy.spawn(TERMINAL), desc="Launch terminal"),
 
-    Key([MOD], "e", lazy.spawn("gammastep -PO 2600"), desc="Launch terminal"),
+    Key([MOD], "e", lazy.spawn("gammastep -PO 2600"), desc="Change gamma"),
     
-    Key([MOD, "shift"], "b", lazy.spawn("qutebrowser"), desc="Launch browser"),
+    Key([MOD, "shift"], "b", lazy.spawn("sh {SCRIPTS_DIR}/firefox.sh"), desc="Launch browser"),
     
     Key([MOD], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/chrome.sh"), desc="Launch browser"),
     
@@ -117,8 +117,9 @@ groups = [
     for name, kwargs in [
         ("1", {}),
         ("2", {"matches": [
-            Match(wm_class=["qutebrowser"]),
+            Match(wm_class=["firefox"]),
             Match(wm_class=["chromium"]),
+            Match(wm_class=["qutebrowser"]),
             Match(wm_class=["brave-browser"]),
             ]}),
         ("3", {"matches": [

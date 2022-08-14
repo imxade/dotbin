@@ -43,9 +43,9 @@
 	    };
     };
 
-    networking = {
-            enableB43Firmware = true;
-    };
+#   networking = {
+#           enableB43Firmware = true;
+#   };
     
     boot = {
  	    extraModprobeConfig = ''
@@ -54,9 +54,9 @@
 	      # disable 1st card, enable 2nd card
     	      options snd_hda_intel enable=0,1
      	    '';
-	    kernelModules = [
-	      "wl" 
-	    ];
+ 	    kernelModules = [
+ 	      "wl" 
+ 	    ];
 #	    blacklistedKernelModules = [
 #	      "b43" 
 #	      "bcma" 
@@ -64,7 +64,6 @@
  	    extraModulePackages = [
  	      config.boot.kernelPackages.broadcom_sta
  	    ];
-#	    kernelPackages = mkDefault pkgs.linuxPackages_hardened;
 #	    kernelModules = [
 #	      "kvm-intel"
 #	      "nvme"

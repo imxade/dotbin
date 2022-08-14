@@ -9,7 +9,7 @@
     home = {
     	    # List packages installed in xorg profile.
             packages = with pkgs; [
- 		brave		# Browser
+#		brave		# Browser
     	    ];
 
     	    # Profile Wide Cursor Theme, so Applications will Not be Able to Choose their Own

@@ -29,6 +29,7 @@ alias \
         p="r pacman $@" \
         pl="play_media" \
 	cal="calculate" \
+	ip4="curl -4 icanhazip.com"\
         sus="r 'printf mem > /sys/power/state'" \
         hib="r 'printf disk > /sys/power/state'" \
         ls="ls -hN --color=auto --group-directories-first" \

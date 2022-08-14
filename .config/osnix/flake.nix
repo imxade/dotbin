@@ -129,13 +129,22 @@
 	      	       
 	      	       networking = {
  	      	       	hostName    = "${HOST}"; # Define your hostname.
-			dhcpcd      = {
+#			dhcpcd      = {
+#				enable = true;
+#				wait   = "background";
+#			};
+#	      	       	wireless = {
+#	      	       		enable = true;  # Enables wireless support via wpa_supplicant
+#				iwd = {
+#					enable = true; # use iwd for wireless support
+#				};
+#	      	       	};
+			networkmanager = {
 				enable = true;
-				wait   = "background";
+#				wifi = {
+#					backend = "iwd"; # iwd instead of wpa_supplicant for wifi
+#				};
 			};
-	      	       	wireless    = {
-	      	       		enable = true;  # Enables wireless support via wpa_supplicant.
-	      	       	};
 	      	       	nameservers = [
 	      	                "9.9.9.9"
 	      	       	];
@@ -147,10 +156,10 @@
 	      	       	# Per-interface useDHCP will be mandatory in the future, so this generated config
 	      	       	# replicates the default behaviour.
 	      	       	useDHCP     = false;
-	      	       	interfaces  = {
-				wlp6s0 	  = {
- 	      	       			useDHCP = true;
- 	      	       		};
+ 	      	       	interfaces  = {
+#				wlp6s0 	  = {
+#	      	       			useDHCP = true;
+#	      	       		};
 #				enp7s0    = {
 # 	      	       			useDHCP = false;
 # 	      	       		};
@@ -219,6 +228,7 @@
 	      	             		    "input"
 					    "camera"
 	      	             		    "scanner"
+					    "networkmanager"
 	      	             		  ];
 		       		  shell = pkgs.zsh;			# Default shell
 	      	             	  };
@@ -227,7 +237,7 @@
 	      	       
 	      	       security = {
 	      	               sudo = {
-	      	             	  enable = false; # Disable sudo
+	      	             	  enable = false; 			# Disable sudo
 	      	               };
 	      	       };
 	      	       
@@ -353,6 +363,15 @@
 	      	       		allowReboot 	= false;
  	      	       		channel 	= "https://nixos.org/channels/nixos-unstable";
 	      	               };
+ 			       activationScripts = {
+ 				       rfkillUnblockWlan = {
+ 						text = ''
+ 					          rfkill unblock wlan
+ 						'';
+ 						deps = [
+ 						];
+ 				       };
+ 			       };
  	      	               stateVersion 	= "21.11"; # Do not modify
 	      	       };
 		    }
