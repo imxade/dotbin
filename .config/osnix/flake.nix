@@ -1,6 +1,5 @@
 
 {
-
  description = "Have Some Flake";
 
  # Define All Flake references to be used for building NixOS setup. These are dependencies.
@@ -86,6 +85,7 @@
 
 		    # Include Hardened Profile
 #	      	    ./rig/hardened.nix
+ 	      	    ./rig/hard
 
 	      	    # configuration.nix : Universal System Configuration for all Profiles
 	      	    (

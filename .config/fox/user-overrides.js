@@ -15,8 +15,8 @@ user_pref("privacy.cpd.history", false); // 2812 to match when you use Ctrl-Shif
 user_pref("keyword.enabled", true); //0801
 
 /* override recipe: enable DRM and let me watch videos ***/
-   // user_pref("media.gmp-widevinecdm.enabled", true); // 2021 default-inactive in user.js
-   //user_pref("media.eme.enabled", true); // 2022
+   user_pref("media.gmp-widevinecdm.enabled", true); // 2021 default-inactive in user.js
+   user_pref("media.eme.enabled", true); // 2022
 
 /* override recipe: enable WebGL ***/
    //user_pref("webgl.disabled", false); //4520

@@ -9,7 +9,8 @@
     home = {
     	    # List packages installed in xorg profile.
             packages = with pkgs; [
-#		brave		# Browser
+ 		firefox			# Browser
+#		tor-browser-bundle-bin 	# Browser
     	    ];
 
     	    # Profile Wide Cursor Theme, so Applications will Not be Able to Choose their Own
@@ -26,7 +27,7 @@
             };
     };
 
-#   # GTK Theme
+    # GTK Theme
 #   gtk = {
 #	    enable = true;
 #	    theme = {

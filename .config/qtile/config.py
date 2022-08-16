@@ -73,10 +73,10 @@ keys = [
 
     Key([MOD], "e", lazy.spawn("gammastep -PO 2600"), desc="Change gamma"),
     
-    Key([MOD, "shift"], "b", lazy.spawn("sh {SCRIPTS_DIR}/firefox.sh"), desc="Launch browser"),
+    Key([MOD], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/chrome.sh"), desc="Launch Chrome"),
     
-    Key([MOD], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/chrome.sh"), desc="Launch browser"),
-    
+    Key(["mod1"], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/firefox.sh"), desc="Launch FireFox"),
+
     Key(["mod1"], "s", lazy.spawn(f"sh {SCRIPTS_DIR}/screenshot.sh"), desc="screenshot"),
     
     Key(["mod1"], "v", lazy.spawn(f"sh {SCRIPTS_DIR}/screencast.sh"), desc="start screencap"),
@@ -104,9 +104,8 @@ keys = [
     Key([MOD, "mod1"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([MOD, "mod1"], "0", lazy.spawn("qtile cmd-obj -o cmd -f hide_show_bar"), desc="hide_show_bar"),
     Key(
-        [MOD, "shift"],
-        "c",
-        lazy.spawn(f"{TERMINAL} -e {EDITOR} {HOME}/.config/qtile/config.py"),
+        [MOD, "shift"],"c",
+        lazy.spawn(f"{TERMINAL} -e {EDITOR} -n {HOME}/.config/qtile/config.py"),
         desc="Edit Qtile configuration",
     ),
 ]
@@ -162,29 +161,6 @@ for i, group in enumerate(groups, 1):
             ),
         ]
     )
-
-#layouts = [
-#    layout.MonadTall(
-#        **{
-#            "border_width": 0,
-#            "margin": 8,
-#            "border_focus": COLORS["green"],
-#            "single_border_width": 0,
-#        }
-#    ),
-#      layout.Floating(),
-#      layout.Columns(),
-#      layout.Max(),
-#      layout.Stack(),
-#      layout.Bsp(),
-#      layout.Matrix(),
-#      layout.MonadWide(),
-#      layout.RatioTile(),
-#      layout.Tile(),
-#      layout.TreeTab(),
-#      layout.VerticalTile(),
-#      layout.Zoomy(),
-#]
 
 layout_theme = {"border_width": 0,
                 "margin": 8,
