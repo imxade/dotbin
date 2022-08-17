@@ -37,20 +37,6 @@
   };
 
   services = {
-  	tor = {
-		enable = true;
-  	        settings = {
-			SOCKSPort = [
-			   {
-				port = 9090;
-			   }
-			  ];
-#			UseBridges = true;
-#			ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/obfs4proxy";
-#			Bridge = "obfs4 IP:ORPort [fingerprint]";
-  	        };
-  	};
-
   	# enable antivirus clamav and
   	# keep the signatures' database updated
 # 	clamav = {
