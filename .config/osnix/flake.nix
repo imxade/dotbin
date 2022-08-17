@@ -44,16 +44,17 @@
     # Modify 'Values' of 'Keys' inside value.toml, instead of Modifying Variables here
     # Read 'Keys' with their 'Values' from value.toml
     Toml	= builtins.fromTOML (builtins.readFile ./value.toml);
-    RIG 	= Toml.RIG; 	# Profile of machine to be used
-    GUI		= Toml.GUI; 	# Profile for Graphical Environment
-    USER 	= Toml.USER;	# Username
-    ZONE 	= Toml.ZONE; 	# Set your time zone
-    HOST	= Toml.HOST; 	# Hostname of current system
-    DISK 	= Toml.DISK;	# Disk for Boot Loader
-    RUID 	= Toml.RUID; 	# UUID of Root device, For Hibernate
-    FUID 	= Toml.FUID;	# UUID of Fat partition holding grub.cfg
-    OFFSET	= Toml.OFFSET; 	# Offset value of swapfile, For Hibernate
-    system 	= Toml.system; 	# Platform Architecture
+    RIG 	= Toml.RIG; 		# Profile of machine to be used
+    GUI		= Toml.GUI; 		# Profile for Graphical Environment
+    USER 	= Toml.USER;		# Username
+    ZONE 	= Toml.ZONE; 		# Set your time zone
+    HOST	= Toml.HOST; 		# Hostname of current system
+    DISK 	= Toml.DISK;		# Disk for Boot Loader
+    RUID 	= Toml.RUID; 		# UUID of Root device, For Hibernate
+    FUID 	= Toml.FUID;		# UUID of Fat partition holding grub.cfg
+    OFFSET	= Toml.OFFSET; 		# Offset value of swapfile, For Hibernate
+    TOR_BRIDGE	= Toml.TOR_BRIDGE; 	# Bridge line for tor daemon
+    system 	= Toml.system;		# Platform Architecture
     lib	 	= nixpkgs.lib;
     pkgs   	= import nixpkgs {
   	  inherit system;
@@ -272,6 +273,30 @@
 #			       flatpak = {
 #				 enable = true;
 #			       };
+
+			       # Enable Tor proxy
+			       tor = {
+				 enable = true;
+				 client = {
+				 	enable = true;
+				 	socksListenAddress = {
+				 		IsolateDestAddr = true;
+				 		addr = "127.0.0.1";	# Socks Host
+				 		port = 9050;		# Port
+				 	};
+				 };
+  			         settings = {
+#       			 	SOCKSPort = [
+#       			 	    {
+#       			 	         port = 9090;
+#       			 	    }
+#       			 	  ];
+#				 	Bridge = "obfs4 IP:ORPort [fingerprint]";
+ 				 	UseBridges = true;
+ 				 	Bridge = "${TOR_BRIDGE}";
+ 				 	ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/obfs4proxy";
+  			         };
+			       };
  	      	       };
  
 #		       xdg.portal = {					# Required by flatpak

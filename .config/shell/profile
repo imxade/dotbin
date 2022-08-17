@@ -15,16 +15,17 @@ export EDITOR="nvim"
 #export SOCKS_PROXY="socks5://127.0.0.1:9050"
 
 # enable pipewire
-#/usr/bin/pipewire &
-#/usr/bin/pipewire-alsa &
-#/usr/bin/pipewire-media-session &
+ pipewire &
+ pipewire-alsa &
+ pipewire-pulse &
+#pipewire-media-session &
 
 # enable pulseaudio
-systemctl --user daemon-reload &
-systemctl --user restart pulseaudio &
+ pulseaudio --kill
+ pulseaudio --start -D
 
 # launch graphical session
-qtile start -b wayland  ||
-qtile start  ||
+exec dbus-launch --sh-syntax --exit-with-session qtile start -b wayland  ||
+exec dbus-launch --sh-syntax --exit-with-session qtile start  ||
 sx sh "$HOME"/.config/x11/xinitrc ||
 startx "$HOME"/.config/x11/xinitrc

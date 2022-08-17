@@ -20,7 +20,7 @@
 		gammastep	# Manage Screen Color Temperature
 #		brave		# Browser
 		slurp		# wayland region selector
-		grub		# wayland screenshot
+		grim		# wayland screenshot
 		wf-recorder	# wayland screen recorder
 		wl-clipboard	# wayland clipboard
 	    ];

@@ -9,9 +9,9 @@
            # List packages installed for inspiron_3442
            systemPackages = with pkgs; [
  		btrfs-progs 			# Manage BTRFS
-#		bluez-alsa
            ];
 	   etc = {
+		# Configure wireplumber   
 		"wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
 			bluez_monitor.properties = {
 				["bluez5.enable-sbc-xq"] = true,
@@ -40,27 +40,35 @@
 	   logind = {
 		   lidSwitch = "ignore"; 	# Do not Suspend when Lid is Closed
 	   };
- 	   pipewire = {				# Pipewire for Audio 	
- 		   enable = true;
- 		   alsa = {
- 			   enable = true;
- 			   support32Bit = true;
- 		   };
- 		   pulse = {
- 			   enable = true;
- 		   };
- 	   };
+#	   pipewire = {				# Pipewire for Audio 	
+#		   enable = true;
+#		   alsa = {
+#			   enable = true;
+#			   support32Bit = true;
+#		   };
+#		   pulse = {
+#			   enable = true;
+#		   };
+#	   };
    };
 
    hardware = {
             enableAllFirmware = true;
-#           pulseaudio = {			# PulseAudio for Audio
-#                   enable = true;
-#       	    support32Bit = true;
-#       	    # Disable Unwanted Modules
-#       	    extraConfig = "unload-module module-suspend-on-idle";
-#		    extraClientConf = "autospawn=yes";
-#	    };
+            pulseaudio = {			# PulseAudio for Audio
+                    enable = true;
+        	    support32Bit = true;
+        	    # Disable Unwanted Modules
+        	    extraConfig = "
+		      unload-module module-suspend-on-idle
+		      load-module module-switch-on-connect 
+		    ";
+		    extraClientConf = "enable-shm=no";
+		    daemon = {
+			    config = {
+				    enable-memfd = "yes"; 
+			    };
+		    };
+ 	    };
 	    # Enable Bluetooth
 	    bluetooth = {
 		enable   = true;

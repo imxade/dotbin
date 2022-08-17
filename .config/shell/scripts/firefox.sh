@@ -5,11 +5,4 @@ for i in firefox
 		type "$i" && BROWSER="$i" && break
 	done
 
-for i in firejail
-	do 
-		type "$i" && JAIL="$i --whitelist=$XDG_CONFIG_HOME" && break
-	done
-
-tor-browser ||
-eval "$JAIL $BROWSER --profile $XDG_CONFIG_HOME/fox"
-
+firejail --whitelist="$XDG_RUNTIME_DIR" --whitelist="$HOME/ss" "$BROWSER"

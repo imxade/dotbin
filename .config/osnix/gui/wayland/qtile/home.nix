@@ -9,7 +9,8 @@
     home = {
     	    # List packages installed in xorg profile.
             packages = with pkgs; [
- 		firefox			# Browser
+ 		firefox-wayland		# Browser
+#		firefox			# Browser
 #		tor-browser-bundle-bin 	# Browser
     	    ];
 
