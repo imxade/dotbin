@@ -9,17 +9,58 @@
            # List packages installed for inspiron_3442
            systemPackages = with pkgs; [
  		btrfs-progs 			# Manage BTRFS
+#		bluez-alsa
            ];
-   };
-
-   services = {
-	   logind = {
-		   lidSwitch = "ignore"; # Do not Suspend when Lid is Closed
+	   etc = {
+		"wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+			bluez_monitor.properties = {
+				["bluez5.enable-sbc-xq"] = true,
+				["bluez5.enable-msbc"] = true,
+				["bluez5.enable-hw-volume"] = true,
+				["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+			}
+		'';
 	   };
    };
 
+  security = {
+	  rtkit = {
+		  enable = true;
+	  };
+  };
+
+  sound = {					# ALSA sound enable
+    enable = true;
+    mediaKeys = {				# Keyboard Media Keys (for minimal desktop)
+      enable = true;
+    };
+  };
+
+   services = {
+	   logind = {
+		   lidSwitch = "ignore"; 	# Do not Suspend when Lid is Closed
+	   };
+ 	   pipewire = {				# Pipewire for Audio 	
+ 		   enable = true;
+ 		   alsa = {
+ 			   enable = true;
+ 			   support32Bit = true;
+ 		   };
+ 		   pulse = {
+ 			   enable = true;
+ 		   };
+ 	   };
+   };
+
    hardware = {
-	    enableAllFirmware = true;
+            enableAllFirmware = true;
+#           pulseaudio = {			# PulseAudio for Audio
+#                   enable = true;
+#       	    support32Bit = true;
+#       	    # Disable Unwanted Modules
+#       	    extraConfig = "unload-module module-suspend-on-idle";
+#		    extraClientConf = "autospawn=yes";
+#	    };
 	    # Enable Bluetooth
 	    bluetooth = {
 		enable   = true;
@@ -57,13 +98,13 @@
  	    kernelModules = [
  	      "wl" 
  	    ];
+ 	    extraModulePackages = [
+ 	      config.boot.kernelPackages.broadcom_sta
+ 	    ];
 #	    blacklistedKernelModules = [
 #	      "b43" 
 #	      "bcma" 
 #	    ];
- 	    extraModulePackages = [
- 	      config.boot.kernelPackages.broadcom_sta
- 	    ];
 #	    kernelModules = [
 #	      "kvm-intel"
 #	      "nvme"

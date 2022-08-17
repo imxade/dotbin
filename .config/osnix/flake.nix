@@ -205,15 +205,7 @@
 	      	               ];
 	      	       };
 	      	       
-		       # Enable sound
-		       sound	= {
-			       enable    = true;
-			       mediaKeys = {
-				       enable = true;
-			       };
-		       };
-
-	      	       # Define a user account. Don't forget to set a password with ‘passwd’.
+		       # Define a user account. Don't forget to set a password with ‘passwd’.
 	      	       users	= {
 	      	               users = {
 	      	             	  ${USER} = {

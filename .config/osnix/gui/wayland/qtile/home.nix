@@ -27,6 +27,29 @@
             };
     };
 
+    # Using Bluetooth headset buttons to control media player
+#   systemd = {
+#           user = {
+#       	    services = {
+#       		    mpris-proxy = {
+#       			    Unit = {
+#       				    Description = "Mpris proxy";
+#       				    After = [
+#       				      "network.target"
+#       				      "sound.target" 
+#       				    ];
+#       			    };
+#       		    };
+#       		    ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+#       		    Install = {
+#       			    WantedBy = [
+#       			      "default.target"
+#       			    ];
+#       		    };
+#       	    };
+#           };
+#   };
+
     # GTK Theme
 #   gtk = {
 #	    enable = true;
