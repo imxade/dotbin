@@ -23,22 +23,14 @@
 	   };
    };
 
-  security = {
-	  rtkit = {
-		  enable = true;
-	  };
-  };
-
-  sound = {					# ALSA sound enable
-    enable = true;
-    mediaKeys = {				# Keyboard Media Keys (for minimal desktop)
-      enable = true;
-    };
-  };
-
    services = {
 	   logind = {
 		   lidSwitch = "ignore"; 	# Do not Suspend when Lid is Closed
+	   };
+	   tlp = {
+		   enable = true;		# enable tlp recommended for laptops
+		   settings = {
+		   };
 	   };
 #	   pipewire = {				# Pipewire for Audio 	
 #		   enable = true;

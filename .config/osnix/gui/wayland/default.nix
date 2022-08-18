@@ -26,9 +26,17 @@
 	    ];
     };
 
+    sound = {					# ALSA sound enable
+            enable = true;
+            mediaKeys = {			# Keyboard Media Keys
+        	enable = true;
+            };
+    };
+
     # Configure the X11 windowing system.
     services = {
 	    xserver = {
+		enable	 = false;
  	    	# Configure DisplayManager
  	    	displayManager = {
  	    	      	defaultSession = "none+qtile";

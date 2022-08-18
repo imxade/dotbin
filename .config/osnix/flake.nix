@@ -232,6 +232,9 @@
 	      	               sudo = {
 	      	             	  enable = false; 			# Disable sudo
 	      	               };
+			       rtkit = {
+				  enable = true;
+			       };
 	      	       };
 	      	       
 	      	       # Configure SystemWide services
