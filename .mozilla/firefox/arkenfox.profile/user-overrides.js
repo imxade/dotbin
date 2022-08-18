@@ -19,4 +19,4 @@ user_pref("keyword.enabled", true); //0801
    user_pref("media.eme.enabled", true); // 2022
 
 /* override recipe: enable WebGL ***/
-   //user_pref("webgl.disabled", false); //4520
+   user_pref("webgl.disabled", false); //4520
