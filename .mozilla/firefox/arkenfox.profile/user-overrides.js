@@ -1,3 +1,6 @@
+
+/* #2c2b00 backgroud color ***/
+
 /* override recipe: enable session restore ***/
 user_pref("browser.startup.page", 3); // 0102
   // user_pref("browser.privatebrowsing.autostart", false); // 0110 required if you had it set as true
@@ -30,6 +33,7 @@ user_pref("network.proxy.socks_remote_dns", true);
 
 /* 0801: enable Dark mode ***/
 user_pref("ui.systemUsesDarkTheme", true);
+user_pref("widget.content.allow-gtk-dark-theme", true);
 user_pref("layout.css.prefers-color-scheme.content-override", 0);
 
 /* 0801: enable Hardware Acceleration ***/
