@@ -32,7 +32,7 @@
  };
  
  # Tell Flake what to use and what to do with the dependencies.
- outputs = { self	#fix
+ outputs = { self
 	   , nixpkgs
 	   , home-manager
 	   , nixos-hardware
@@ -243,7 +243,7 @@
 				 autologinUser = "${USER}";
 			       };
 
-			       dbus = { #fix
+			       dbus = {
 #				 enable = lib.mkForce false;
  				 apparmor = "enabled";
 			       };
@@ -328,7 +328,6 @@
 	      	             		git		# To take Care of Git repositories
 					gawk		# Text processing Language
 	      	               		neovim		# Text Editor
-	      	             		killall		# Stop Processes
 		       			libarchive	# bsdtar : Utility to work with archives
 	      	               ];
 
@@ -383,16 +382,7 @@
 	      	       		allowReboot 	= false;
  	      	       		channel 	= "https://nixos.org/channels/nixos-unstable";
 	      	               };
- 			       activationScripts = {
- 				       rfkillUnblockWlan = {
- 						text = ''
- 					          rfkill unblock wlan
- 						'';
- 						deps = [
- 						];
- 				       };
- 			       };
- 	      	               stateVersion 	= "21.11"; # Do not modify
+			       stateVersion 	= "21.11"; # Do not modify
 	      	       };
 		    }
 		    )

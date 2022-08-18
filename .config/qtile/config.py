@@ -71,7 +71,7 @@ keys = [
     ###
     Key([MOD], "Return", lazy.spawn(TERMINAL), desc="Launch terminal"),
 
-    Key([MOD], "e", lazy.spawn("gammastep -PO 2600"), desc="Change gamma"),
+    Key([MOD], "e", lazy.spawn("gammastep -PO 2000"), desc="Change gamma"),
     
     Key([MOD], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/chrome.sh"), desc="Launch Chrome"),
     
@@ -82,6 +82,10 @@ keys = [
     Key(["mod1"], "v", lazy.spawn(f"sh {SCRIPTS_DIR}/screencast.sh"), desc="start screencap"),
     
     Key(["mod1"], "k", lazy.spawn(f"sh {SCRIPTS_DIR}/killcast.sh"), desc="stop screencap"),
+
+    Key([MOD], "a", lazy.spawn(f"cp -sf {HOME}/.config/alsa/bluetooth {HOME}/.asoundrc"), desc="switch to bluetooth device"),
+
+    Key([MOD, "shift"], "a", lazy.spawn(f"cp -sf {HOME}/.config/alsa/speaker {HOME}/.asoundrc"), desc="switch to speaker"),
 
     ###
     ### Multimedia Keys

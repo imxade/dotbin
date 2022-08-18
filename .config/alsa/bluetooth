@@ -1,0 +1,28 @@
+defaults.bluealsa.interface "hci0"
+defaults.bluealsa.profile "a2dp"
+defaults.bluealsa.delay 10000
+
+ defaults.pcm.card 1
+ defaults.ctl.card 1
+ ctl.default headset
+ pcm.default headset
+
+ctl.headset {
+  type bluealsa
+}
+
+pcm.headset {
+  type plug
+  slave {
+    pcm {
+      type bluealsa
+      device "98:09:CF:C5:55:53"
+      profile "a2dp"
+      delay 10000
+    }
+  }
+  hint {
+    show on
+    description "Bluetooth headset"
+  }
+}

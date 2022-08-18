@@ -9,14 +9,13 @@
     home = {
     	    # List packages installed in xorg profile.
             packages = with pkgs; [
- 		firefox-wayland		# Browser
-#		firefox			# Browser
-#		tor-browser-bundle-bin 	# Browser
+	      # Browser
+ 		firefox
     	    ];
 
     	    # Profile Wide Cursor Theme, so Applications will Not be Able to Choose their Own
 #   	    pointerCursor = {
-#   		name = "Dracula-cursors"; #fix Canta
+#   		name = "Dracula-cursors";
 #   		package = pkgs.dracula-theme;
 #   		size = 14;
 #   	    };
