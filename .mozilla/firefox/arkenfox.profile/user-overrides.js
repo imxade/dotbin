@@ -20,3 +20,18 @@ user_pref("keyword.enabled", true); //0801
 
 /* override recipe: enable WebGL ***/
    user_pref("webgl.disabled", false); //4520
+
+/* 0801: enable Tor proxy ***/
+user_pref("network.proxy.type", 1);
+user_pref("network.proxy.socks", 127.0.01);
+user_pref("network.proxy.socks_port", 9050);
+user_pref("network.proxy.socks_version", 5);
+user_pref("network.proxy.socks_remote_dns", true);
+
+/* 0801: enable Dark mode ***/
+user_pref("ui.systemUsesDarkTheme", true);
+user_pref("layout.css.prefers-color-scheme.content-override", 0);
+
+/* 0801: enable Hardware Acceleration ***/
+user_pref("gfx.webrender.all", true);
+user_pref("media.ffmpeg.vaapi.enabled", true);
