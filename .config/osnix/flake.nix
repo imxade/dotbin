@@ -79,10 +79,10 @@
 	      	    ./hardware-configuration.nix
 
 	      	    # Include Machine Profile
-	      	    ./rig/${RIG}
+	      	    ./${RIG}
 
 	      	    # Include GUI Profile
-	      	    ./gui/${GUI}
+	      	    ./${GUI}
 
 		    # Include Hardened Profile
 #	      	    ./rig/hardened.nix
@@ -411,7 +411,7 @@
   							        };
  							      }
   							      )
-  							    ] ++ [(import ./gui/${GUI}/home.nix)];
+  							    ] ++ [(import ./${GUI}/home.nix)];
 							};
 						    };
 					    };

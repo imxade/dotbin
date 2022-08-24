@@ -1,7 +1,10 @@
 #!/bin/sh
 
+# create required directory
+mkdir  "$HOME/box"
+rm -rf "$HOME/box/run"*
+
 # set env variables
-mkdir "$HOME/box"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"

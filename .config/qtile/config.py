@@ -54,37 +54,19 @@ keys = [
     ###
     Key([MOD, "mod1"], "h", lazy.layout.shrink(), desc="Shrink window"),
     Key([MOD, "mod1"], "l", lazy.layout.grow(), desc="Grow window"),
-    Key(
-        [MOD],
-        "f",
-        lazy.window.toggle_fullscreen(),
-        desc="Toggle Fullscreen for window",
-    ),
-    Key(
-        [MOD, "control"],
-        "s",
-        lazy.window.toggle_floating(),
-        desc="Toggle Floating mode for window",
-    ),
+    Key([MOD], "f", lazy.window.toggle_fullscreen(), desc="Toggle Fullscreen for window"),
+    Key([MOD, "control"], "s", lazy.window.toggle_floating(), desc="Toggle Floating mode for window"),
     ###
     ### Hotkeys
     ###
     Key([MOD], "Return", lazy.spawn(TERMINAL), desc="Launch terminal"),
-
     Key([MOD], "e", lazy.spawn("gammastep -PO 2000"), desc="Change gamma"),
-    
     Key([MOD], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/chrome.sh"), desc="Launch Chrome"),
-    
     Key(["mod1"], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/firefox.sh"), desc="Launch FireFox"),
-
     Key(["mod1"], "s", lazy.spawn(f"sh {SCRIPTS_DIR}/screenshot.sh"), desc="screenshot"),
-    
     Key(["mod1"], "v", lazy.spawn(f"sh {SCRIPTS_DIR}/screencast.sh"), desc="start screencap"),
-    
     Key(["mod1"], "k", lazy.spawn(f"sh {SCRIPTS_DIR}/killcast.sh"), desc="stop screencap"),
-
     Key([MOD], "a", lazy.spawn(f"cp -sf {HOME}/.config/alsa/bluetooth {HOME}/.asoundrc"), desc="switch to bluetooth device"),
-
     Key([MOD, "shift"], "a", lazy.spawn(f"cp -sf {HOME}/.config/alsa/speaker {HOME}/.asoundrc"), desc="switch to speaker"),
 
     ###
