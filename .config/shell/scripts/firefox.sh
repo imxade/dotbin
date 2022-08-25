@@ -5,5 +5,5 @@ for i in firefox
 		type "$i" && BROWSER="$i" && break
 	done
 
-firejail --profile='/home/x/.mozilla/firejail/firefox.profile' --whitelist="$HOME/box" --whitelist="$HOME/.asoundrc" "$BROWSER"
+firejail --ignore=dbus-system --whitelist="$HOME/box" --whitelist="$HOME/.asoundrc" "$BROWSER"
 
