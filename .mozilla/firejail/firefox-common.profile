@@ -35,7 +35,7 @@ include whitelist-var-common.inc
 apparmor
 caps.drop all
 # machine-id breaks pulse audio; add it to your firefox-common.local if sound is not required.
-#machine-id
+machine-id
 netfilter
 nodvd
 nogroups
@@ -50,7 +50,7 @@ protocol unix,inet,inet6,netlink
 seccomp !chroot
 shell none
 # Disable tracelog, it breaks or causes major issues with many firefox based browsers, see https://github.com/netblue30/firejail/issues/1930.
-#tracelog
+tracelog
 
 disable-mnt
 ?BROWSER_DISABLE_U2F: private-dev

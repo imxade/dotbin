@@ -66,4 +66,4 @@ dbus-user.own org.mpris.MediaPlayer2.firefox.*
 ignore dbus-user none
 
 # Redirect
-include firefox-common.profile
+include ${HOME}/.mozilla/firejail/firefox-common.profile
