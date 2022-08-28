@@ -130,6 +130,9 @@
 	      	       
 	      	       networking = {
  	      	       	hostName    = "${HOST}"; # Define your hostname.
+	      	       	nameservers = [
+	      	                "9.9.9.9"
+	      	       	];
 #			dhcpcd      = {
 #				enable = true;
 #				wait   = "background";
@@ -140,15 +143,12 @@
 #					enable = true; # use iwd for wireless support
 #				};
 #	      	       	};
-			networkmanager = {
-				enable = true;
+#			networkmanager = {
+#				enable = true;
 #				wifi = {
 #					backend = "iwd"; # iwd instead of wpa_supplicant for wifi
 #				};
-			};
-	      	       	nameservers = [
-	      	                "9.9.9.9"
-	      	       	];
+#			};
 #			resolvconf = { #fix disable openresolv
 #				package = {};
 #			}
@@ -158,15 +158,6 @@
 	      	       	# replicates the default behaviour.
 	      	       	useDHCP     = false;
  	      	       	interfaces  = {
-#				wlp6s0 	  = {
-#	      	       			useDHCP = true;
-#	      	       		};
-#				enp7s0    = {
-# 	      	       			useDHCP = false;
-# 	      	       		};
-#				enp0s20u1 = {
-# 	      	       			useDHCP = true;
-# 	      	       		};
 #	      	       		eth0 	  = {
 #	      	       			useDHCP = true;
 #	      	       		};

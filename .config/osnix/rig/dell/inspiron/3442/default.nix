@@ -10,6 +10,9 @@
            systemPackages = with pkgs; [
  		btrfs-progs 			# Manage BTRFS
 		bluez-alsa			# Pure Alsa Bluetooth
+		shellcheck
+		cryptsetup
+		lvm2
            ];
  	   etc = {
 #       	# Configure wireplumber   
@@ -30,6 +33,19 @@
 			}
 		'';
  	   };
+   };
+  
+   networking = {
+   	   networkmanager = {
+   	   	enable = true;
+#  	   	wifi = {
+#  	   		backend = "iwd"; # iwd instead of wpa_supplicant for wifi
+#  	   	};
+   	   };
+ 	   interfaces  = {
+#	   	wlp6s0 	  = {
+#	   	useDHCP = true;
+	   	};
    };
 
    services = {
