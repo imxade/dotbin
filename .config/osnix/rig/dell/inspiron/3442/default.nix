@@ -9,10 +9,12 @@
            # List packages installed for inspiron_3442
            systemPackages = with pkgs; [
  		btrfs-progs 			# Manage BTRFS
+		exfat
 		bluez-alsa			# Pure Alsa Bluetooth
 		shellcheck
 		cryptsetup
 		lvm2
+		ntfs3g
            ];
  	   etc = {
 #       	# Configure wireplumber   

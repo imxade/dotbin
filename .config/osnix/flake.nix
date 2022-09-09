@@ -212,6 +212,7 @@
 	      	             		    "input"
 					    "camera"
 	      	             		    "scanner"
+					    "libvirt"
 					    "networkmanager"
 	      	             		  ];
 		       		  shell = pkgs.zsh;			# Default shell

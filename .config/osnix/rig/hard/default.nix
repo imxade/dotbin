@@ -9,7 +9,7 @@
 {
   imports = [ 
     # Include Official Hardened Profile
-    <nixpkgs/nixos/modules/profiles/hardened.nix> #fix enable ntfs
+    ./hardened.nix
   ];
 
   # enable firewall and block all ports
@@ -24,9 +24,9 @@
   # disable coredump that could be exploited later
   # and also slow down the system when something crash
   systemd = {
-	  coredump = {
-		  enable = false;
-	  };
+          coredump = {
+        	  enable = false;
+          };
   };
 
   # enable firejail
