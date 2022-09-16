@@ -9,11 +9,11 @@
            # List packages installed for inspiron_3442
            systemPackages = with pkgs; [
  		btrfs-progs 			# Manage BTRFS
-		exfat
 		bluez-alsa			# Pure Alsa Bluetooth
 		shellcheck
 		cryptsetup
 		lvm2
+		exfat
 		ntfs3g
            ];
  	   etc = {
@@ -47,7 +47,8 @@
  	   interfaces  = {
 #	   	wlp6s0 	  = {
 #	   	useDHCP = true;
-	   	};
+#	   	};
+	   };
    };
 
    services = {
