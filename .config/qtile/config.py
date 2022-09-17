@@ -14,15 +14,19 @@ HOME = os.path.expanduser("~")
 SCRIPTS_DIR = f"{HOME}/.config/shell/scripts"
 
 COLORS = {
-    "black":  "#00000000",
-    "red":    "#cc6666",
-    "green":  "#a9b665",
-    "yellow": "#e1b060",
-    "blue":   "#81a2be",
     "magenta":"#d3869b",
-    "cyan":   "#70c0ba",
-    "white":  "#ffffff",
-    "pitch":  "#32302f",
+    "yellow" :"#e1b060",
+    "orange" :"#d79921",
+    "purple" :"#b16286",
+    "black"  :"#32302f",
+    "green"  :"#98971a",
+    "white"  :"#ffffff",
+    "grey"   :"#504945",
+    "aqua"   :"#6a8e5f",
+    "blue"   :"#458588",
+    "cyan"   :"#70c0ba",
+    "red"    :"#ff5555",
+    "clear"  :"#00000000",
 }
 
     ###
@@ -152,7 +156,7 @@ layout_theme = {"border_width": 0,
                 "margin": 8,
                 "single_margin": 8,
                 "border_focus": "e1acff",
-                "border_normal": COLORS["black"],
+                "border_normal": COLORS["clear"],
                 }
 
 layouts = [
@@ -192,10 +196,10 @@ layouts = [
 
 widget_defaults = dict(
     font="Hurmit Nerd Font",
-    foreground=COLORS["black"],
-    background=COLORS["black"],
-    fontsize=16,
-    padding=4,
+    foreground=COLORS["orange"],
+    background=COLORS["clear"],
+    fontsize=14,
+    padding=0,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -203,41 +207,189 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=0,
+                ),
+                widget.Clock(
+                    format="%H:%M",
+                    fontsize=16,
+                    background=COLORS["grey"],
+                    foreground=COLORS["red"],
+                    padding=4,
+                ),
+                widget.TextBox(
+                    "",
+                    fontsize=24,
+                    background=COLORS["grey"],
+                    padding=4,
+                ),
+                widget.Clock(
+                    format=" %a %b %d",
+                    fontsize=14,
+                    background=COLORS["grey"],
+                    foreground=COLORS["red"],
+                ),
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=-1,
+                ),
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=0,
+                ),
+                widget.TextBox(
+                    text="",
+                    background=COLORS["grey"],
+                    fontsize=20,
+                    padding=6,
+                ),
+                widget.Net(
+                    format='{down}',
+                    fmt="{} ",
+                    background=COLORS["grey"],
+                    foreground=COLORS["red"],
+                ),
+                widget.TextBox(
+                    text="",
+                    background=COLORS["grey"],
+                    fontsize=20,
+                    padding=6,
+                ),
+                widget.Net(
+                    format='{up}',
+                    fmt="{}",
+                    background=COLORS["grey"],
+                    foreground=COLORS["red"],
+                ),
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=-1,
+                ),
+                widget.Spacer(),
                 widget.GroupBox(
                     borderwidth=2,
                     active=COLORS["yellow"],
-                    inactive=COLORS["black"],
-                    highlight_color=COLORS["black"],
-                    highlight_method="line",
-                    this_current_screen_border=COLORS["yellow"],
+                    inactive=COLORS["clear"],
+                    highlight_color=COLORS["clear"],
+                    highlight_method="text",
+                    this_current_screen_border=COLORS["red"],
                 ),
                 widget.Spacer(),
-                #widget.Systray(),
-                widget.Volume(foreground=COLORS["yellow"], fmt=" 墳 {} "),
-                widget.Net(
-                    foreground=COLORS["yellow"],
-                    format='  {down}  {up}  ',
-                    fmt="{}",
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=0,
                 ),
-                widget.Clock(
-                    foreground=COLORS["yellow"],
-                    format=" %a %b %d - %H:%M ",
+                widget.TextBox(
+                    text="墳",
+                    background=COLORS["grey"],
+                    fontsize=22,
+                    padding=4,
+                ),
+                widget.TextBox(
+                    text=" VOL ",
+                    background=COLORS["grey"],
+                    fontsize=6,
+                ),
+                widget.Volume(
+                    fmt="{}",
+                    background=COLORS["grey"],
+                    foreground=COLORS["red"],
+                ),
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=-1,
+                ),
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=0,
+                ),
+                widget.TextBox(
+                    text="",
+                    background=COLORS["grey"],
+                    fontsize=22,
+                    padding=4,
+                ),
+                widget.TextBox(
+                    text=" CPU ",
+                    background=COLORS["grey"],
+                    fontsize=6,
+                    padding=0,
                 ),
                 widget.CPU(
-                    foreground=COLORS["yellow"],
                     format='{load_percent}%',
-                    fmt=' CPU {} ',
+                    background=COLORS["grey"],
+                    foreground=COLORS["red"],
+                    fmt='{}',
+                ),
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=-1,
+                ),
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=0,
+                ),
+                widget.TextBox(
+                    text="﬙",
+                    background=COLORS["grey"],
+                    fontsize=22,
+                    padding=4,
+                ),
+                widget.TextBox(
+                    text=" RAM ",
+                    background=COLORS["grey"],
+                    fontsize=6,
                 ),
                 widget.Memory(
-                    foreground=COLORS["yellow"],
                     format='{MemPercent}%',
-                    fmt=' RAM {} ',
+                    background=COLORS["grey"],
+                    foreground=COLORS["red"],
+                    fmt='{}',
+                ),
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=-1,
+                ),
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=0,
                 ),
                 widget.BatteryIcon(
-                    foreground=COLORS["yellow"]
+                    background=COLORS["grey"],
+                ),
+                widget.StatusNotifier(),
+#               widget.Systray(),
+                widget.TextBox(
+                    text=" ",
+                    foreground=COLORS["grey"],
+                    fontsize=22,
+                    padding=-1,
                 ),
             ],
-            22,
+            24,
             margin = [8, 8, 0, 8],
             opacity = 1,
         ),

@@ -9,8 +9,6 @@ set showmatch		" Highlight matching brace
 set visualbell		" Use visual bell (no beeping)
 set mouse=a		" Enable use of the mouse for all modes
 set laststatus=2	" Show the current file at the bottom
-set title		" Title of the current file displayed at the tab
-set showtabline=2	" Show vim tab pages all time
 set hlsearch		" Highlight all search results
 set incsearch		" Searches for strings incrementally
 set autoindent		" Auto-indent new lines
@@ -25,8 +23,12 @@ set wildmode=list:full	" Expands wildmenu
 set showmatch		" highlight matching [{()}]
 set incsearch		" search as characters are entered
 set hlsearch		" highlight matches
-set noruler		" Don't show row and column ruler information
 set scrolloff=999	" Keep the cursor at middle of screen 
+set background=dark	" use dark background
+"set termguicolors	" 
+"set showtabline=2	" Show vim tab pages all time
+"set title		" Title of the current file displayed at the tab
+"set noruler		" Don't show row and column ruler information
 "set signcolumn=yes	" error signs
 "set expandtab		" Use spaces instead of tabs
 "set softtabstop=4	" Number of spaces per Tab
@@ -66,7 +68,7 @@ set clipboard=unnamedplus	" Saves copied text from vim ro general clipboard
 " Switch to the prior tab page
 
 "" Theme
-colorscheme torte
+colorscheme darkblue
 highlight LineNr ctermfg=lightgray
 
 "" Statusline
