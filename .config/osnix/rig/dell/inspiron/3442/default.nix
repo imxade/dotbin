@@ -38,12 +38,6 @@
    };
   
    networking = {
-   	   networkmanager = {
-   	   	enable = true;
-#  	   	wifi = {
-#  	   		backend = "iwd"; # iwd instead of wpa_supplicant for wifi
-#  	   	};
-   	   };
  	   interfaces  = {
 #	   	wlp6s0 	  = {
 #	   	useDHCP = true;

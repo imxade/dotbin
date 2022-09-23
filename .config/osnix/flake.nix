@@ -143,12 +143,12 @@
 #					enable = true; # use iwd for wireless support
 #				};
 #	      	       	};
-#			networkmanager = {
-#				enable = true;
+ 			networkmanager = {
+ 				enable = true;
 #				wifi = {
 #					backend = "iwd"; # iwd instead of wpa_supplicant for wifi
 #				};
-#			};
+ 			};
 #			resolvconf = { #fix disable openresolv
 #				package = {};
 #			};

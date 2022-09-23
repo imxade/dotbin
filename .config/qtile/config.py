@@ -2,6 +2,8 @@ import os
 import subprocess
 import psutil
 import socket
+import asyncio
+import cairocffi
 from libqtile.lazy import lazy
 from libqtile.backend.wayland import InputConfig
 from libqtile import layout, widget, hook, bar#, qtile
