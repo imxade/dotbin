@@ -22,14 +22,27 @@ export EDITOR="nvim"
 #export SOCKS_PROXY="socks5://127.0.0.1:9050"
 
 # enable pipewire
- pipewire &
- pipewire-alsa &
- pipewire-pulse &
+#pipewire &
+#pipewire-alsa &
+#pipewire-pulse &
 #pipewire-media-session &
 
 # enable pulseaudio
- pulseaudio --kill
- pulseaudio --start -D
+#pulseaudio --kill
+#pulseaudio --start -D
+
+# gnome
+# set BLACK background
+gsettings set org.gnome.desktop.background primary-color "#000000"
+
+# set gtk theme
+gsettings set org.gnome.desktop.interface gtk-theme "Sweet-Dark"
+
+# set WINDOW theme
+gsettings set org.gnome.desktop.wm.preferences theme "Sweet-Dark"
+
+# set ICON theme
+gsettings set org.gnome.desktop.interface icon-theme "candy-icons"
 
 # launch graphical session
 exec dbus-launch --sh-syntax --exit-with-session qtile start -b wayland  ||
