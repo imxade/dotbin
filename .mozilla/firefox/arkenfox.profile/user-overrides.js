@@ -43,3 +43,14 @@ user_pref("network.proxy.socks", 127.0.01);
 user_pref("network.proxy.socks_port", 9050);
 user_pref("network.proxy.socks_version", 5);
 user_pref("network.proxy.socks_remote_dns", true);
+
+/* user.js
+ * https://github.com/rafaelmardojai/firefox-gnome-theme/
+ */
+
+// Enable customChrome.css
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+// Enable CSD
+user_pref("browser.tabs.drawInTitlebar", true);
+
