@@ -25,10 +25,10 @@ user_pref("keyword.enabled", true); //0801
    user_pref("webgl.disabled", false); //4520
 
 /* enable Dark mode ***/
-user_pref("ui.systemUsesDarkTheme", true);
-user_pref("widget.content.allow-gtk-dark-theme", true);
-user_pref("layout.css.prefers-color-scheme.content-override", 0);
-user_pref("extensions.activeThemeID", firefox-compact-dark@mozilla.org);
+/*user_pref("ui.systemUsesDarkTheme", true);
+/*user_pref("widget.content.allow-gtk-dark-theme", true);
+/*user_pref("layout.css.prefers-color-scheme.content-override", 0);
+/*user_pref("extensions.activeThemeID", firefox-compact-dark@mozilla.org);
 
 /* enable Hardware Acceleration ***/
 user_pref("gfx.webrender.all", true);
