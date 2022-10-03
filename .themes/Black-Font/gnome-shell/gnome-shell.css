@@ -1,0 +1,8 @@
+
+#panel, #panel .panel-button {
+color: #000;
+}
+#panel .panel-button:hover {
+background-color: #fff;
+}
+

@@ -9,7 +9,6 @@ export XDG_RUNTIME_DIR="$(mktemp -d $HOME/box/run.XXXXXXXXX)"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export WLR_NO_HARDWARE_CURSORS=1
 export WLR_LIBINPUT_NO_DEVICES=1
 export MOZ_ENABLE_WAYLAND=1
@@ -19,6 +18,7 @@ export MOZ_USE_XINPUT2=1
 export LANG="en_US.UTF-8"
 export LC_ALL="C"
 export EDITOR="nvim"
+#export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 #export SOCKS_PROXY="socks5://127.0.0.1:9050"
 
 # enable pipewire
@@ -30,6 +30,9 @@ export EDITOR="nvim"
 # enable pulseaudio
 #pulseaudio --kill
 #pulseaudio --start -D
+
+# aria2 daemon
+aria2c --enable-rpc
 
 # gnome
 # set BLACK background

@@ -38,5 +38,5 @@ bindkey -s '^O' " & disown && exit\n"
 # nix
 . "$HOME"/.config/shell/nix.sh
 # theme
-. "$HOME"/.config/zsh/theme/oxide.zsh-theme
+. "$HOME"/.themes/zsh/oxide.zsh-theme
 
