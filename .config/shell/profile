@@ -9,12 +9,13 @@ export XDG_RUNTIME_DIR="$(mktemp -d $HOME/box/run.XXXXXXXXX)"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
-export WLR_NO_HARDWARE_CURSORS=1
 export WLR_LIBINPUT_NO_DEVICES=1
+export WLR_NO_HARDWARE_CURSORS=1
+export MOZ_DISABLE_RDD_SANDBOX=1
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_USE_XINPUT2=1
 export MOZ_DBUS_REMOTE=1
-export MOZ_USE_XINPUT2=1
+export MOZ_LOG="PlatformDecoderModule:5"
 export LANG="en_US.UTF-8"
 export LC_ALL="C"
 export EDITOR="nvim"
@@ -32,20 +33,20 @@ export EDITOR="nvim"
 #pulseaudio --start -D
 
 # aria2 daemon
-aria2c --enable-rpc
+#aria2c --enable-rpc
 
 # gnome
 # set BLACK background
-gsettings set org.gnome.desktop.background primary-color "#000000"
+gsettings set org.gnome.desktop.background primary-color "#000000" &
 
 # set gtk theme
-gsettings set org.gnome.desktop.interface gtk-theme "Sweet-Dark"
+gsettings set org.gnome.desktop.interface gtk-theme "Sweet-Dark" &
 
 # set WINDOW theme
-gsettings set org.gnome.desktop.wm.preferences theme "Sweet-Dark"
+gsettings set org.gnome.desktop.wm.preferences theme "Sweet-Dark" &
 
 # set ICON theme
-gsettings set org.gnome.desktop.interface icon-theme "candy-icons"
+gsettings set org.gnome.desktop.interface icon-theme "candy-icons" &
 
 # launch graphical session
 exec dbus-launch --sh-syntax --exit-with-session qtile start -b wayland  ||
