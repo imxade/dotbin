@@ -16,7 +16,7 @@ pcm.headset {
   slave {
     pcm {
       type bluealsa
-      device "98:09:CF:C5:55:53"
+      device "41:42:BD:69:6D:C2"
       profile "a2dp"
       delay 10000
     }
