@@ -26,6 +26,4 @@ kiss update                     # For kiss
 kiss Upgrade
 emaint --auto sync              # For portage
 emerge --verbose --update --deep --newuse @world
-rpm-ostree upgrade
-flatpak update -y               # For flatpak
 waydroid upgrade                # For waydroid
