@@ -221,6 +221,7 @@
 	      	       };
 	      	       
 	      	       security = {
+			       unprivilegedUsernsClone = true;          # For flatpak
 	      	               sudo = {
 	      	             	  enable = false; 			# Disable sudo
 	      	               };
@@ -263,11 +264,11 @@
  			           HostKeyAlgorithms +ssh-rsa
  			         '';                                    
  			       };
-#
-#			       # Enable Flatpak
-#			       flatpak = {
-#				 enable = true;
-#			       };
+
+ 			       # Enable Flatpak
+ 			       flatpak = {
+ 				 enable = true;
+ 			       };
 
 			       # Enable Tor proxy
 			       tor = {
@@ -293,12 +294,13 @@
   			         };
 			       };
  	      	       };
- 
-#		       xdg.portal = {					# Required by flatpak
-#			       enable = true;
-#			       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-#		       };
 
+                       xdg = {
+			       portal = {
+				       enable = true;                   # Required by flatpak
+				       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+			       };
+                       };
 
 	      	       nixpkgs = {
 	      	               config = {

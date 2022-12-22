@@ -1,9 +1,6 @@
 #!/bin/sh
 
-for i in firefox
-	do 
-		type "$i" && BROWSER="$i" && break
-	done
-
-firejail --ignore=dbus-system --whitelist="$HOME/box" --whitelist="$HOME/.asoundrc" "$BROWSER"
+flatpak run org.mozilla.firefox ||
+firejail --ignore=dbus-system --whitelist="$HOME/box" --whitelist="$HOME/.asoundrc" firefox ||
+firefox
 

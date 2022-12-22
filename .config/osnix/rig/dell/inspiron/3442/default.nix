@@ -86,9 +86,9 @@
 	    # Enable Bluetooth
 	    bluetooth = {
 		enable   = true;
-		hsphfpd  = {
-		        enable  = true;
-		};
+ 		hsphfpd  = {
+ 		        enable  = true;
+ 		};
 		settings = {
 			Policy = {
 			    # Auto Enable Bluetooth

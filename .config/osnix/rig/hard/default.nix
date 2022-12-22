@@ -29,16 +29,23 @@
           };
   };
 
-  # enable firejail
-  programs = {
-	  firejail = {
-		  enable = true;
-	  };
+  # required to run chromium
+  security = {
+          chromiumSuidSandbox = {
+        	  enable = true;
+          };
   };
 
-  services = {
-  	# enable antivirus clamav and
-  	# keep the signatures' database updated
+# # enable firejail
+# programs = {
+#         firejail = {
+#       	  enable = true;
+#         };
+# };
+
+# services = {
+# 	# enable antivirus clamav and
+# 	# keep the signatures' database updated
 # 	clamav = {
 # 	        daemon = {
 # 	      	  enable = true;
@@ -47,12 +54,5 @@
 # 	      	  enable = true;
 # 	        };
 # 	};
-  };
-
-  # required to run chromium
-# security = {
-#         chromiumSuidSandbox = {
-#       	  enable = true;
-#         };
 # };
 }
