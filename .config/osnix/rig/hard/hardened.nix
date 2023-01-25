@@ -19,10 +19,11 @@ with lib;
 
   nix.settings.allowed-users = mkDefault [ "@users" ];
 
-# environment.memoryAllocator.provider = mkDefault "scudo";
-# environment.variables.SCUDO_OPTIONS = mkDefault "ZeroContents=1";
+  environment.memoryAllocator.provider = mkDefault "scudo";
+  environment.variables.SCUDO_OPTIONS = mkDefault "ZeroContents=1";
 
-  security.lockKernelModules = mkDefault true;
+  # REBOOT after plugging in any device
+# security.lockKernelModules = mkDefault true;
 
   security.protectKernelImage = mkDefault true;
 
