@@ -38,11 +38,11 @@ user_pref("media.ffmpeg.vaapi.enabled", true);
 user_pref("browser.warnOnQuit", false);
 
 /* enable Tor proxy ***/
-user_pref("network.proxy.type", 1);
-user_pref("network.proxy.socks", 127.0.01);
-user_pref("network.proxy.socks_port", 9050);
-user_pref("network.proxy.socks_version", 5);
-user_pref("network.proxy.socks_remote_dns", true);
+// user_pref("network.proxy.type", 1);
+// user_pref("network.proxy.socks", 127.0.01);
+// user_pref("network.proxy.socks_port", 9050);
+// user_pref("network.proxy.socks_version", 5);
+// user_pref("network.proxy.socks_remote_dns", true);
 
 // Enable CSD
 user_pref("browser.tabs.drawInTitlebar", true);
