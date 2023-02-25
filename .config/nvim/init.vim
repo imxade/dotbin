@@ -68,7 +68,7 @@ set clipboard=unnamedplus	" Saves copied text from vim ro general clipboard
 " Switch to the prior tab page
 
 "" Theme
-colorscheme darkblue
+colorscheme slate
 highlight LineNr ctermfg=lightgray
 
 "" Statusline
