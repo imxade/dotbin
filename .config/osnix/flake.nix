@@ -220,6 +220,12 @@
 	      	               };
 	      	       };
 	      	       
+    		       programs = {
+    		               zsh = {
+    		           	    enable = true;
+    		               };
+    		       };
+
 	      	       security = {
 			       unprivilegedUsernsClone = true;          # For flatpak
 	      	               sudo = {
