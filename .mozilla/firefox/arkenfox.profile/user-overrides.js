@@ -32,6 +32,8 @@ user_pref("extensions.activeThemeID", firefox-compact-dark@mozilla.org);
 
 /* enable Hardware Acceleration ***/
 user_pref("gfx.webrender.all", true);
+user_pref("dom.webgpu.enabled", true);
+user_pref("gfx.webgpu.force-enabled", true);
 user_pref("media.ffmpeg.vaapi.enabled", true);
 
 /* Do not warn on quit ***/
