@@ -11,8 +11,12 @@ play_media   () {
   ffplay -af atempo="$2" "$1" -vf setpts="1/$2*PTS" 
 }
 calculate () {
-	awk "BEGIN { print $*}"
+  awk "BEGIN { print $*}"
 }
+paste () {
+  cat "$@" | curl -F 'file=@-' https://0x0.st/
+}
+
 
 
 # alias
