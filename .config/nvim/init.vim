@@ -56,7 +56,7 @@ set clipboard=unnamedplus	" Saves copied text from vim ro general clipboard
 " Open new tab within vim
 :map <C-i> >>           
 " Move line
-:map <C-f> /
+:map <C-f> :%s/
 " Search
 :map <F3> n             
 " Search the latest action 
