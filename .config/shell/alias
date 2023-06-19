@@ -24,7 +24,8 @@ alias \
 	dcm="dot add -u; dot commit --amend -m $@" \
         t="trizen" \
         h="manual" \
-        e="nvim -n" \
+        ex="nvim -n" \
+	e="flatpak run com.helix_editor.Helix" \
         r="run_as_root" \
         p="r pacman $@" \
         pl="play_media" \
