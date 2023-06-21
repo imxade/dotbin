@@ -30,9 +30,9 @@ set background=dark	" use dark background
 "set title		" Title of the current file displayed at the tab
 "set noruler		" Don't show row and column ruler information
 "set signcolumn=yes	" error signs
-"set expandtab		" Use spaces instead of tabs
-"set softtabstop=4	" Number of spaces per Tab
-"set shiftwidth=4	" Number of auto-indent spaces
+set expandtab		" Use spaces instead of tabs
+set softtabstop=2	" Number of spaces per Tab
+set shiftwidth=2	" Number of auto-indent spaces
 "set ignorecase		" Always case-insensitive
 "set smartcase		" Enable smart-case search
 "set nowrap		" Don't wrap the lines

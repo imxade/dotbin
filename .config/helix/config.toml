@@ -3,7 +3,7 @@ theme = "everblush"
 
 [editor]
 line-number = "relative"
-mouse = false
+mouse = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -14,13 +14,19 @@ select = "underline"
 hidden = false
 
 [editor.statusline]
-left = ["mode", "spinner"]
+left = ["mode", "spinner", "version-control"]
 center = ["file-name"]
 right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.lsp]
+display-inlay-hints = true
 
 [editor.whitespace]
 render = "all"

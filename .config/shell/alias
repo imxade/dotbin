@@ -36,6 +36,7 @@ alias \
         hib="r 'printf disk > /sys/power/state' # hibernate" \
         ls="ls -hN --color=auto --group-directories-first" \
 	ch="chromium --user-data-dir=/tmp & disown && exit" \
+  fmtsh="shfmt -i 2 -ci -bn -s -p -w"
 	bv="brave --user-data-dir=/tmp & disown && exit" \
 	nixup="sh $HOME/.config/osnix/update.sh # update Flake database" \
 	apply="sh $HOME/.config/osnix/apply.sh  # apply Flake configuration" \
