@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# function
+# functions for auto completion
 manual() {
   "$@" --help | less
 }
@@ -13,6 +13,11 @@ play_media() {
 calculate() {
   awk "BEGIN { print $*}"
 }
+editor() {
+  flatpak run com.helix_editor.Helix "$@" ||
+  flatpak run io.neovim.nvim "$@" ||
+  vi "$@"
+}
 
 # alias
 alias \
@@ -22,8 +27,7 @@ alias \
   dcm="dot add -u; dot commit --amend -m $@" \
   t="trizen" \
   h="manual" \
-  ex="nvim -n" \
-  e="flatpak run com.helix_editor.Helix" \
+  e="editor" \
   r="run_as_root" \
   p="r pacman $@" \
   pl="play_media" \
