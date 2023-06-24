@@ -3,6 +3,8 @@ theme = "everblush"
 
 [editor]
 line-number = "relative"
+cursorcolumn = true
+cursorline = true
 mouse = true
 
 [editor.cursor-shape]
@@ -40,5 +42,5 @@ tabpad = "·"
 
 [editor.indent-guides]
 render = true
-character = "┆" # Some characters that work well: "▏", "╎", "┆", "┊", "⸽"
+character = "▏" # Some characters that work well: "▏", "╎", "┆", "┊", "⸽"
 skip-levels = 1

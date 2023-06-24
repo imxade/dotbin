@@ -1,48 +1,46 @@
 #!/bin/sh
 
 # function
-manual       () {
+manual() {
   "$@" --help | less
-}   
-run_as_root  () {
+}
+run_as_root() {
   su root -c "$(echo $@)"
 }
-play_media   () {
-  ffplay -af atempo="$2" "$1" -vf setpts="1/$2*PTS" 
+play_media() {
+  ffplay -af atempo="$2" "$1" -vf setpts="1/$2*PTS"
 }
-calculate () {
+calculate() {
   awk "BEGIN { print $*}"
 }
 
-
-
 # alias
 alias \
-        g="git" \
-	gcm="g add -u; g commit --amend -m $@" \
-	dot="g --git-dir=$HOME/.dot --work-tree=$HOME" \
-	dcm="dot add -u; dot commit --amend -m $@" \
-        t="trizen" \
-        h="manual" \
-        ex="nvim -n" \
-	e="flatpak run com.helix_editor.Helix" \
-        r="run_as_root" \
-        p="r pacman $@" \
-        pl="play_media" \
-	cal="calculate" \
-	ip4="curl -4 icanhazip.com 		# get ipv4 address"\
-	pst="curl -F 'file=@-' https://0x0.st/ # pastebin"\
-        sus="r 'printf mem > /sys/power/state'  # suspend" \
-        hib="r 'printf disk > /sys/power/state' # hibernate" \
-        ls="ls -hN --color=auto --group-directories-first" \
-	ch="chromium --user-data-dir=/tmp & disown && exit" \
-  fmtsh="shfmt -i 2 -ci -bn -s -p -w"
-	bv="brave --user-data-dir=/tmp & disown && exit" \
-	nixup="sh $HOME/.config/osnix/update.sh # update Flake database" \
-	apply="sh $HOME/.config/osnix/apply.sh  # apply Flake configuration" \
-	up="sh $HOME/.config/shell/scripts/backupgrade/non_root.sh # upgrade" \
-        nixvm="qemu-system-x86_64 -enable-kvm -boot menu=on -m 2g -cpu host -vga virtio" \
-        vm="mkdir /tmp/mytpm1 & swtpm socket --tpmstate dir=/tmp/mytpm1 --ctrl type=unixio,path=/tmp/mytpm1/swtpm-sock --log level=20 --tpm2 & qemu-system-x86_64 -enable-kvm -boot menu=on -m 2g -cpu host -vga virtio -chardev socket,id=chrtpm,path=/tmp/mytpm1/swtpm-sock -tpmdev emulator,id=tpm0,chardev=chrtpm -device tpm-tis,tpmdev=tpm0" \
-	# -bios /usr/share/ovmf/x64/OVMF.fd " \ 
-	# /nix/store/*ovmf/FV/OVMF.fd \
-        # -drive file=img,if=none,id=nvm -device nvme,serial=deadbeef,drive=nvm \
+  g="git" \
+  gcm="g add -u; g commit --amend -m $@" \
+  dot="g --git-dir=$HOME/.dot --work-tree=$HOME" \
+  dcm="dot add -u; dot commit --amend -m $@" \
+  t="trizen" \
+  h="manual" \
+  ex="nvim -n" \
+  e="flatpak run com.helix_editor.Helix" \
+  r="run_as_root" \
+  p="r pacman $@" \
+  pl="play_media" \
+  cal="calculate" \
+  ip4="curl -4 icanhazip.com 		# get ipv4 address" \
+  pst="curl -F 'file=@-' https://0x0.st/ # pastebin" \
+  sus="r 'printf mem > /sys/power/state'  # suspend" \
+  hib="r 'printf disk > /sys/power/state' # hibernate" \
+  ls="ls -hN --color=auto --group-directories-first" \
+  ch="chromium --user-data-dir=/tmp & disown && exit" \
+  fmtsh="shfmt -i 2 -ci -bn -s -p -w" \
+  bv="brave --user-data-dir=/tmp & disown && exit" \
+  nixup="sh $HOME/.config/osnix/update.sh # update Flake database" \
+  apply="sh $HOME/.config/osnix/apply.sh  # apply Flake configuration" \
+  up="sh $HOME/.config/shell/scripts/backupgrade/non_root.sh # upgrade" \
+  nixvm="qemu-system-x86_64 -enable-kvm -boot menu=on -m 2g -cpu host -vga virtio" \
+  vm="mkdir /tmp/mytpm1 & swtpm socket --tpmstate dir=/tmp/mytpm1 --ctrl type=unixio,path=/tmp/mytpm1/swtpm-sock --log level=20 --tpm2 & qemu-system-x86_64 -enable-kvm -boot menu=on -m 2g -cpu host -vga virtio -chardev socket,id=chrtpm,path=/tmp/mytpm1/swtpm-sock -tpmdev emulator,id=tpm0,chardev=chrtpm -device tpm-tis,tpmdev=tpm0" \
+# -bios /usr/share/ovmf/x64/OVMF.fd " \
+# /nix/store/*ovmf/FV/OVMF.fd \
+# -drive file=img,if=none,id=nvm -device nvme,serial=deadbeef,drive=nvm \

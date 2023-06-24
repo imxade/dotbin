@@ -19,11 +19,11 @@ btrfs subvol delete /mnt/snap_"$VOL"
 btrfs subvol snapshot /mnt/"$VOL" /mnt/snap_"$VOL"
 
 # upgrade the system
-pacman -Syu                     # For pacman
-xbps-install -Syu               # For xbps
-apk --update-cache upgrade      # For apk-tools
-kiss update                     # For kiss
+pacman -Syu                # For pacman
+xbps-install -Syu          # For xbps
+apk --update-cache upgrade # For apk-tools
+kiss update                # For kiss
 kiss Upgrade
-emaint --auto sync              # For portage
+emaint --auto sync # For portage
 emerge --verbose --update --deep --newuse @world
-waydroid upgrade                # For waydroid
+waydroid upgrade # For waydroid
