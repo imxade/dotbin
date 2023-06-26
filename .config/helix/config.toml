@@ -26,6 +26,9 @@ mode.select = "SELECT"
 
 [editor.soft-wrap]
 enable = true
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 0
+
 
 [editor.lsp]
 display-inlay-hints = true
@@ -34,13 +37,19 @@ display-inlay-hints = true
 render = "all"
 
 [editor.whitespace.characters]
-space = " " #"·"
 nbsp = "⍽"
 tab = "→"
-newline = " " #"⏎"
 tabpad = "·"
+space = " " #"·"
+newline = " " #"⏎"
 
 [editor.indent-guides]
 render = true
-character = "▏" # Some characters that work well: "▏", "╎", "┆", "┊", "⸽"
+character = "▏" # "▏", "╎", "┆", "┊", "⸽"
 skip-levels = 1
+
+[keys.normal]
+C-f = ["select_all", "select_regex"] # 'Ctrl f' to find
+
+[keys.insert.j]
+k = "normal_mode" # `jk` to exit insert mode
