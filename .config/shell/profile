@@ -18,7 +18,7 @@ export MOZ_DBUS_REMOTE=1
 export MOZ_LOG="PlatformDecoderModule:5"
 export LANG="en_US.UTF-8"
 export LC_ALL="C"
-export EDITOR="nvim"
+export PATH=$PATH:~/.local/bin:~/.nimble/bin
 #export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 #export SOCKS_PROXY="socks5://127.0.0.1:9050"
 
