@@ -108,7 +108,6 @@
 	      	        	# Configure boot loader
 	      	        	loader = { 
 	      	             		grub 	= {
-	      	             			version 		= 2;
 	      	             			enable 			= true;
 	      	             			efiSupport 		= true;
 	      	             			useOSProber 		= true;
@@ -189,7 +188,7 @@
 
 		       # System Fonts
 	      	       fonts	= {
-	      	               fonts = with pkgs; [
+	      	               packages = with pkgs; [
 	      	                 (nerdfonts.override { 
 	      	             	    fonts = [ 
 	      	             	      "Hermit" 
