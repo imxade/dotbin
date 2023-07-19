@@ -18,6 +18,9 @@ editor() {
   flatpak run io.neovim.nvim "$@" ||
   vi "$@"
 }
+0x0() {
+  curl -F "file=@$*" https://0x0.st
+}
 
 # alias
 alias \
@@ -33,7 +36,6 @@ alias \
   pl="play_media" \
   cal="calculate" \
   ip4="curl ipv4.icanhazip.com            # get ipv4 address" \
-  pst="curl -F 'file=@-' https://0x0.st/  # pastebin" \
   sus="r 'printf mem > /sys/power/state'  # suspend" \
   hib="r 'printf disk > /sys/power/state' # hibernate" \
   ls="ls -hN --color=auto --group-directories-first" \
