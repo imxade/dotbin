@@ -14,8 +14,8 @@ calculate() {
   awk "BEGIN { print $*}"
 }
 editor() {
-  flatpak run com.helix_editor.Helix "$@" ||
   flatpak run io.neovim.nvim "$@" ||
+  flatpak run com.helix_editor.Helix "$@" ||
   vi "$@"
 }
 0x0() {
