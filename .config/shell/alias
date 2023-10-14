@@ -14,9 +14,9 @@ calculate() {
   awk "BEGIN { print $*}"
 }
 editor() {
-  flatpak run io.neovim.nvim "$@" ||
-  flatpak run com.helix_editor.Helix "$@" ||
-  vi "$@"
+  flatpak run io.neovim.nvim "$@"
+# flatpak run com.helix_editor.Helix "$@"
+# vi "$@"
 }
 0x0() {
   curl -F "file=@$*" https://0x0.st
