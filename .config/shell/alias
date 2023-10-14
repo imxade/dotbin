@@ -32,6 +32,7 @@ alias \
   h="manual" \
   e="editor" \
   r="run_as_root" \
+  sudo="run_as_root" \
   p="r pacman $@" \
   pl="play_media" \
   cal="calculate" \
