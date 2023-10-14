@@ -5,7 +5,7 @@
 [status]
 	showUntrackedFiles = no
 [remote "origin"]
-	url = git@codeberg.org:XADE/dotbin.git
+	url = https://codeberg.org/xade/dotbin
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "main"]
 	remote = origin
