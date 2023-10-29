@@ -13,11 +13,6 @@ play_media() {
 calculate() {
   awk "BEGIN { print $*}"
 }
-editor() {
-  flatpak run io.neovim.nvim "$@"
-# flatpak run com.helix_editor.Helix "$@"
-# vi "$@"
-}
 0x0() {
   curl -F "file=@$*" https://0x0.st
 }
@@ -25,12 +20,12 @@ editor() {
 # alias
 alias \
   g="git" \
-  gcm="g add -u; g commit --amend -m $@" \
   dot="g --git-dir=$HOME/.dot --work-tree=$HOME" \
-  dcm="dot add -u; dot commit --amend -m $@" \
+  dcm="dot add -u; dot commit --amend -m" \
   t="trizen" \
   h="manual" \
-  e="editor" \
+  e="flatpak run com.helix_editor.Helix" \
+  # e="flatpak run io.neovim.nvim" \
   r="run_as_root" \
   sudo="run_as_root" \
   p="r pacman $@" \
