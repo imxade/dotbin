@@ -16,6 +16,9 @@ calculate() {
 0x0() {
   curl -F "file=@$*" https://0x0.st
 }
+e() {
+  flatpak run com.helix_editor.Helix $@
+}
 
 # alias
 alias \
@@ -24,7 +27,6 @@ alias \
   dcm="dot add -u; dot commit --amend -m" \
   t="trizen" \
   h="manual" \
-  e="flatpak run com.helix_editor.Helix   # io.neovim.nvim" \
   r="run_as_root" \
   sudo="run_as_root" \
   p="r pacman" \
