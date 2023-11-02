@@ -10,7 +10,7 @@ from libqtile import layout, widget, hook, bar#, qtile
 from libqtile.config import KeyChord, Key, Screen, Group, Drag, Click, Match#, ScratchPad, DropDown
 
 MOD = "mod4"
-TERMINAL = "alacritty"
+TERMINAL = "flatpak run org.wezfurlong.wezterm"
 EDITOR = "nvim"
 HOME = os.path.expanduser("~")
 SCRIPTS_DIR = f"{HOME}/.config/shell/scripts"
