@@ -1,0 +1,18 @@
+[user]
+	name = XADE
+	email = notadevel@gmail.com
+[core]
+	excludesfile = ~/.config/git/.gitignore_global
+	editor = helix
+	autocrlf = input
+[fetch]
+  # Delete out deleted branch during fetch
+	prune = true
+[init]
+	defaultBranch = main
+[status]
+	short = true
+[credential]
+	helper = store
+[http]
+	postBuffer = 157286400

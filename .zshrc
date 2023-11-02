@@ -38,6 +38,7 @@ bindkey -s '^O' " & disown && exit\n"
 # nix
 . "$HOME"/.config/shell/nix.sh
 # theme
-. "$HOME"/.themes/zsh/oxide.zsh-theme
+# . "$HOME"/.themes/zsh/oxide.zsh-theme
+. "$HOME"/.themes/zsh/comfyline.zsh-theme
 # guix
 . .config/shell/scripts/guix.sh &> /dev/null
