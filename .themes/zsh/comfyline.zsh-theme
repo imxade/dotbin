@@ -205,22 +205,28 @@ ZSH_THEME_GIT_PROMPT_AHEAD=" \u21c5"
 ZSH_THEME_GIT_PROMPT_BEHIND=" \u21b1"
 ZSH_THEME_GIT_PROMPT_DIVERGED=" \u21b0"
 
-function gitrepo(){
-	if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
-		if [[ $(git status --porcelain) == "" ]]; then
+function gitrepo() {
+    if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then
+        if [[ $(git status --porcelain) == "" ]]; then
             if [[ $(command -v git_prompt_info 2> /dev/null) ]]; then
-    	        create_segment $GIT_CLEAN_b $GIT_CLEAN_f "$(git_prompt_info)$(git_prompt_status)" $GIT_RANK
+                create_segment $GIT_CLEAN_b $GIT_CLEAN_f "$(git_prompt_info)$(git_prompt_status)" $GIT_RANK
             else
-    	        create_segment $GIT_CLEAN_b $GIT_CLEAN_f "$ZSH_THEME_GIT_PROMPT_PREFIX$(git rev-parse --abbrev-ref HEAD)" $GIT_RANK
+                create_segment $GIT_CLEAN_b $GIT_CLEAN_f "$ZSH_THEME_GIT_PROMPT_PREFIX$(git rev-parse --abbrev-ref HEAD)$ZSH_THEME_GIT_PROMPT_CLEAN" $GIT_RANK
             fi
-    	else
+        else
+            local status_symbols=""
+            [ $(git diff --staged --numstat | wc -l) -gt 0 ] && status_symbols+="$ZSH_THEME_GIT_PROMPT_ADDED"
+            [ $(git diff --numstat | wc -l) -gt 0 ] && status_symbols+="$ZSH_THEME_GIT_PROMPT_MODIFIED"
+            [ $(git ls-files --deleted | wc -l) -gt 0 ] && status_symbols+="$ZSH_THEME_GIT_PROMPT_DELETED"
+            [ $(git ls-files --others --exclude-standard | wc -l) -gt 0 ] && status_symbols+="$ZSH_THEME_GIT_PROMPT_UNTRACKED"
+            
             if [[ $(command -v git_prompt_info 2> /dev/null) ]]; then
-    	        create_segment $GIT_b $GIT_f "$(git_prompt_info)$(git_prompt_status)" $GIT_RANK
+                create_segment $GIT_b $GIT_f "$(git_prompt_info)$(git_prompt_status) $status_symbols" $GIT_RANK
             else
-    	        create_segment $GIT_b $GIT_f "$ZSH_THEME_GIT_PROMPT_PREFIX$(git rev-parse --abbrev-ref HEAD)" $GIT_RANK
+                create_segment $GIT_b $GIT_f "$ZSH_THEME_GIT_PROMPT_PREFIX$(git rev-parse --abbrev-ref HEAD) $status_symbols" $GIT_RANK
             fi
-    	fi
-	fi
+        fi
+    fi
 }
 
 function venv(){
