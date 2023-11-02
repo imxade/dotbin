@@ -19,6 +19,7 @@ export MOZ_LOG="PlatformDecoderModule:5"
 export LANG="en_US.UTF-8"
 export LC_ALL="C"
 export PATH=$PATH:~/.local/bin:~/.nimble/bin
+export TERM="flatpak run org.wezfurlong.wezterm"
 export EDITOR="flatpak run com.helix_editor.Helix" 
 # io.neovim.nvim"
 #export SOCKS_PROXY="socks5://127.0.0.1:9050"
