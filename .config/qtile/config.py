@@ -170,17 +170,6 @@ layouts = [
 ]
 
 
-
-widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = [ widget_defaults.copy()
-        ]
-
-
-
 def search():
     qtile.cmd_spawn("rofi -show drun")
 
@@ -192,20 +181,24 @@ def power():
 
 
 widget_defaults = dict(
-    font="Hurmit Nerd Font",
-    background=COLORS["clear"],
-    # fontsize=14,
-    # padding=0,
+    font="sans",
+    fontsize=12,
+    padding=3,
 )
-extension_defaults = widget_defaults.copy()
+extension_defaults = [ widget_defaults.copy()
+        ]
 
 screens = [
 
     Screen(
         top=bar.Bar(
             [
-                widget.Image(
-                    filename='~/.config/qtile/Assets/3.png',
+                widget.TextBox(
+                    text="\ue0b6",
+                    background="#00000000",
+                    foreground="#282738",
+                    padding=0,
+                    fontsize=24,
                 ),
 
                 widget.Image(
@@ -476,8 +469,12 @@ screens = [
                 ),
 
 
-                widget.Image(
-                    filename='~/.config/qtile/Assets/4.png',
+                widget.TextBox(
+                    text="\ue0b4",
+                    background="#00000000",
+                    foreground="#282738",
+                    padding=0,
+                    fontsize=24,
                 ),
 
 
@@ -488,7 +485,8 @@ screens = [
             margin = [15,16,0,16],
 
         ),
-        wallpaper = '~/.config/wall/Mostima-1-Nord.png'
+        wallpaper = '~/.config/wall/Mostima-1-Nord.png',
+        wallpaper_mode = 'fill',
     ),
 ]
 
