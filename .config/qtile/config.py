@@ -191,6 +191,14 @@ def power():
 # █▄█ █▀█ █▀▄
 
 
+widget_defaults = dict(
+    font="Hurmit Nerd Font",
+    background=COLORS["clear"],
+    # fontsize=14,
+    # padding=0,
+)
+extension_defaults = widget_defaults.copy()
+
 screens = [
 
     Screen(
