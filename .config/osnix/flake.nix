@@ -307,12 +307,6 @@
 			       };
                        };
 
-	      	       nixpkgs = {
-	      	               config = {
-	      	             	  allowUnfree = true; # To install non-free packages
-	      	               };
-	      	       };
-
 	      	       environment = {
 	      	               # Define Environment System Wide variables
 	      	               variables	= {
