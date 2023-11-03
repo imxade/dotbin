@@ -452,23 +452,31 @@ screens = [
                 ),
 
 
-                widget.Image(
-                    filename='~/.config/qtile/Assets/Misc/clock.png',
-                    background='#282738',
-                    margin_y=6,
-                    margin_x=5,
-                ),
-
-
                 widget.Clock(
                     format='%I:%M %p',
                     background='#282738',
                     foreground='#CAA9E0',
-                    font="JetBrains Mono Bold",
-                    fontsize=13,
+                    # font="JetBrains Mono Bold",
+                    fontsize=14,
                 ),
 
 
+                widget.TextBox(
+                    "",
+                    fontsize=20,
+                    background='#282738',
+                    padding=4,
+                ),
+
+                
+                widget.Clock(
+                    format=" %a %b %d",
+                    fontsize=14,
+                    background='#282738',
+                    foreground='#CAA9E0',
+                ),
+
+                
                 widget.TextBox(
                     text="\ue0b4",
                     background="#00000000",
