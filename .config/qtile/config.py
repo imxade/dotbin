@@ -321,25 +321,25 @@ screens = [
                 ),
 
 
-                # widget.Image(
-                # filename='~/.config/qtile/Assets/Drop1.png',
-                # ),
+                widget.Image(
+                filename='~/.config/qtile/Assets/Drop1.png',
+                ),
 
-                # widget.Net(
-                # format=' {up}   {down} ',
-                # background='#353446',
-                # foreground='#CAA9E0',
-                # font="JetBrains Mono Bold",
-                # prefix='k',
-                # ),
+                widget.Net(
+                format=' {up}   {down} ',
+                background='#353446',
+                foreground='#CAA9E0',
+                font="JetBrains Mono Bold",
+                prefix='k',
+                ),
 
-                # widget.Image(
-                    # filename='~/.config/qtile/Assets/2.png',
-                # ),
+                widget.Image(
+                  filename='~/.config/qtile/Assets/2.png',
+                ),
 
                 # widget.Spacer(
-                    # length=8,
-                    # background='#353446',
+                #   # length=8,
+                #   # background='#353446',
                 # ),
 
 
