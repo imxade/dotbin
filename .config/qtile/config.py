@@ -68,17 +68,27 @@ keys = [
 
 # C U S T O M
 
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc='Volume Up'),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc='volume down'),
-    Key([], "XF86AudioMute", lazy.spawn("pulsemixer --toggle-mute"), desc='Volume Mute'),
-    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc='playerctl'),
-    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc='playerctl'),
-    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc='playerctl'),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 10%+"), desc='brightness UP'),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 10%-"), desc='brightness Down'),
-    Key([mod],"e", lazy.spawn("thunar"), desc='file manager'),
-	Key([mod], "h", lazy.spawn("roficlip"), desc='clipboard'),
+    Key([MOD], "g", lazy.spawn("gammastep -PO 2000"), desc="Change gamma"),
+    Key([MOD], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/chrome.sh"), desc="Launch Chrome"),
+    Key(["mod1"], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/firefox.sh"), desc="Launch FireFox"),
+    Key(["mod1"], "s", lazy.spawn(f"sh {SCRIPTS_DIR}/screenshot.sh"), desc="screenshot"),
+    Key(["mod1"], "v", lazy.spawn(f"sh {SCRIPTS_DIR}/screencast.sh"), desc="start screencap"),
+    Key(["mod1"], "k", lazy.spawn(f"sh {SCRIPTS_DIR}/killcast.sh"), desc="stop screencap"),
+    Key([MOD], "a", lazy.spawn(f"cp -sf {HOME}/.config/alsa/bluetooth {HOME}/.asoundrc"), desc="switch to bluetooth device"),
+    Key([MOD, "shift"], "a", lazy.spawn(f"cp -sf {HOME}/.config/alsa/speaker {HOME}/.asoundrc"), desc="switch to speaker"),
     Key([mod], "s", lazy.spawn("flameshot gui"), desc='Screenshot'),
+
+    ### Multimedia Keys
+
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioStop", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master '5%+'")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master '5%-'")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer set Master '100%-'")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set 10%+")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]
 
 
