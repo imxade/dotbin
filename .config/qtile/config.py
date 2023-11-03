@@ -126,7 +126,7 @@ for i in groups:
 
 
 layouts = [
-    layout.Columns( margin= [10,10,10,10], border_focus='#1F1D2E',
+    layout.Columns( margin= [16,16,16,16], border_focus='#1F1D2E',
 	    border_normal='#1F1D2E',
         border_width=0,
     ),
@@ -191,16 +191,14 @@ def power():
 # █▄█ █▀█ █▀▄
 
 
-
 screens = [
 
     Screen(
         top=bar.Bar(
             [
-				widget.Spacer(length=15,
-                    background='#282738',
+                widget.Image(
+                    filename='~/.config/qtile/Assets/3.png',
                 ),
-
 
                 widget.Image(
                     filename='~/.config/qtile/Assets/launch_Icon.png',
@@ -470,20 +468,19 @@ screens = [
                 ),
 
 
-                widget.Spacer(
-                    length=18,
-                    background='#282738',
+                widget.Image(
+                    filename='~/.config/qtile/Assets/4.png',
                 ),
-
 
 
             ],
             30,
             border_color = '#282738',
             border_width = [0,0,0,0],
-            margin = [15,60,6,60],
+            margin = [15,16,0,16],
 
         ),
+        wallpaper = '~/.config/wall/Mostima-1-Nord.png'
     ),
 ]
 
