@@ -17,6 +17,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, hook, Screen, KeyCho
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile.dgroups import simple_key_binder
+from libqtile.backend.wayland import InputConfig
 from time import sleep
 
 mod = "mod4"
@@ -528,7 +529,11 @@ reconfigure_screens = True
 auto_minimize = True
 
 # When using the Wayland backend, this can be used to configure input devices.
-wl_input_rules = None
+wl_input_rules = {
+    "type:touchpad": InputConfig(left_handed=True, tap=True, dwt=True),
+    "type:keyboard": InputConfig(xkb_options="caps:swapescape"),
+    "*": InputConfig(left_handed=False, pointer_accel=True),
+}
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
