@@ -215,7 +215,7 @@ screens = [
 
 
                 widget.GroupBox(
-                    fontsize=24,
+                    fontsize=20,
                     borderwidth=3,
                     highlight_method='block',
                     active='#CAA9E0',
@@ -456,24 +456,26 @@ screens = [
                     format='%I:%M %p',
                     background='#282738',
                     foreground='#CAA9E0',
-                    # font="JetBrains Mono Bold",
-                    fontsize=14,
+                    font="JetBrains Mono Bold",
+                    fontsize=12,
                 ),
 
 
                 widget.TextBox(
                     "",
-                    fontsize=20,
+                    fontsize=18,
                     background='#282738',
+                    foreground='#CAA9E0',
                     padding=4,
                 ),
 
                 
                 widget.Clock(
                     format=" %a %b %d",
-                    fontsize=14,
                     background='#282738',
                     foreground='#CAA9E0',
+                    font="JetBrains Mono Bold",
+                    fontsize=12,
                 ),
 
                 
