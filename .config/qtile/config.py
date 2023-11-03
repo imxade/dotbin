@@ -22,8 +22,7 @@ from time import sleep
 
 mod = "mod4"
 terminal = "flatpak run org.wezfurlong.wezterm"
-HOME = os.path.expanduser("~")
-SCRIPTS_DIR = f"{HOME}/.config/shell/scripts"
+SCRIPTS_DIR = f"~/.config/shell/scripts"
 
 
 # █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄ █▀
@@ -59,7 +58,7 @@ keys = [
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
@@ -74,8 +73,8 @@ keys = [
     Key(["mod1"], "s", lazy.spawn(f"sh {SCRIPTS_DIR}/screenshot.sh"), desc="screenshot"),
     Key(["mod1"], "v", lazy.spawn(f"sh {SCRIPTS_DIR}/screencast.sh"), desc="start screencap"),
     Key(["mod1"], "k", lazy.spawn(f"sh {SCRIPTS_DIR}/killcast.sh"), desc="stop screencap"),
-    Key([mod], "a", lazy.spawn(f"cp -sf {HOME}/.config/alsa/bluetooth {HOME}/.asoundrc"), desc="switch to bluetooth device"),
-    Key([mod, "shift"], "a", lazy.spawn(f"cp -sf {HOME}/.config/alsa/speaker {HOME}/.asoundrc"), desc="switch to speaker"),
+    Key([mod], "a", lazy.spawn(f"cp -sf ~/.config/alsa/bluetooth ~/.asoundrc"), desc="switch to bluetooth device"),
+    Key([mod, "shift"], "a", lazy.spawn(f"cp -sf ~/.config/alsa/speaker ~/.asoundrc"), desc="switch to speaker"),
     Key([mod], "s", lazy.spawn("flameshot gui"), desc='Screenshot'),
 
     ### Multimedia Keys
@@ -519,16 +518,14 @@ floating_layout = layout.Floating(
 )
 
 
-
-
-# some other imports
+# more imports
 import os
 import subprocess
+HOME = os.path.expanduser("~")
 # stuff
 @hook.subscribe.startup_once
 def autostart_once():
-    subprocess.run('~/.config/qtile/autostart.sh')# path to my script, under my user directory
-    subprocess.call([home])
+    subprocess.run(f"{HOME}/.config/qtile/autostart.sh")# path to my script, under my user directory
 
 auto_fullscreen = True
 focus_on_window_activation = "smart"
