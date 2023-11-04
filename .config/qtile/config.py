@@ -10,6 +10,8 @@
 #                                                                                    - DARKKAL44
 
 
+import os
+import subprocess
 from libqtile import bar, layout, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, hook, Screen, KeyChord
 from libqtile.lazy import lazy
@@ -20,7 +22,8 @@ from time import sleep
 
 mod = "mod4"
 terminal = "flatpak run org.wezfurlong.wezterm"
-SCRIPTS_DIR = f"~/.config/shell/scripts"
+HOME = os.path.expanduser("~")
+SCRIPTS_DIR = f"{HOME}/.config/shell/scripts"
 
 
 # █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄ █▀
@@ -493,13 +496,6 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ],
 )
-
-
-# more imports
-import os
-import subprocess
-
-HOME = os.path.expanduser("~")
 
 
 # stuff
