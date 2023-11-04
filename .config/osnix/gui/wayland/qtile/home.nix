@@ -7,10 +7,24 @@
 
  {
     home = {
-    	    # List packages installed in xorg profile.
             packages = with pkgs; [
-	      # Browser
-#		firefox
+            # Browser
+            # mullvad
+
+            # LSP
+            awk-language-server
+            bash-language-server
+            clangd
+            typescript-language-server
+            marksman
+            nimlangserver
+            nil
+            pylsp
+            # rust-analyzer
+            # yaml-language-server
+
+            # Launcher
+            wofi
     	    ];
 
     	    # Profile Wide Cursor Theme, so Applications will Not be Able to Choose their Own
