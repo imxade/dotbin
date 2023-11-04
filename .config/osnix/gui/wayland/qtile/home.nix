@@ -12,16 +12,15 @@
             # mullvad
 
             # LSP
-            awk-language-server
-            bash-language-server
-            clangd
-            typescript-language-server
+            # awk-language-server
+            nodePackages.bash-language-server
+            llvmPackages_9.clang-unwrapped
+            nodePackages.typescript-language-server
             marksman
-            nimlangserver
-            nil
-            pylsp
-            # rust-analyzer
-            # yaml-language-server
+            nimlsp
+            python311Packages.python-lsp-server
+            rust-analyzer-unwrapped
+            nodePackages.yaml-language-server
 
             # Launcher
             wofi
