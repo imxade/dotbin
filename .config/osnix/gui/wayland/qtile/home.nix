@@ -11,6 +11,9 @@
             # Browser
             # mullvad-browser
             # brave
+
+            # Editor
+            helix
             
             # Monitor
             bottom

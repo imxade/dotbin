@@ -450,7 +450,10 @@ screens = [
             border_width=[0, 0, 0, 0],
             margin=[15, 16, 0, 16],
         ),
-        wallpaper="~/.config/wall/Mostima-1-Nord.png",
+        wallpaper="~/.config/wall/gruv_waifu.jpg",
+        # wallpaper="~/.config/wall/gruv_waifu.jpg",
+        # wallpaper="~/.config/wall/building_moon_night.jpg",
+        # wallpaper="~/.config/wall/Mostima-1-Nord.png",
         wallpaper_mode="fill",
     ),
 ]
