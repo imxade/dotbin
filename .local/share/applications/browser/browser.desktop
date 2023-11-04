@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Version=1.0
-Type=Application
-Terminal=false
-Exec=/home/k/.config/shell/scripts/chrome.sh
-Name=Browser
-Icon=icon.png
