@@ -9,7 +9,8 @@
     home = {
             packages = with pkgs; [
             # Browser
-            # mullvad
+            # mullvad-browser
+            # brave
 
             # LSP
             # awk-language-server
@@ -18,7 +19,7 @@
             nodePackages.typescript-language-server
             marksman
             nimlsp
-            python311Packages.python-lsp-server
+            python3Packages.python-lsp-server
             rust-analyzer-unwrapped
             nodePackages.yaml-language-server
 
