@@ -28,7 +28,6 @@ alias \
   t="trizen" \
   h="manual" \
   r="run_as_root" \
-  sudo="run_as_root" \
   fr="flatpak run" \
   p="r pacman" \
   pl="play_media" \
@@ -45,6 +44,7 @@ alias \
   up="sh $HOME/.config/shell/scripts/backupgrade/non_root.sh # upgrade" \
   nixvm="qemu-system-x86_64 -enable-kvm -boot menu=on -m 2g -cpu host -vga virtio" \
   vm="mkdir /tmp/mytpm1 & swtpm socket --tpmstate dir=/tmp/mytpm1 --ctrl type=unixio,path=/tmp/mytpm1/swtpm-sock --log level=20 --tpm2 & qemu-system-x86_64 -enable-kvm -boot menu=on -m 2g -cpu host -vga virtio -chardev socket,id=chrtpm,path=/tmp/mytpm1/swtpm-sock -tpmdev emulator,id=tpm0,chardev=chrtpm -device tpm-tis,tpmdev=tpm0" \
-# -bios /usr/share/ovmf/x64/OVMF.fd " \
-# /nix/store/*ovmf/FV/OVMF.fd \
-# -drive file=img,if=none,id=nvm -device nvme,serial=deadbeef,drive=nvm \
+  # sudo="run_as_root" \
+  # -bios /usr/share/ovmf/x64/OVMF.fd " \
+  # /nix/store/*ovmf/FV/OVMF.fd \
+  # -drive file=img,if=none,id=nvm -device nvme,serial=deadbeef,drive=nvm \

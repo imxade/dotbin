@@ -192,9 +192,9 @@
 
               security = {
                 unprivilegedUsernsClone = true; # For flatpak
-                sudo = {
-                  enable = false; # Disable sudo
-                };
+                # sudo = {
+                #   enable = false; # Disable sudo
+                # };
                 rtkit = { enable = true; };
               };
 
