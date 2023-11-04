@@ -29,6 +29,7 @@ alias \
   h="manual" \
   r="run_as_root" \
   sudo="run_as_root" \
+  fr="flatpak run" \
   p="r pacman" \
   pl="play_media" \
   cal="calculate" \
