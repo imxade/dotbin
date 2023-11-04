@@ -13,6 +13,7 @@
             # brave
 
             # LSP
+            lldb
             # awk-language-server
             nodePackages.bash-language-server
             llvmPackages_9.clang-unwrapped

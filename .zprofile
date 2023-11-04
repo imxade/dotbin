@@ -1,2 +1,1 @@
-
 sh ~/.config/shell/profile
