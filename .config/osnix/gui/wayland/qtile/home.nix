@@ -11,6 +11,9 @@
             # Browser
             # mullvad-browser
             # brave
+            
+            # Monitor
+            bottom
 
             # LSP
             lldb
