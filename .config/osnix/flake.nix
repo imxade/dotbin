@@ -73,10 +73,6 @@
             # configuration.nix : Universal System Configuration for all Profiles
             ({ lib, pkgs, config, system, nixpkgs, ... }: {
               fileSystems = { "/".options = [ "compress=zstd" "noatime" "space_cache=v2" ]; };
-              swapDevices = [ {
-                 device = "/.swap/swap";
-                 size = 8*1024;
-              } ];
               boot = {
                 # Hibernate Options
                 kernelParams = [ "resume_offset=${OFFSET}" ];

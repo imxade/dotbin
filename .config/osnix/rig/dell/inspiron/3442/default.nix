@@ -5,6 +5,13 @@
  }:
 
  {
+
+  # SwapFile
+   swapDevices = [ {
+      device = "/.swap";
+      size = 8*1024;
+   } ];
+
    environment = {
            # List packages installed for inspiron_3442
            systemPackages = with pkgs; [
