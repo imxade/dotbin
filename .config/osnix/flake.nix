@@ -72,7 +72,10 @@
 
             # configuration.nix : Universal System Configuration for all Profiles
             ({ lib, pkgs, config, system, nixpkgs, ... }: {
-              fileSystems = { "/".options = [ "compress=zstd" "noatime" "space_cache=v2" ]; };
+              fileSystems = { 
+                "/".options = [ "compress=zstd" "noatime" "space_cache=v2" ]; 
+                "/home".options = [ "subvol=home" ]; 
+              };
               boot = {
                 # Hibernate Options
                 kernelParams = [ "resume_offset=${OFFSET}" ];
