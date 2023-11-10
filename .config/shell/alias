@@ -17,7 +17,7 @@ calculate() {
   curl -F "file=@$*" https://0x0.st
 }
 e() {
-  flatpak run com.helix_editor.Helix $@
+  flatpak run --env=PATH=/app/bin:/usr/bin:~/.local/bin com.helix_editor.Helix $@
 }
 
 # alias
