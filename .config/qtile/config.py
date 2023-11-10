@@ -351,7 +351,8 @@ screens = [
                 ),
                 widget.Memory(
                     background="#353446",
-                    format="{MemUsed: .0f}{mm}",
+                    # format="{MemUsed: .0f}{mm}",
+                    format="{MemPercent: .0f}%",
                     foreground="#CAA9E0",
                     font="JetBrains Mono Bold",
                     fontsize=13,
