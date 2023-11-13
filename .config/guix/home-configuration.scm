@@ -10,11 +10,11 @@
  (services
   (list
    (service home-zsh-service-type
-            (home-zsh-configuration
-             (zprofile (list (plain-file 
+            (home-zsh-configuratizsh
+             (zprofile (list (local-file 
                              "$HOME/.zprofile" 
-                             "bash-profile")))
-             (zshrc (list (plain-file 
+                             "zsh-profile")))
+             (zshrc (list (local-file 
                              "$HOME/.zshrc" 
                              "zshrc"))))
 ))))
