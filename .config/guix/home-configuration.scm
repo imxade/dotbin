@@ -3,10 +3,16 @@
              (gnu home services)
              (gnu home services shells)
              (gnu services)
+             (gnu packages)
              (guix gexp))
 
-
 (home-environment
+  ;; Below is the list of packages that will show up in your
+  ;; Home profile, under ~/.guix-home/profile.
+  (packages (specifications->packages (list "bottom"
+                                            "neofetch"
+                                            )))
+
  (services
   (list
    (service home-zsh-service-type
