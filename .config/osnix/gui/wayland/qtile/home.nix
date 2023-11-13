@@ -12,23 +12,36 @@
             # mullvad-browser
             # brave
 
+            # Language
+            nim-unwrapped
+            nimPackages.nimble
+            glibc_multi
+            # glibc
+
+            # WASM
+            # wasm3
+            wasmtime
+            wasmedge
+            
             # Editor
-            helix
+            # helix
             
             # Monitor
             bottom
 
             # LSP
-            lldb
+            # lldb
             # awk-language-server
-            nodePackages.bash-language-server
-            llvmPackages_9.clang-unwrapped
-            nodePackages.typescript-language-server
-            marksman
-            nimlsp
-            python3Packages.python-lsp-server
-            rust-analyzer-unwrapped
-            nodePackages.yaml-language-server
+            # nodePackages.bash-language-server
+            llvmPackages.clang
+            # llvmPackages.clang-unwrapped
+            # llvmPackages_9.clang-unwrapped
+            # nodePackages.typescript-language-server
+            # marksman
+            # nimlsp
+            # python3Packages.python-lsp-server
+            # rust-analyzer-unwrapped
+            # nodePackages.yaml-language-server
 
             # Launcher
             wofi
