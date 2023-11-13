@@ -5,7 +5,7 @@
              (nongnu system linux-initrd))
 
   (operating-system
-    (host-name "hackstock")
+    (host-name "guix")
     (timezone "America/Los_Angeles")
     (locale "en_US.utf8")
 
@@ -14,19 +14,26 @@
     (firmware (list linux-firmware))
     (initrd microcode-initrd)
 
-    ;; Choose US English keyboard layout.  The "altgr-intl"
-    ;; variant provides dead keys for accented characters.
+    ;; Choose US English keyboard layout. 
     (keyboard-layout (keyboard-layout "us"))
 
     ;; Guix doesn't like it when there isn't a file-systems
     ;; entry, so add one that is meant to be overridden
-    (file-systems (cons*
+    ; (file-systems (cons*
+    ;                (file-system
+    ;                  (mount-point "/tmp")
+    ;                  (device "none")
+    ;                  (type "tmpfs")
+    ;                  (check? #f))
+    ;                %base-file-systems))
+                    
+    (file-systems
+      (append (list
                    (file-system
-                     (mount-point "/tmp")
-                     (device "none")
-                     (type "tmpfs")
-                     (check? #f))
-                   %base-file-systems))
+                     (device (uuid "ce399868-793b-4e2e-a0b0-e6ba1d66819b"))
+                     (mount-point "/home")
+                     (type "btrfs")
+                     (options "subvol=home")))))
 
     (users (cons (user-account
                   (name "x")
@@ -44,7 +51,8 @@
                                           "lp"        ;; control bluetooth devices
                                           "audio"     ;; control audio devices
                                           "video"
-                                          ; "seatd"
+                                          "seat"      ;; access to shared devices
+                                          "cdrom"
                                           )))  ;; control video devices
 
                  %base-user-accounts))
@@ -80,9 +88,8 @@
                     ;            (extensions
                     ;              (list cups-filters))))
                     ; (service nix-service-type)
+                    (service seatd-service-type)
                     (bluetooth-service #:auto-enable? #t)
-                    (remove (lambda (service)
-                                (eq? (service-kind service) gdm-service-type))
                             %my-desktop-services)))
 
     ;; Allow resolution of '.local' host names with mDNS
