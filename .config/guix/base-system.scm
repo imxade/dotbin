@@ -1,5 +1,7 @@
 ; (define-public base-operating-system
 
+(load "/etc/config.scm")
+(load "./rig/inspiron3442.scm")
 ;; Import nonfree linux module.
 (use-modules (nongnu packages linux)
              (nongnu system linux-initrd))
