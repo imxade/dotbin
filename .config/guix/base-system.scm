@@ -42,6 +42,7 @@
                   (comment "x")
                   (group "users")
                   (home-directory "/home/x")
+                  (shell (file-append zsh "/bin/zsh"))
                   (supplementary-groups '(
                                           "wheel"     ;; sudo
                                           "netdev"    ;; network devices
