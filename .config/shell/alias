@@ -33,6 +33,7 @@ alias \
   p="r pacman" \
   pl="play_media" \
   cal="calculate" \
+  tmx="~/.config/shell/scripts/sshtermux.sh" \
   ip4="curl ipv4.icanhazip.com            # get ipv4 address" \
   sus="r 'printf mem > /sys/power/state'  # suspend" \
   hib="r 'printf disk > /sys/power/state' # hibernate" \
