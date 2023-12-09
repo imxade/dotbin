@@ -13,10 +13,14 @@
             # brave
 
             # Language
-            nim-unwrapped
-            nimPackages.nimble
+            # nim-unwrapped
+            nim-unwrapped-2
+            nimble
             glibc_multi
-            # glibc
+            # openssl
+            python3
+            # gcc_multi
+            gcc-unwrapped
 
             # WASM
             # wasm3
@@ -35,7 +39,6 @@
             # nodePackages.bash-language-server
             llvmPackages.clang
             # llvmPackages.clang-unwrapped
-            # llvmPackages_9.clang-unwrapped
             # nodePackages.typescript-language-server
             # marksman
             # nimlsp

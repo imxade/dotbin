@@ -261,6 +261,7 @@
                 portal = {
                   enable = true; # Required by flatpak
                   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+                  config.common.default = "*";
                 };
               };
 
