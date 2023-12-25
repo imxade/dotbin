@@ -3,6 +3,7 @@ theme = "fleet_dark"
 
 [editor]
 # line-number = "relative"
+bufferline = "multiple"
 cursorcolumn = true
 cursorline = true
 mouse = true
@@ -50,6 +51,12 @@ skip-levels = 1
 
 [keys.normal]
 C-f = ["select_all", "select_regex"] # 'Ctrl f' to find
+A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
+
+[keys.select]
+A-x = "extend_to_line_bounds"
+X = ["extend_line_up", "extend_to_line_bounds"]
 
 [keys.insert.j]
 k = "normal_mode" # `jk` to exit insert mode
