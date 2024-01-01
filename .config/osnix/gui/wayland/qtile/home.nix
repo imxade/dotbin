@@ -14,18 +14,18 @@
 
             # Language
             # nim-unwrapped
-            nim-unwrapped-2
-            nimble
-            glibc_multi
+            # nim-unwrapped-2
+            # nimble
             # openssl
             python3
             # gcc_multi
-            gcc-unwrapped
+            # gcc-unwrapped
 
-            # WASM
+            # Container
             # wasm3
             wasmtime
             wasmedge
+            container2wasm
             
             # Editor
             # helix
