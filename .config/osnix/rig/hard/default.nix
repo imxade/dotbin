@@ -43,16 +43,20 @@
 #         };
 # };
 
-# services = {
-# 	# enable antivirus clamav and
-# 	# keep the signatures' database updated
-# 	clamav = {
-# 	        daemon = {
-# 	      	  enable = true;
-# 	        };
-# 	        updater = {
-# 	      	  enable = true;
-# 	        };
-# 	};
-# };
+  services = {
+    # # enable antivirus clamav and
+    # # keep the signatures' database updated
+    # clamav = {
+    #         daemon = {
+    #       	  enable = true;
+    #         };
+    #         updater = {
+    #       	  enable = true;
+    #         };
+    # };
+    dbus = {
+      #				 enable = lib.mkForce false;
+      apparmor = "enabled";
+    };
+  };
 }

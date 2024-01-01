@@ -67,8 +67,10 @@
             ./${GUI}
 
             # Include Hardened Profile
-            #	      	    ./rig/hardened.nix
             ./rig/hard
+
+            # Include Development Profile
+            ./dev
 
             # configuration.nix : Universal System Configuration for all Profiles
             ({ lib, pkgs, config, system, nixpkgs, ... }: {
@@ -180,6 +182,7 @@
                       "camera"
                       "scanner"
                       "libvirt"
+                      "docker"
                       "networkmanager"
                     ];
                     shell = pkgs.zsh; # Default shell
@@ -201,10 +204,10 @@
               services = {
                 getty = { autologinUser = "${USER}"; };
 
-                dbus = {
-                  #				 enable = lib.mkForce false;
-                  apparmor = "enabled";
-                };
+                # dbus = {
+                #   #				 enable = lib.mkForce false;
+                #   apparmor = "enabled";
+                # };
 
                 #	      	               # Enable CUPS to print documents.
                 #	      	               printing = {
