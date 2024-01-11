@@ -1,5 +1,3 @@
 #!/bin/sh
 
-flatpak run org.mozilla.firefox \
-  || firejail --ignore=dbus-system --whitelist="$HOME/box" --whitelist="$HOME/.asoundrc" firefox \
-  || firefox
+DISPLAY=:0 flatpak run net.mullvad.MullvadBrowser
