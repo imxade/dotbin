@@ -24,7 +24,7 @@
             # Container
             # wasm3
             wasmtime
-            wasmedge
+            # wasmedge
             container2wasm
             
             # Editor
@@ -47,7 +47,7 @@
             # nodePackages.yaml-language-server
 
             # Launcher
-            wofi
+            # wofi
     	    ];
 
     	    # Profile Wide Cursor Theme, so Applications will Not be Able to Choose their Own
