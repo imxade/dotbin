@@ -16,7 +16,7 @@
            # List packages installed for inspiron_3442
            systemPackages = with pkgs; [
  		btrfs-progs 			# Manage BTRFS
-		bluez-alsa			# Pure Alsa Bluetooth
+		# bluez-alsa			# Pure Alsa Bluetooth
 		shellcheck
 		cryptsetup
 		lvm2
@@ -61,8 +61,8 @@
 		   settings = {
 		   };
 	   };
-#	   pipewire = {				# Pipewire for Audio 	
-#		   enable = true;
+	   pipewire = {				# Pipewire for Audio 	
+		   enable = true;
 #		   alsa = {
 #			   enable = true;
 #			   support32Bit = true;
@@ -70,7 +70,7 @@
 #		   pulse = {
 #			   enable = true;
 #		   };
-#	   };
+	   };
    };
 
    hardware = {
@@ -93,9 +93,6 @@
 	    # Enable Bluetooth
 	    bluetooth = {
 		enable   = true;
- 		hsphfpd  = {
- 		        enable  = true;
- 		};
 		settings = {
 			Policy = {
 			    # Auto Enable Bluetooth
@@ -143,7 +140,7 @@
         	    	};
         	    };
         	    bluealsa = {
-        		enable = true;
+        		enable = false;
     	    		description = "start Bluetooth for Pure Alsa";
 			after = [ 
         		  "bluetooth.service" 

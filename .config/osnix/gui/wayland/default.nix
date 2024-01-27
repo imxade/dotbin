@@ -28,7 +28,7 @@
     };
 
     sound = {					# ALSA sound enable
-            enable = true;
+            enable = false;
             mediaKeys = {			# Keyboard Media Keys
         	enable = true;
             };

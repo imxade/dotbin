@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# create required directory
-mkdir "$HOME/box"
-rm -rf "$HOME/box/run"*
+# create runtime directory
+# mkdir "$HOME/box"
+# rm -rf "$HOME/box/run"*
 
 # set env variables
-export XDG_RUNTIME_DIR="$(mktemp -d $HOME/box/run.XXXXXXXXX)"
+# export XDG_RUNTIME_DIR="$(mktemp -d $HOME/box/run.XXXXXXXXX)"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
