@@ -120,9 +120,11 @@ keys = [
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioStop", lazy.spawn("playerctl play-pause")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set Master '5%+'")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set Master '5%-'")),
-    Key([], "XF86AudioMute", lazy.spawn("amixer set Master '100%-'")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")),
+    Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
+    ### Mute Mic
+    Key([mod], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set 10%+")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]
