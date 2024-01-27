@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# create runtime directory
-# mkdir "$HOME/box"
-# rm -rf "$HOME/box/run"*
-
 # set env variables
 # export XDG_RUNTIME_DIR="$(mktemp -d $HOME/box/run.XXXXXXXXX)"
 export XDG_DATA_HOME="$HOME/.local/share"
