@@ -5,9 +5,9 @@ path="${XDG_CONFIG_HOME}/shell/scripts/display"
 brightness_file="${path}/brightness.txt"
 temperature_file="${path}/temperature.txt"
 
-# Initialize modification times
-brightness_modification_time=$(stat -c %Y $brightness_file)
-temperature_modification_time=$(stat -c %Y $temperature_file)
+# Create a temporary timestamp file
+timestamp_file="$(mktemp)"
+touch "$timestamp_file"
 
 # Function to set brightness and color temperature using gammastep
 set_brightness_and_temperature() {
@@ -21,17 +21,19 @@ set_brightness_and_temperature
 
 # Loop to monitor changes in the brightness and color temperature files
 while true; do
-    # Check modification times
-    current_brightness_modification_time=$(stat -c %Y $brightness_file)
-    current_temperature_modification_time=$(stat -c %Y $temperature_file)
+    # Update the timestamp file if either file has been modified
+    touch -r "$brightness_file" "$timestamp_file"
+    touch -r "$temperature_file" "$timestamp_file"
 
     # If either file has been modified, rerun the function
-    if [[ $current_brightness_modification_time != $brightness_modification_time ]] || [[ $current_temperature_modification_time != $temperature_modification_time ]]; then
+    if find "$brightness_file" -newer "$timestamp_file" || find "$temperature_file" -newer "$timestamp_file"; then
         set_brightness_and_temperature
-        brightness_modification_time=$current_brightness_modification_time
-        temperature_modification_time=$current_temperature_modification_time
     fi
 
     # Sleep for a short period to avoid excessive CPU usage
     sleep 1
 done
+
+# Remove the temporary timestamp file
+rm "$timestamp_file"
+
