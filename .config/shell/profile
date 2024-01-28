@@ -25,8 +25,7 @@ export EDITOR="flatpak run com.helix_editor.Helix"
 # enable pipewire
 #pipewire &
 #pipewire-alsa &
-#pipewire-pulse &
-#pipewire-media-session &
+pipewire-pulse &
 
 # aria2 daemon
 #aria2c --enable-rpc
