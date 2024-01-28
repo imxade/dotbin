@@ -82,7 +82,6 @@ keys = [
         desc="theme_switcher",
     ),
     # C U S T O M
-    Key([mod], "g", lazy.spawn("gammastep -PO 2000"), desc="Change gamma"),
     Key([mod], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/chrome.sh"), desc="Launch Chrome"),
     Key(
         ["mod1"], "b", lazy.spawn(f"sh {SCRIPTS_DIR}/firefox.sh"), desc="Launch FireFox"
@@ -125,8 +124,12 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
     ### Mute Mic
     Key([mod], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set 10%+")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
+    ### Brightness Keys
+    Key([], "XF86MonBrightnessUp", lazy.spawn(f"sh {SCRIPTS_DIR}/display/bright+.sh")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn(f"sh {SCRIPTS_DIR}/display/bright-.sh")),
+    ### Gamma Keys
+    Key([mod], "XF86MonBrightnessUp", lazy.spawn(f"sh {SCRIPTS_DIR}/display/tmp+.sh")),
+    Key([mod], "XF86MonBrightnessDown", lazy.spawn(f"sh {SCRIPTS_DIR}/display/tmp-.sh")),
 ]
 
 
