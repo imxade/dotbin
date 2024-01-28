@@ -20,7 +20,7 @@ while true; do
         kill $(cat /tmp/gammastep.pid)
         
         # Start the gammastep process again
-        ${path}/apply.sh
+        sh ${path}/apply.sh &
         
         brightness_content=$current_brightness_content
         temperature_content=$current_temperature_content
