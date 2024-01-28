@@ -410,7 +410,6 @@ screens = [
                     emoji=True,
                     fontsize=13,
                     background="#353446",
-                    volume_app="wireplumber",
                 ),
                 widget.Spacer(
                     length=-5,
@@ -421,7 +420,6 @@ screens = [
                     background="#353446",
                     foreground="#CAA9E0",
                     fontsize=13,
-                    volume_app="wireplumber",
                 ),
                 widget.Image(
                     filename="~/.config/qtile/Assets/5.png",
