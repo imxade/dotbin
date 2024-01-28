@@ -15,7 +15,8 @@ export \
 	QT_QPA_PLATFORM=wayland-egl \
 	QT_AUTO_SCREEN_SCALE_FACTOR=1 \
 	ECORE_EVAS_ENGINE=wayland-eglexport
-gammastep -PO 2000 &
+# gammastep -PO 2000 &
+sh "${XDG_CONFIG_HOME}"/shell/scripts/display/apply.sh &
 "$HOME/.config/shell/scripts/chrome.sh" ||
 "$HOME/.config/shell/scripts/firefox.sh" ||
 qutebrowser --qt-flag enable-gpu-rasterization &
