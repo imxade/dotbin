@@ -1,12 +1,16 @@
-#!/bin/bash
+#!/bin/sh
+
+# Path variable
+path="${XDG_CONFIG_HOME}/shell/scripts/display"
 
 # Read brightness from file
-path="${XDG_CONFIG_HOME}/shell/scripts/display"
-file="${path}/brightness.txt"
-currentBrightness=$(cat $file)
+file="$path/brightness.txt"
+current_brightness=$(awk '{print $1}' $file)
 
-# Increase brightness
-newBrightness=$((currentBrightness + 0.1))
+# Increase brightness only if current brightness is less than 1
+if awk -v a="$current_brightness" 'BEGIN{exit !(a < 1)}'; then
+    new_brightness=$(awk -v a="$current_brightness" 'BEGIN {print a + 0.1}')
 
-# Write new brightness back to file
-echo $newBrightness > $file
+    # Write new brightness back to file
+    echo $new_brightness > $file
+fi
