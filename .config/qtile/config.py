@@ -404,25 +404,24 @@ screens = [
                 #     length=8,
                 #     background="#353446",
                 # ),
-                
-                # widget.PulseVolume(fmt=" {}", emoji=True, volume_app="wireplumber"),
-                # widget.PulseVolume(volume_app="wireplumber"),
-                widget.Volume(
+                widget.PulseVolume(
                     font="JetBrainsMono Nerd Font",
                     theme_path="~/.config/qtile/Assets/Volume/",
                     emoji=True,
                     fontsize=13,
                     background="#353446",
+                    volume_app="wireplumber",
                 ),
                 widget.Spacer(
                     length=-5,
                     background="#353446",
                 ),
-                widget.Volume(
+                widget.PulseVolume(
                     font="JetBrains Mono Bold",
                     background="#353446",
                     foreground="#CAA9E0",
                     fontsize=13,
+                    volume_app="wireplumber",
                 ),
                 widget.Image(
                     filename="~/.config/qtile/Assets/5.png",
