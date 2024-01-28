@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 path="${XDG_CONFIG_HOME}/shell/scripts/display"
 # Read brightness and color temperature from files
