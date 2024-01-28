@@ -10,7 +10,3 @@ newBrightness=$((currentBrightness - 0.1))
 
 # Write new brightness back to file
 echo $newBrightness > $file
-
-# Call the third script to set brightness
-source "${path}/apply.sh"
-

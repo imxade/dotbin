@@ -10,7 +10,3 @@ newTemp=$((currentTemp - 200))
 
 # Write new Temp back to file
 echo $newTemp > $file
-
-# Call the third script to set Temp
-source "${path}/apply.sh"
-
