@@ -20,6 +20,16 @@ e() {
   flatpak run --env=PATH=/app/bin:/usr/bin:~/.local/bin com.helix_editor.Helix $@
 }
 
+# Ignore Dot File
+dig() {
+  dot update-index --skip-worktree $@
+}
+
+# Dont Ignore Dot File
+ddig() {
+  dot update-index --no-skip-worktree $@
+}
+
 # alias
 alias \
   g="git" \
