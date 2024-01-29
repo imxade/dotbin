@@ -20,16 +20,6 @@ e() {
   flatpak run --env=PATH=/app/bin:/usr/bin:~/.local/bin com.helix_editor.Helix $@
 }
 
-# Ignore Dot File
-dig() {
-  dot update-index --skip-worktree $@
-}
-
-# Dont Ignore Dot File
-ddig() {
-  dot update-index --no-skip-worktree $@
-}
-
 # alias
 alias \
   g="git" \
@@ -60,3 +50,16 @@ alias \
   # -bios /usr/share/ovmf/x64/OVMF.fd " \
   # /nix/store/*ovmf/FV/OVMF.fd \
   # -drive file=img,if=none,id=nvm -device nvme,serial=deadbeef,drive=nvm \
+
+# Function for dots
+
+# Ignore Dot File
+dotig() {
+  dot update-index --skip-worktree $@
+}
+
+# Dont Ignore Dot File
+dotdig() {
+  dot update-index --no-skip-worktree $@
+}
+
