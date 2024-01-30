@@ -55,11 +55,11 @@ alias \
 
 # Ignore Dot File
 dotig() {
-  dot update-index --skip-worktree $@
+  dot update-index --assume-unchanged $@
 }
 
 # Dont Ignore Dot File
 dotdig() {
-  dot update-index --no-skip-worktree $@
+  dot update-index --no-assume-unchanged $@
 }
 
