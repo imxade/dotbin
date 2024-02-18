@@ -27,3 +27,6 @@ kiss Upgrade
 emaint --auto sync # For portage
 emerge --verbose --update --deep --newuse @world
 waydroid upgrade # For waydroid
+fwupdmgr -y refresh
+fwupdmgr -y update
+
