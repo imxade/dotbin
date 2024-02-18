@@ -52,6 +52,12 @@
 			   enable = true;
 		   };
 	   };
+		 fwupd = {
+			enable = true;
+		 };
+		 thermald = {
+			enable = true;
+		 };
    };
 
    hardware = {
