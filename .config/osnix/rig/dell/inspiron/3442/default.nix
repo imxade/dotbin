@@ -97,5 +97,8 @@
  	    extraModulePackages = [
  	      config.boot.kernelPackages.broadcom_sta
  	    ];
+			kernelParams = [
+			"acpi_osi=!" "acpi_osi='Windows 2009'"
+			];
     };
  }
