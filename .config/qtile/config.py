@@ -329,9 +329,9 @@ screens = [
                     filename="~/.config/qtile/Assets/6.png",
                     background="#353446",
                 ),
-                widget.Image(
-                    filename="~/.config/qtile/Assets/Drop1.png",
-                ),
+                # widget.Image(
+                #     filename="~/.config/qtile/Assets/Drop1.png",
+                # ),
                 widget.Net(
                     format=" {up}   {down} ",
                     background="#353446",
