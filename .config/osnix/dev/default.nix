@@ -1,11 +1,21 @@
 { lib, pkgs, config, ... }:
 
 {
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
+
+  virtualisation = {
+    docker = {
       enable = true;
-      setSocketVariable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
+    libvirtd = {
+      enable = true;
+      qemu = {
+        ovmf = { enable = true; };
+        swtpm = { enable = false; };
+      };
     };
   };
 }

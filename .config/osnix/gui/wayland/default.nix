@@ -27,24 +27,6 @@
     };
   };
 
-  # Virtualization
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        ovmf = {
-          enable = true;
-          #				    packages = [
-          #				      pkgs.OVMFFull
-          #				    ];
-        };
-        #			    swtpm = {
-        #				    enable = true; 
-        #			    };
-      };
-    };
-  };
-
   # Configure the X11 windowing system.
   services = {
     xserver = {
@@ -64,12 +46,5 @@
 
     };
   };
-
-  #   # QT  Theme
-  #   qt5 = {
-  #   	    enable = true;
-  #           style = "gtk2";
-  #           platformTheme = "gtk2";
-  #   };
 }
 
