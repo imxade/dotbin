@@ -329,7 +329,15 @@
                 autoUpgrade = {
                   enable = true;
                   allowReboot = false;
-                  channel = "https://nixos.org/channels/nixos-unstable";
+                  # channel = "https://nixos.org/channels/nixos-unstable";
+                  flake = inputs.self.outPath;
+                  flags = [
+                    "--update-input"
+                    "nixpkgs"
+                    "-L" # print build logs
+                  ];
+                  dates = "02:00";
+                  randomizedDelaySec = "45min";
                 };
                 stateVersion = "21.11"; # Do not modify
               };
