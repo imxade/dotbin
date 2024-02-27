@@ -198,7 +198,7 @@
                     # Add any missing dynamic libs for 
                     # unpackaged program here 
                   ];
-                }
+                };
               };
 
               security = {
