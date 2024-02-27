@@ -46,6 +46,7 @@
       };
       # Use Above Variables in ...
     in {
+      formatter = { x86_64-linux = pkgs.nixfmt; };
       nixosConfigurations = {
         ${HOST} = lib.nixosSystem {
           inherit system pkgs;
@@ -74,9 +75,9 @@
 
             # configuration.nix : Universal System Configuration for all Profiles
             ({ lib, pkgs, config, system, nixpkgs, ... }: {
-              fileSystems = { 
-                "/".options = [ "compress=zstd" "noatime" "space_cache=v2" ]; 
-                "/home".options = [ "subvol=home" ]; 
+              fileSystems = {
+                "/".options = [ "compress=zstd" "noatime" "space_cache=v2" ];
+                "/home".options = [ "subvol=home" ];
               };
               boot = {
                 # Hibernate Options
@@ -194,10 +195,11 @@
                 zsh = { enable = true; };
                 nix-ld = {
                   enable = true;
-                  libraries =  with pkgs; [
-                    # Add any missing dynamic libs for 
-                    # unpackaged program here 
-                  ];
+                  libraries = with pkgs;
+                    [
+                      # Add any missing dynamic libs for 
+                      # unpackaged program here 
+                    ];
                 };
               };
 

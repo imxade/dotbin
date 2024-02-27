@@ -11,9 +11,7 @@
 with lib;
 
 {
-  meta = {
-    maintainers = [ maintainers.joachifm maintainers.emily ];
-  };
+  meta = { maintainers = [ maintainers.joachifm maintainers.emily ]; };
 
   boot.kernelPackages = mkDefault pkgs.linuxPackages_hardened;
 
@@ -23,7 +21,7 @@ with lib;
   environment.variables.SCUDO_OPTIONS = mkDefault "ZeroContents=1";
 
   # REBOOT after plugging in any device
-# security.lockKernelModules = mkDefault true;
+  # security.lockKernelModules = mkDefault true;
 
   security.protectKernelImage = mkDefault true;
 
@@ -32,7 +30,8 @@ with lib;
   security.forcePageTableIsolation = mkDefault true;
 
   # This is required by podman to run containers in rootless mode.
-  security.unprivilegedUsernsClone = mkDefault config.virtualisation.containers.enable;
+  security.unprivilegedUsernsClone =
+    mkDefault config.virtualisation.containers.enable;
 
   security.virtualisation.flushL1DataCache = mkDefault "always";
 
@@ -57,26 +56,26 @@ with lib;
     "rose"
 
     # Old or rare or insufficiently audited filesystems
-#   "adfs"
-#   "affs"
-#   "bfs"
-#   "befs"
-#   "cramfs"
-#   "efs"
-#   "erofs"
-#   "exofs"
-#   "freevxfs"
-#   "f2fs"
-#   "hfs"
-#   "hpfs"
-#   "jfs"
-#   "minix"
-#   "nilfs2"
-#   "omfs"
-#   "qnx4"
-#   "qnx6"
-#   "sysv"
-#   "ufs"
+    #   "adfs"
+    #   "affs"
+    #   "bfs"
+    #   "befs"
+    #   "cramfs"
+    #   "efs"
+    #   "erofs"
+    #   "exofs"
+    #   "freevxfs"
+    #   "f2fs"
+    #   "hfs"
+    #   "hpfs"
+    #   "jfs"
+    #   "minix"
+    #   "nilfs2"
+    #   "omfs"
+    #   "qnx4"
+    #   "qnx6"
+    #   "sysv"
+    #   "ufs"
   ];
 
   # Restrict ptrace() usage to processes with a pre-defined relationship
@@ -115,4 +114,4 @@ with lib;
   # Ignore outgoing ICMP redirects (this is ipv4 only)
   boot.kernel.sysctl."net.ipv4.conf.all.send_redirects" = mkDefault false;
   boot.kernel.sysctl."net.ipv4.conf.default.send_redirects" = mkDefault false;
-} 
+}
