@@ -190,7 +190,16 @@
                 };
               };
 
-              programs = { zsh = { enable = true; }; };
+              programs = {
+                zsh = { enable = true; };
+                nix-ld = {
+                  enable = true;
+                  libraries =  with pkgs; [
+                    # Add any missing dynamic libs for 
+                    # unpackaged program here 
+                  ];
+                }
+              };
 
               security = {
                 unprivilegedUsernsClone = true; # For flatpak
