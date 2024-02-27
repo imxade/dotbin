@@ -22,27 +22,13 @@
   # required to run chromium
   security = { chromiumSuidSandbox = { enable = true; }; };
 
-  # # enable firejail
-  # programs = {
-  #         firejail = {
-  #       	  enable = true;
-  #         };
-  # };
-
   services = {
-    # # enable antivirus clamav and
-    # # keep the signatures' database updated
-    # clamav = {
-    #         daemon = {
-    #       	  enable = true;
-    #         };
-    #         updater = {
-    #       	  enable = true;
-    #         };
-    # };
-    dbus = {
-      #				 enable = lib.mkForce false;
-      apparmor = "enabled";
+    # enable antivirus clamav and
+    # keep the signatures' database updated
+    clamav = {
+      daemon = { enable = false; };
+      updater = { enable = false; };
     };
+    dbus = { apparmor = "enabled"; };
   };
 }
