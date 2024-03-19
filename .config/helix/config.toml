@@ -6,7 +6,7 @@ theme = "fleet_dark"
 bufferline = "multiple"
 cursorcolumn = true
 cursorline = true
-mouse = true
+mouse = false
 auto-format = true
 
 [editor.cursor-shape]
