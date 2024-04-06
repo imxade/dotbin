@@ -23,6 +23,7 @@ e() {
 # alias
 alias \
   g="git" \
+  gc="git commit -m" \
   dot="g --git-dir=$HOME/.dot --work-tree=$HOME" \
   dcm="dot add -u; dot commit --amend -m" \
   t="trizen" \
