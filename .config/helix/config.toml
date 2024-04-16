@@ -63,4 +63,4 @@ X = ["extend_line_up", "extend_to_line_bounds"]
 k = "normal_mode" # `jk` to exit insert mode
 
 [keys.normal."space"]
-o = "file_picker_in_current_buffer_directory"
+F = "file_picker_in_current_buffer_directory"
