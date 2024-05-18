@@ -31,11 +31,6 @@
   services = {
     xserver = {
       enable = false;
-      # Configure DisplayManager
-      displayManager = {
-        defaultSession = "none+qtile";
-        lightdm = { enable = false; };
-      };
 
       # Configure DesktopManager
       desktopManager = {
@@ -43,7 +38,11 @@
           enable = false; # Do not install xterm
         };
       };
-
+    };
+    # Configure DisplayManager
+    displayManager = {
+      defaultSession = "none+qtile";
+      # lightdm = { enable = false; };
     };
   };
 }
