@@ -20,12 +20,12 @@
     ];
   };
 
-  sound = { # ALSA sound enable
-    enable = false;
-    mediaKeys = { # Keyboard Media Keys
-      enable = true;
-    };
-  };
+# sound = { # ALSA sound enable
+#   enable = false;
+#   mediaKeys = { # Keyboard Media Keys
+#     enable = true;
+#   };
+# };
 
   # Configure the X11 windowing system.
   services = {

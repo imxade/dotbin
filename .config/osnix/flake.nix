@@ -68,7 +68,7 @@
             ./${GUI}
 
             # Include Hardened Profile
-            ./rig/hard
+            # ./rig/hard
 
             # Include Development Profile
             ./dev
@@ -285,6 +285,7 @@
                   EDITOR = "nvim";
                   VISUAL = "nvim";
                   TERMINAL = "alacritty";
+                  LD_LIBRARY_PATH = "/run/opengl-driver/lib";
                 };
 
                 # List packages installed in system profile.
