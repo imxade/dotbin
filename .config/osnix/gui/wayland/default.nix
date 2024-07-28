@@ -45,5 +45,15 @@
       # lightdm = { enable = false; };
     };
   };
-}
 
+  xdg = {
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = [];
+      wlr = {
+        enable = true;
+      };
+    };
+  };
+}
