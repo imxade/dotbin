@@ -282,10 +282,10 @@
               environment = {
                 # Define Environment System Wide variables
                 variables = {
-                  EDITOR = "nvim";
-                  VISUAL = "nvim";
-                  TERMINAL = "alacritty";
-                  LD_LIBRARY_PATH = "/run/opengl-driver/lib";
+                  # fixes libstdc++ issues and libgl.so issues
+                  LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/:/run/opengl-driver/lib/";
+                  # fixes xcb issues :
+                  QT_PLUGIN_PATH="${pkgs.qt5.qtbase}/${pkgs.qt5.qtbase.qtPluginPrefix}";
                 };
 
                 # List packages installed in system profile.
