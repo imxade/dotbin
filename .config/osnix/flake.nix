@@ -162,10 +162,10 @@
               };
 
               # System Fonts
-              fonts = {
-                packages = with pkgs;
-                  [ (nerdfonts.override { fonts = [ "Hermit" ]; }) ];
-              };
+              fonts.packages = [
+                pkgs.nerd-fonts.hurmit
+              ];
+
 
               # Define a user account.
               users = {
@@ -331,7 +331,7 @@
                 };
 
                 # Enable Exprimental Flakes, 
-                package = pkgs.nixFlakes;
+                package = pkgs.nixVersions.stable;
                 extraOptions =
                   "		keep-outputs 		= true\n		keep-derivations	= true\n		experimental-features 	= nix-command flakes #fix if enabled by default\n        ";
               };
