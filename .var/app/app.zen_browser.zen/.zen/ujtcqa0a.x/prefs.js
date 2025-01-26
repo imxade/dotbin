@@ -50,6 +50,7 @@ user_pref("browser.startup.couldRestoreSession.count", 1);
 user_pref("browser.startup.homepage_override.buildID", "20250122122842");
 user_pref("browser.startup.homepage_override.mstone", "134.0.2");
 user_pref("browser.startup.lastColdStartupCheck", 1737793488);
+user_pref("browser.tabs.allow_transparent_browser", true);
 user_pref("browser.tabs.groups.enabled", true);
 user_pref("browser.theme.content-theme", 0);
 user_pref("browser.theme.toolbar-theme", 0);
