@@ -21,6 +21,7 @@ user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.bookmarks.addedImportButton", true);
 user_pref("browser.bookmarks.restore_default_bookmarks", false);
 user_pref("browser.contentblocking.category", "strict");
+user_pref("browser.display.document_color_use", 2);
 user_pref("browser.download.viewableInternally.typeWasRegistered.avif", true);
 user_pref("browser.download.viewableInternally.typeWasRegistered.jxl", true);
 user_pref("browser.download.viewableInternally.typeWasRegistered.webp", true);
