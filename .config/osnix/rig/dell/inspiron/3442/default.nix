@@ -64,7 +64,7 @@
           ControllerMode = "bredr";
           # Bluetooth device always visible
           #			    DiscoverableTimeout = "0";
-        # };
+        };
       };
     };
     graphics = {
