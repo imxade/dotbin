@@ -51,7 +51,6 @@
 
   hardware = {
     # enableAllFirmware = true;
-    enableRedistributableFirmware = true;
     # Enable Bluetooth
     bluetooth = {
       enable = true;
@@ -65,16 +64,13 @@
           ControllerMode = "bredr";
           # Bluetooth device always visible
           #			    DiscoverableTimeout = "0";
-        };
+        # };
       };
     };
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
-        intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        #		  vaapiIntel         		# LIBVA_DRIVER_NAME=i965 (older but better for browsers)
-        vaapiVdpau
-        libvdpau-va-gl
+        intel-vaapi-driver # LIBVA_DRIVER_NAME=iHD
       ];
     };
   };
