@@ -50,7 +50,7 @@
   };
 
   hardware = {
-    # enableAllFirmware = true;
+    enableAllFirmware = true;
     # Enable Bluetooth
     bluetooth = {
       enable = true;
