@@ -20,13 +20,16 @@
       # wasm3
       wasmtime
       # wasmedge
-      container2wasm
+      # container2wasm
 
       # Editor
       # helix
 
       # Monitor
       bottom
+
+      # Utility
+      zoxide
 
       # LSP
       # lldb
