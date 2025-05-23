@@ -13,10 +13,6 @@
       gammastep # Manage Screen Color Temperature
       #		brave		# Browser
       #		swtpm		# Virtual TPM
-      slurp # wayland region selector
-      grim # wayland screenshot
-      wf-recorder # wayland screen recorder
-      wl-clipboard # wayland clipboard
     ];
   };
 
