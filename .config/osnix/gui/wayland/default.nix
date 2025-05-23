@@ -39,11 +39,6 @@
         };
       };
     };
-    # Configure DisplayManager
-    displayManager = {
-      defaultSession = "none+qtile";
-      # lightdm = { enable = false; };
-    };
   };
 
   xdg = {
