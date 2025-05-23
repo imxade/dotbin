@@ -10,5 +10,10 @@
       # Configure WindowManager
       windowManager = { qtile = { enable = true; }; };
     };
+    # Configure DisplayManager
+    displayManager = {
+      defaultSession = "none+qtile";
+      # lightdm = { enable = false; };
+    };
   };
 }
