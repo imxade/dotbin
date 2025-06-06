@@ -10,14 +10,15 @@
     # master channel for packages on the edge
     nixmaster = { url = "github:NixOS/nixpkgs"; };
 
+    # hardware channel
+    nixos-hardware = { url = "github:nixos/nixos-hardware"; };
+
     # enable home-manager
     home-manager = {
       url = "github:nix-community/home-manager/master";
       # tell home manager to use the nixpkgs channel set above.
       inputs = { nixpkgs = { follows = "nixpkgs"; }; };
     };
-
-    nixos-hardware = { url = "github:nixos/nixos-hardware"; };
   };
 
   # Tell Flake what to use and what to do with the dependencies.
@@ -62,6 +63,7 @@
             ./hardware-configuration.nix
 
             # Include Machine Profile
+            # nixos-hardware.nixosModules.${RIG}
             ./${RIG}
 
             # Include GUI Profile
@@ -327,7 +329,8 @@
                 gc = {
                   automatic = true;
                   dates = "weekly";
-                  options = "--delete-older-than 7d";
+                  options = "--delete-older-than +10";
+                  # options = "--delete-older-than 7d";
                 };
 
                 # Enable Exprimental Flakes, 

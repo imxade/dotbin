@@ -42,3 +42,5 @@ bindkey -s '^O' " & disown && exit\n"
 . "$HOME"/.themes/zsh/comfyline.zsh-theme
 # guix
 . .config/shell/scripts/guix.sh &> /dev/null
+# zoxide
+eval "$(zoxide init zsh)"

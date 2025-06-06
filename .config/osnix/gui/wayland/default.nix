@@ -13,10 +13,6 @@
       gammastep # Manage Screen Color Temperature
       #		brave		# Browser
       #		swtpm		# Virtual TPM
-      slurp # wayland region selector
-      grim # wayland screenshot
-      wf-recorder # wayland screen recorder
-      wl-clipboard # wayland clipboard
     ];
   };
 
@@ -38,11 +34,6 @@
           enable = false; # Do not install xterm
         };
       };
-    };
-    # Configure DisplayManager
-    displayManager = {
-      defaultSession = "none+qtile";
-      # lightdm = { enable = false; };
     };
   };
 
