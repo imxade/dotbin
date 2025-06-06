@@ -32,6 +32,7 @@ pipewire-pulse &
 
 # launch graphical session
 # exec dbus-launch --sh-syntax --exit-with-session qtile start -b wayland \
-dbus-run-session -- qtile start -b wayland \
+dbus-run-session -- cosmic-session \
+  || qtile start -b wayland \
   || sx sh "$HOME"/.config/x11/xinitrc \
   || startx "$HOME"/.config/x11/xinitrc
