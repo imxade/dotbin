@@ -30,21 +30,6 @@
   };
 
   services = {
-    logind = {
-      lidSwitch = "ignore"; # Do not Suspend when Lid is Closed
-    };
-    tlp = {
-      enable = true; # enable tlp recommended for laptops
-      settings = { };
-    };
-    pipewire = { # Pipewire for Audio
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      pulse = { enable = true; };
-    };
     fwupd = { enable = true; };
     thermald = { enable = true; };
   };
