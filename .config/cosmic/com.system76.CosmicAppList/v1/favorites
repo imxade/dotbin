@@ -4,6 +4,5 @@
     "com.system76.CosmicEdit",
     "com.system76.CosmicStore",
     "com.system76.CosmicSettings",
-    "com.system76.CosmicPlayer",
-    "app.zen_browser.zen",
+    "com.brave.Browser",
 ]

@@ -39,12 +39,12 @@
 
   xdg = {
     portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      extraPortals = [];
-      wlr = {
-        enable = true;
-      };
+      extraPortals = with pkgs; [
+        # xdg-desktop-portal-cosmic
+        # xdg-desktop-portal-gtk
+      ];
+      # config.common.default = "*";
+      # wlr.enable = true;
     };
   };
 }
