@@ -38,6 +38,8 @@
   };
 
   programs = { home-manager = { enable = true; }; };
+  systemd.user.enable = true;
+  xdg.enable = true;
 
 }
 
