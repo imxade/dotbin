@@ -52,14 +52,17 @@
         ${HOST} = lib.nixosSystem {
           inherit system pkgs;
           modules = [
-            # If Path to File is specified, it will be imported
-            # If Path to Directory is specified, 'default.nix' inside that will be imported
+            /*
+             If Path to File is specified, it will be imported
+             If Path to Directory is specified, 'default.nix' inside that will be imported
 
-            # add model from this list: github.com/NixOS/nixos-hardware/blob/master/flake.nix
-            #		    nixos-hardware.nixosModules.dell-xps-13-9380
+             add model from this list: github.com/NixOS/nixos-hardware/blob/master/flake.nix
+            		    nixos-hardware.nixosModules.dell-xps-13-9380
 
-            # Include the results of the hardware scan.
-            #	      	    /etc/nixos/hardware-configuration.nix
+             Include the results of the hardware scan.
+             /etc/nixos/hardware-configuration.nix
+            */
+            
             ./hardware-configuration.nix
 
             # Include Machine Profile
@@ -111,44 +114,41 @@
               networking = {
                 hostName = "${HOST}"; # Define your hostname.
                 nameservers = [ "9.9.9.9" ];
-                #			dhcpcd      = {
-                #				enable = true;
-                #				wait   = "background";
-                #			};
-                #	      	       	wireless = {
-                #	      	       		enable = true;  # Enables wireless support via wpa_supplicant
-                #				iwd = {
-                #					enable = true; # use iwd for wireless support
-                #				};
-                #	      	       	};
+                /*
+                	dhcpcd      = {
+                		enable = true;
+                		wait   = "background";
+                	};
+                     	       	wireless = {
+                     	       		enable = true;  # Enables wireless support via wpa_supplicant
+                		iwd = {
+                			enable = true; # use iwd for wireless support
+                		};
+                     	       	};
+                */
                 networkmanager = {
                   enable = true;
-                  #				wifi = {
-                  #					backend = "iwd"; # iwd instead of wpa_supplicant for wifi
-                  #				};
+                  /*
+                  	wifi = {
+                  		backend = "iwd"; # iwd instead of wpa_supplicant for wifi
+                  	};
+                  */
                 };
-                #			resolvconf = { #fix disable openresolv
-                #				package = {};
-                #			};
 
                 # The global useDHCP flag is deprecated, therefore explicitly set to false here.
                 # Per-interface useDHCP will be mandatory in the future, so this generated config
                 # replicates the default behaviour.
                 useDHCP = false;
                 interfaces = {
-                  #	      	       		eth0 	  = {
-                  #	      	       			useDHCP = true;
-                  #	      	       		};
-                  #	      	       		wlan0 	  = {
-                  #	      	       			useDHCP = true;
-                  #	      	       		};
+                /*
+                 	eth0 	  = {
+                 		useDHCP = true;
+                 	};
+                 	wlan0 	  = {
+                 		useDHCP = true;
+                 	};
+                */
                 };
-
-                # Configure network proxy if necessary
-                #	      	       	proxy	   = {
-                #	      	       		default = "http://user:password@proxy:port/";
-                #	      	       		noProxy = "127.0.0.1,localhost,internal.domain";
-                #	      	       	};
               };
 
               time = {
@@ -173,7 +173,7 @@
               users = {
                 users = {
                   ${USER} = {
-                    #	      	       		  initialPassword	= "password";	# Password for the user
+                    # initialPassword	= "password";	# Password for the user
                     isNormalUser = true;
                     extraGroups = [
                       "seat"
@@ -207,35 +207,26 @@
 
               security = {
                 unprivilegedUsernsClone = true; # For flatpak
-                # sudo = {
-                #   enable = false; # Disable sudo
-                # };
+                /*
+                sudo = {
+                  enable = false; # Disable sudo
+                };
+                */
                 rtkit = { enable = true; };
               };
 
               # Configure SystemWide services
               services = {
                 getty = { autologinUser = "${USER}"; };
+                /*
+                 dbus = {
+                   #				 enable = lib.mkForce false;
+                   apparmor = "enabled";
+                 };
 
-                # dbus = {
-                #   #				 enable = lib.mkForce false;
-                #   apparmor = "enabled";
-                # };
-
-                #	      	               # Enable CUPS to print documents.
-                #	      	               printing = {
-                #	      	       		enable = true;
-                #	      	               };
-
-                #			       # Sound
-                #			       pipewire = {
-                #			         enable = true;
-                #			         alsa = {
-                #			           enable = true;
-                #			           support32Bit = true;
-                #			         };
-                #			         pulse.enable = true;
-                #			       };
+                 # Enable CUPS to print documents.
+                 printing.enable = true;
+                */
 
                 # Enable the OpenSSH daemon.
                 openssh = {
@@ -297,6 +288,8 @@
                   gawk # Text processing Language
                   neovim # Text Editor
                   libarchive # bsdtar : Utility to work with archives
+                  zoxide
+                  bottom
                 ];
 
                 # Create file /etc/current-system-packages with List of all Packages
@@ -312,14 +305,6 @@
                   };
                 };
               };
-
-              #			environment.etc."current-system-packages".text =
-              #			let
-              #			packages = builtins.map (p: "${p.name}") config.environment.systemPackages;
-              #			sortedUnique = builtins.sort builtins.lessThan (lib.unique packages);
-              #			formatted = builtins.concatStringsSep "\n" sortedUnique;
-              #			in
-              #			formatted;
 
               nix = {
                 # Enable Automatic Optimisation.
@@ -358,6 +343,7 @@
               };
             })
 
+            /*
             # User Specific home-manager Profile
             home-manager.nixosModules.home-manager
             {
@@ -377,6 +363,7 @@
                 };
               };
             }
+            */
           ];
         };
       };
