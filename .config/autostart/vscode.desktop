@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=VSCode Autostart
+Exec=flatpak run com.vscodium.codium
+Comment=Start VSCode on login

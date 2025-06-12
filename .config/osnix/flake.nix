@@ -13,6 +13,9 @@
     # hardware channel
     nixos-hardware = { url = "github:nixos/nixos-hardware"; };
 
+    # Declaratve flatpak
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
     # enable home-manager
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -22,7 +25,7 @@
   };
 
   # Tell Flake what to use and what to do with the dependencies.
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, nix-flatpak, ... }@inputs:
 
     # The following Variables are defined for the Ease of Modification.
     let
@@ -77,6 +80,9 @@
 
             # Include Development Profile
             ./dev
+
+            # Declarative flatpak module
+            nix-flatpak.nixosModules.nix-flatpak
 
             # configuration.nix : Universal System Configuration for all Profiles
             ({ lib, pkgs, config, system, nixpkgs, ... }: {
@@ -176,17 +182,19 @@
                     # initialPassword	= "password";	# Password for the user
                     isNormalUser = true;
                     extraGroups = [
+                      "audio"
+                      "camera"
+                      "docker"
+                      "fuse"
+                      "input"
+                      "libvirt"
+                      "networkmanager"
+                      "podman"
+                      "scanner"
                       "seat"
                       "seatd"
-                      "wheel"
-                      "audio"
                       "video"
-                      "input"
-                      "camera"
-                      "scanner"
-                      "libvirt"
-                      "docker"
-                      "networkmanager"
+                      "wheel"
                     ];
                     shell = pkgs.zsh; # Default shell
                   };
@@ -268,7 +276,9 @@
                 portal = {
                   enable = true; # Required by flatpak
                   xdgOpenUsePortal = true;
-
+                };
+                autostart = {
+                  enable = true;
                 };
               };
 
@@ -286,7 +296,7 @@
                 systemPackages = with pkgs; [
                   git # To take Care of Git repositories
                   gawk # Text processing Language
-                  neovim # Text Editor
+                  evil-helix # Text Editor
                   libarchive # bsdtar : Utility to work with archives
                   zoxide
                   bottom

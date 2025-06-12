@@ -35,8 +35,47 @@
         };
       };
     };
+
+    # Flatpak service
+    flatpak = {
+      uninstallUnmanaged = true;
+      update.auto = {
+        enable = true;
+        onCalendar = "weekly"; # Default value
+      };
+
+      packages = [
+        "com.brave.Browser"
+        "com.github.tchx84.Flatseal"
+        "org.gnome.Boxes"
+        "dev.zed.Zed-Preview"
+        /*
+        "org.wezfurlong.wezterm"
+
+        "com.github.d4nj1.tlpui"
+        "org.blender.Blender"
+        "io.mpv.Mpv"
+        "org.ryujinx.Ryujinx"
+        "com.github.xournalpp.xournalpp"
+        "net.lutris.Lutris"
+        "org.cubocore.CoreKeyboard"
+        "com.obsproject.Studio "
+
+        "io.neovim.nvim"
+        "dev.lapce.lapce"
+        "com.vscodium.codium"
+
+        "com.helix_editor.Helix"
+        "org.freedesktop.Sdk.Extension.typescript"
+        "org.freedesktop.Sdk.Extension.rust-stable"
+        "org.freedesktop.Sdk.Extension.llvm20"
+        "org.freedesktop.Sdk.Extension.node24"
+        */
+      ];
+    };
   };
 
+/*
   xdg = {
     portal = {
       extraPortals = with pkgs; [
@@ -47,4 +86,6 @@
       # wlr.enable = true;
     };
   };
+*/
+
 }
