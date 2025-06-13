@@ -8,4 +8,9 @@
   services = {
     desktopManager.cosmic.enable = true;
   };
+
+  environment.cosmic.excludePackages = with pkgs; [
+    cosmic-term
+    cosmic-edit
+  ];
 }

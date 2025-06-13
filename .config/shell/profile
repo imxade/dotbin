@@ -16,10 +16,9 @@ export MOZ_LOG="PlatformDecoderModule:5"
 export LANG="en_US.UTF-8"
 export LC_ALL="C"
 export PATH=$PATH:~/.local/bin:~/.nimble/bin
-export TERM="alacritty"
 export FLATPAK_ENABLE_SDK_EXT=*
-export EDITOR="hx" 
-# export COSMIC_DATA_CONTROL_ENABLED=1
+export EDITOR="e" 
+export COSMIC_DATA_CONTROL_ENABLED=1
 # export SOCKS_PROXY="socks5://127.0.0.1:9050"
 
 # Set default Browser

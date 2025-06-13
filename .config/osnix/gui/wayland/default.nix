@@ -2,26 +2,33 @@
 
 {
   environment = {
-    # Define Environment xorg wide variables
-    variables = { TERMINAL = "alacritty"; };
-
     # List packages installed in xorg profile.
     systemPackages = with pkgs; [
-      #		seatd		# elogind Replacement
       exiftool # Manipulate Metadata
-      alacritty # Terminal Emulator
+      wezterm
       gammastep # Manage Screen Color Temperature
-      #		brave		# Browser
-      #		swtpm		# Virtual TPM
+      /*
+      alacritty
+      lapce
+      seatd  # elogind Replacement
+      brave		# Browser
+      swtpm		# Virtual TPM
+      */
     ];
+
+    shellAliases = {
+      e="flatpak run com.helix_editor.Helix";
+    };
   };
 
-# sound = { # ALSA sound enable
-#   enable = false;
-#   mediaKeys = { # Keyboard Media Keys
-#     enable = true;
-#   };
-# };
+  /*
+  sound = { # ALSA sound enable
+    enable = false;
+    mediaKeys = { # Keyboard Media Keys
+      enable = true;
+    };
+  };
+  */
 
   # Configure the X11 windowing system.
   services = {
@@ -38,6 +45,7 @@
 
     # Flatpak service
     flatpak = {
+      enable = true;
       uninstallUnmanaged = true;
       update.auto = {
         enable = true;
@@ -48,7 +56,7 @@
         "com.brave.Browser"
         "com.github.tchx84.Flatseal"
         "org.gnome.Boxes"
-        "com.vscodium.codium"
+        "com.helix_editor.Helix"
         /*
         "org.wezfurlong.wezterm"
 
@@ -64,8 +72,8 @@
         "io.neovim.nvim"
         "dev.lapce.lapce"
         "dev.zed.Zed-Preview"
+        "com.vscodium.codium"
 
-        "com.helix_editor.Helix"
         "org.freedesktop.Sdk.Extension.typescript"
         "org.freedesktop.Sdk.Extension.rust-stable"
         "org.freedesktop.Sdk.Extension.llvm20"
@@ -75,17 +83,14 @@
     };
   };
 
-/*
   xdg = {
     portal = {
+      enable = true;
       extraPortals = with pkgs; [
         # xdg-desktop-portal-cosmic
         xdg-desktop-portal-gtk
       ];
       config.common.default = "*";
-      # wlr.enable = true;
     };
   };
-*/
-
 }

@@ -201,8 +201,6 @@
                 };
               };
 
-              xdg.portal.enable = true;
-
               programs = {
                 zsh = { enable = true; };
                 nix-ld = {
@@ -234,9 +232,6 @@
                   allowSFTP = true;
                   extraConfig = "  HostKeyAlgorithms +ssh-rsa\n";
                 };
-
-                # Enable Flatpak
-                flatpak.enable = true;
 
                 # Enable Tor proxy
                 tor = {
@@ -278,7 +273,7 @@
                 systemPackages = with pkgs; [
                   git # To take Care of Git repositories
                   gawk # Text processing Language
-                  evil-helix # Text Editor
+                  # evil-helix # Text Editor
                   libarchive # bsdtar : Utility to work with archives
                   zoxide
                   bottom

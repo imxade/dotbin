@@ -21,7 +21,7 @@ from libqtile.backend.wayland import InputConfig
 from time import sleep
 
 mod = "mod4"
-terminal = "alacritty"
+terminal = "wezterm"
 HOME = os.path.expanduser("~")
 SCRIPTS_DIR = f"{HOME}/.config/shell/scripts"
 
