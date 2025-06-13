@@ -222,9 +222,13 @@
 
               # Configure SystemWide services
               services = {
-                getty = { autologinUser = "${USER}"; };
-                 # Enable CUPS to print documents.
-                 # printing.enable = true;
+                getty.autologinUser = "${USER}";
+                displayManager.autoLogin = {
+                  enable = true;
+                  user = "${USER}";
+                };
+                # Enable CUPS to print documents.
+                # printing.enable = true;
 
                 # Enable the OpenSSH daemon.
                 openssh = {
