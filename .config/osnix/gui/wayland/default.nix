@@ -48,7 +48,7 @@
         "com.brave.Browser"
         "com.github.tchx84.Flatseal"
         "org.gnome.Boxes"
-        "dev.zed.Zed-Preview"
+        "com.vscodium.codium"
         /*
         "org.wezfurlong.wezterm"
 
@@ -63,7 +63,7 @@
 
         "io.neovim.nvim"
         "dev.lapce.lapce"
-        "com.vscodium.codium"
+        "dev.zed.Zed-Preview"
 
         "com.helix_editor.Helix"
         "org.freedesktop.Sdk.Extension.typescript"

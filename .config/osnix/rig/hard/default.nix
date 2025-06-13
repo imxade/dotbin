@@ -1,34 +1,18 @@
-{ lib, pkgs, config, nixpkgs, ... }:
+{ config, pkgs, lib, modulesPath, ... }:
 
 {
   imports = [
-    # Include Official Hardened Profile
-    ./hardened.nix
+    "${modulesPath}/profiles/hardened.nix"
   ];
 
-  # enable firewall and block all ports
-  networking = {
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
-    };
+  security = {
+    lockKernelModules = lib.mkForce true;
+    allowSimultaneousMultithreading = lib.mkForce false;
   };
 
-  # disable coredump that could be exploited later
-  # and also slow down the system when something crash
-  systemd = { coredump = { enable = false; }; };
-
-  # required to run chromium
-  security = { chromiumSuidSandbox = { enable = true; }; };
-
-  services = {
-    # enable antivirus clamav and
-    # keep the signatures' database updated
-    clamav = {
-      daemon = { enable = false; };
-      updater = { enable = false; };
-    };
-    dbus = { apparmor = "enabled"; };
-  };
+  boot.blacklistedKernelModules = [
+    "ax25"
+    "netrom"
+    "rose"
+  ];
 }

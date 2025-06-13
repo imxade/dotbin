@@ -76,7 +76,7 @@
             ./${GUI}
 
             # Include Hardened Profile
-            # ./rig/hard
+            ./rig/hard
 
             # Include Development Profile
             ./dev
@@ -217,26 +217,16 @@
 
               security = {
                 unprivilegedUsernsClone = true; # For flatpak
-                /*
-                sudo = {
-                  enable = false; # Disable sudo
-                };
-                */
-                rtkit = { enable = true; };
+                apparmor.enable = lib.mkForce false;
+                rtkit.enable = true;
+                # sudo.enable = false; # Disable sudo
               };
 
               # Configure SystemWide services
               services = {
                 getty = { autologinUser = "${USER}"; };
-                /*
-                 dbus = {
-                   #				 enable = lib.mkForce false;
-                   apparmor = "enabled";
-                 };
-
                  # Enable CUPS to print documents.
-                 printing.enable = true;
-                */
+                 # printing.enable = true;
 
                 # Enable the OpenSSH daemon.
                 openssh = {
