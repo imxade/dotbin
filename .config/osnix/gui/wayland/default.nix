@@ -17,7 +17,7 @@
     ];
 
     shellAliases = {
-      e="flatpak run com.helix_editor.Helix";
+      hx="flatpak run --env=PATH=/app/bin:/usr/bin:~/.local/bin com.helix_editor.Helix";
     };
   };
 
