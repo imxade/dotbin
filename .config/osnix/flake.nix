@@ -201,6 +201,8 @@
                 };
               };
 
+              xdg.portal.enable = true;
+
               programs = {
                 zsh = { enable = true; };
                 nix-ld = {
@@ -244,7 +246,7 @@
                 };
 
                 # Enable Flatpak
-                flatpak = { enable = true; };
+                flatpak.enable = true;
 
                 # Enable Tor proxy
                 tor = {
@@ -269,16 +271,6 @@
                     ClientTransportPlugin =
                       "obfs4 exec ${pkgs.obfs4}/bin/obfs4proxy";
                   };
-                };
-              };
-
-              xdg = {
-                portal = {
-                  enable = true; # Required by flatpak
-                  xdgOpenUsePortal = true;
-                };
-                autostart = {
-                  enable = true;
                 };
               };
 

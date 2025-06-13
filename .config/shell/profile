@@ -19,10 +19,11 @@ export PATH=$PATH:~/.local/bin:~/.nimble/bin
 export TERM="alacritty"
 export FLATPAK_ENABLE_SDK_EXT=*
 export EDITOR="hx" 
-export COSMIC_DATA_CONTROL_ENABLED=1
-export NIXOS_XDG_OPEN_USE_PORTAL=1
-# export GTK_USE_PORTAL=1
+# export COSMIC_DATA_CONTROL_ENABLED=1
 # export SOCKS_PROXY="socks5://127.0.0.1:9050"
+
+# Set default Browser
+xdg-settings set default-web-browser com.brave.Browser.desktop
 
 # enable pipewire
 #pipewire &
