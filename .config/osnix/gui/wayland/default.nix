@@ -7,6 +7,7 @@
       exiftool # Manipulate Metadata
       wezterm
       gammastep # Manage Screen Color Temperature
+      zed-editor-fhs
       /*
       alacritty
       lapce
