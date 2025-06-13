@@ -16,8 +16,8 @@
   },
   "base_keymap": "VSCode",
   "theme": "One Dark",
-  "ui_font_size": 16,
-  "buffer_font_size": 14,
+  "ui_font_size": 13,
+  "buffer_font_size": 13,
   // Finder model width
   "file_finder": {
     "modal_width": "medium"
@@ -116,13 +116,13 @@
         "overrideName": true
       }
     }
-    */
     "shell": {
       "with_arguments": {
         "program": "/usr/bin/flatpak-spawn",
         "args": ["--host", "zsh"]
       }
     }
+    */
   },
   // File syntax highlighting
   "file_types": {
