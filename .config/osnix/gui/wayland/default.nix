@@ -7,8 +7,8 @@
       exiftool # Manipulate Metadata
       wezterm
       gammastep # Manage Screen Color Temperature
-      zed-editor-fhs
       /*
+      zed-editor-fhs
       alacritty
       lapce
       seatd  # elogind Replacement
@@ -17,9 +17,7 @@
       */
     ];
 
-    shellAliases = {
-      hx="flatpak run --env=PATH=/app/bin:/usr/bin:~/.local/bin com.helix_editor.Helix";
-    };
+    # shellAliases = { hx="flatpak run --env=PATH=/app/bin:/usr/bin:~/.local/bin com.helix_editor.Helix"; };
   };
 
   /*
@@ -57,7 +55,7 @@
         "com.brave.Browser"
         "com.github.tchx84.Flatseal"
         "org.gnome.Boxes"
-        "com.helix_editor.Helix"
+        "dev.zed.Zed-Preview"
         /*
         "org.wezfurlong.wezterm"
 
@@ -70,9 +68,9 @@
         "org.cubocore.CoreKeyboard"
         "com.obsproject.Studio "
 
+        "com.helix_editor.Helix"
         "io.neovim.nvim"
         "dev.lapce.lapce"
-        "dev.zed.Zed-Preview"
         "com.vscodium.codium"
 
         "org.freedesktop.Sdk.Extension.typescript"

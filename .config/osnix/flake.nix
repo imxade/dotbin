@@ -277,7 +277,7 @@
                 systemPackages = with pkgs; [
                   git # To take Care of Git repositories
                   gawk # Text processing Language
-                  # evil-helix # Text Editor
+                  evil-helix # Text Editor
                   libarchive # bsdtar : Utility to work with archives
                   zoxide
                   bottom
