@@ -5,7 +5,7 @@
   # SwapFile
   swapDevices = [{
     device = "/.swap";
-    size = 5 * 1024;
+    size = 8 * 1024;
   }];
 
   environment = {
@@ -21,33 +21,11 @@
     ];
   };
 
-  hardware = {
-    # Enable Bluetooth
-    bluetooth = {
-      enable = true;
-      settings = {
-        Policy = {
-          # Auto Enable Bluetooth
-          AutoEnable = "true";
-        };
-        /*
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-          ControllerMode = "bredr";
-          # Bluetooth device always visible
-          # DiscoverableTimeout = "0";
-        };
-        */
-      };
-    };
-  };
-  
-  /*
   networking = {
     interfaces = {
-      wlp6s0 	  = {
-      useDHCP = true;
-      };
+      #	   	wlp6s0 	  = {
+      #	   	useDHCP = true;
+      #	   	};
     };
   };
 
@@ -58,6 +36,22 @@
 
   hardware = {
     enableAllFirmware = true;
+    # Enable Bluetooth
+    bluetooth = {
+      enable = true;
+      settings = {
+        Policy = {
+          # Auto Enable Bluetooth
+          AutoEnable = "true";
+        };
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+          ControllerMode = "bredr";
+          # Bluetooth device always visible
+          #			    DiscoverableTimeout = "0";
+        };
+      };
+    };
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
@@ -80,5 +74,4 @@
       # "acpi_osi=!acpi_osi=\"Windows 2009\""
     ];
   };
-  */
 }
