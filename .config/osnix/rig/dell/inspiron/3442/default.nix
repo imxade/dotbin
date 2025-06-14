@@ -1,6 +1,10 @@
 { lib, pkgs, config, ... }:
 
 {
+  imports = [
+    inputs.nixos-hardware.nixosModules.dell-inspiron-3442
+    # nixos-hardware.nixosModules.dell-inspiron-3442
+  ];
 
   # SwapFile
   swapDevices = [{
