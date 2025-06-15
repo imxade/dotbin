@@ -10,11 +10,12 @@
     # master channel for packages on the edge
     nixmaster = { url = "github:NixOS/nixpkgs"; };
 
-    # hardware channel
-    nixos-hardware = { url = "github:nixos/nixos-hardware"; };
-
     # Declaratve flatpak
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
+    /*
+    # hardware channel
+    nixos-hardware = { url = "github:nixos/nixos-hardware"; };
 
     # enable home-manager
     home-manager = {
@@ -22,10 +23,12 @@
       # tell home manager to use the nixpkgs channel set above.
       inputs = { nixpkgs = { follows = "nixpkgs"; }; };
     };
+    */
   };
 
   # Tell Flake what to use and what to do with the dependencies.
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, nix-flatpak, ... }@inputs:
+  # outputs = { self, nixpkgs, home-manager, nixos-hardware, nix-flatpak, ... }@inputs:
+  outputs = { self, nixpkgs, nix-flatpak, ... }@inputs:
 
     # The following Variables are defined for the Ease of Modification.
     let
@@ -58,9 +61,6 @@
             /*
              If Path to File is specified, it will be imported
              If Path to Directory is specified, 'default.nix' inside that will be imported
-
-             add model from this list: github.com/NixOS/nixos-hardware/blob/master/flake.nix
-            		    nixos-hardware.nixosModules.dell-xps-13-9380
 
              Include the results of the hardware scan.
              /etc/nixos/hardware-configuration.nix

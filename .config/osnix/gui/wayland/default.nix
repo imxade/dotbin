@@ -92,4 +92,26 @@
       config.common.default = "*";
     };
   };
+  
+  hardware = {
+    # Enable Bluetooth
+    bluetooth = {
+      enable = true;
+      settings = {
+        Policy = {
+          # Auto Enable Bluetooth
+          AutoEnable = "true";
+        };
+        /*
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+          ControllerMode = "bredr";
+          # Bluetooth device always visible
+          # DiscoverableTimeout = "0";
+        };
+        */
+      };
+    };
+  };
 }
+
