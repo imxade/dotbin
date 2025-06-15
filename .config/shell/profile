@@ -2,24 +2,29 @@
 
 # set env variables
 # export XDG_RUNTIME_DIR="$(mktemp -d $HOME/box/run.XXXXXXXXX)"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_SESSION_TYPE=wayland
-export WLR_LIBINPUT_NO_DEVICES=1
-export WLR_NO_HARDWARE_CURSORS=1
-export MOZ_DISABLE_RDD_SANDBOX=1
-export MOZ_ENABLE_WAYLAND=1
-export MOZ_USE_XINPUT2=1
-export MOZ_DBUS_REMOTE=1
-export MOZ_LOG="PlatformDecoderModule:5"
-export LANG="en_US.UTF-8"
-export LC_ALL="C"
-export PATH=$PATH:~/.local/bin:~/.nimble/bin
-export FLATPAK_ENABLE_SDK_EXT=*
-export EDITOR="e" 
-export COSMIC_DATA_CONTROL_ENABLED=1
-# export SOCKS_PROXY="socks5://127.0.0.1:9050"
+export \
+  XDG_DATA_HOME="$HOME/.local/share" \
+  XDG_CONFIG_HOME="$HOME/.config" \
+  XDG_CACHE_HOME="$HOME/.cache" \
+  XDG_SESSION_TYPE=wayland \
+  WLR_LIBINPUT_NO_DEVICES=1 \
+  WLR_NO_HARDWARE_CURSORS=1export PATH=$PATH:~/.local/bin:~/.nimble/bin \
+  GDK_BACKEND=wayland,x11 \
+  FLATPAK_ENABLE_SDK_EXT=* \
+  EDITOR="e" \
+
+#  MOZ_DISABLE_RDD_SANDBOX=1 \
+#  MOZ_ENABLE_WAYLAND=1 \
+#  MOZ_USE_XINPUT2=1 \
+#  MOZ_DBUS_REMOTE=1 \
+#  MOZ_LOG="PlatformDecoderModule:5" \
+#  LANG="en_US.UTF-8" \
+#  SOCKS_PROXY="socks5://127.0.0.1:9050" \
+
+# Cosmic-Desktop
+export \
+  COSMIC_DATA_CONTROL_ENABLED=1 \
+  XDG_CURRENT_DESKTOP=COSMIC \
 
 # Set default Browser
 xdg-settings set default-web-browser com.brave.Browser.desktop
