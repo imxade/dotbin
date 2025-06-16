@@ -43,7 +43,7 @@
       DISK = Toml.DISK; # Disk for Boot Loader
       RUID = Toml.RUID; # UUID of Root device, For Hibernate
       FUID = Toml.FUID; # UUID of Fat partition holding grub.cfg
-      OFFSET = Toml.OFFSET; # Offset value of swapfile, For Hibernate
+      # OFFSET = Toml.OFFSET; # Offset value of swapfile, For Hibernate
       TOR_BRIDGE = Toml.TOR_BRIDGE; # Bridge line for tor daemon
       system = Toml.system; # Platform Architecture
       lib = nixpkgs.lib;
@@ -75,7 +75,7 @@
             # Include GUI Profile
             ./${GUI}
 
-            # Include Hardened Profile
+            # Include Hardened Profile [Disables hibernation]
             ./rig/hard
 
             # Include Development Profile
@@ -92,8 +92,9 @@
               };
               boot = {
                 # Hibernate Options
-                kernelParams = [ "resume_offset=${OFFSET}" ];
+                # kernelParams = [ "resume_offset=${OFFSET}" ];
                 resumeDevice = "/dev/disk/by-uuid/${RUID}";
+                initrd.systemd.enable = true;
 
                 # Configure boot loader
                 loader = {
@@ -222,11 +223,16 @@
 
               # Configure SystemWide services
               services = {
+                # BTRFS Scrub
+                btrfs.autoScrub.enable = true;
+                
+                # Auto Login
                 getty.autologinUser = "${USER}";
                 displayManager.autoLogin = {
                   enable = true;
                   user = "${USER}";
                 };
+
                 # Enable CUPS to print documents.
                 # printing.enable = true;
 
@@ -249,12 +255,14 @@
                     };
                   };
                   settings = {
-                    #       			 	SOCKSPort = [
-                    #       			 	    {
-                    #       			 	         port = 9090;
-                    #       			 	    }
-                    #       			 	  ];
-                    #				 	Bridge = "obfs4 IP:ORPort [fingerprint]";
+                    /*
+                    SOCKSPort = [
+                      {
+                        port = 9090;
+                      }
+                    ];
+                    Bridge = "obfs4 IP:ORPort [fingerprint]";
+                    */
                     UseBridges = true;
                     Bridge = "${TOR_BRIDGE}";
                     ClientTransportPlugin =
