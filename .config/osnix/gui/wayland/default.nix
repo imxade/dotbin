@@ -1,6 +1,10 @@
-{ lib, pkgs, config, ... }:
+{ inputs, lib, pkgs, config, ... }:
 
 {
+  imports = [
+    inputs.nix-flatpak.nixosModules.nix-flatpak
+  ];
+
   environment = {
     # List packages installed in xorg profile.
     systemPackages = with pkgs; [

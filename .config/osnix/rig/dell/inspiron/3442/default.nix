@@ -1,8 +1,9 @@
-{ lib, pkgs, config, ... }:
+{ inputs, lib, pkgs, config, ... }:
 
 {
   imports = [
-    "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/inspiron/3442"
+    # "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/inspiron/3442"
+    inputs.nixos-hardware.nixosModules.dell-inspiron-3442
   ];
 
   # SwapFile
