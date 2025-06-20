@@ -1,7 +1,7 @@
 [
-    "org.wezfurlong.wezterm",
-    "com.system76.CosmicFiles",
-    "com.system76.CosmicStore",
-    "com.system76.CosmicSettings",
+    "dev.zed.Zed-Preview",
     "com.brave.Browser",
+    "com.system76.CosmicFiles",
+    "com.system76.CosmicSettings",
+    "Waydroid",
 ]
