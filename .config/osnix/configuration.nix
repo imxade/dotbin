@@ -21,7 +21,7 @@ let
   };
   */
   # Use Above Variables in ...
-in 
+in
 {
   imports = [
      # Declarative Home Manager
@@ -35,9 +35,9 @@ in
      # Include Hardened Profile [Disables hibernation]
      ./rig/hard
      # Include Development Profile
-     ./dev
+     # ./dev
   ];
-  
+
   fileSystems = {
     "/".options = [ "compress=zstd" "noatime" "space_cache=v2" ];
     "/home".options = [ "subvol=home" ];
@@ -50,7 +50,9 @@ in
   };
   # System Fonts
   fonts.packages = [
-    pkgs.nerd-fonts.hurmit
+    # pkgs.nerd-fonts.hurmit
+    # pkgs.nerd-fonts.jetbrains-mono
+    pkgs.nerd-fonts.caskaydia-cove
   ];
   programs = {
     zsh = { enable = true; };
@@ -58,8 +60,8 @@ in
       enable = true;
       libraries = with pkgs;
         [
-          # Add any missing dynamic libs for 
-          # unpackaged program here 
+          # Add any missing dynamic libs for
+          # unpackaged program here
         ];
     };
   };
@@ -131,7 +133,7 @@ in
     };
   };
 
-  # Following options uses variables declared in value.toml 
+  # Following options uses variables declared in value.toml
   networking = {
     # hostName = "${HOST}"; # Define your hostname
     nameservers = [ "9.9.9.9" ];
@@ -164,7 +166,7 @@ in
     };
   };
   time.timeZone = "${ZONE}"; # Set your time zone.
-  # 
+  #
   # Define a user account.
   users = {
     users = {
