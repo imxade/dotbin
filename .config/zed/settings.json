@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "buffer_line_height": "standard",
   "git_panel": {
     "dock": "right"
   },
@@ -15,7 +16,7 @@
     "edit_prediction_provider": "zed"
   },
   "base_keymap": "VSCode",
-  "theme": "One Dark",
+  "theme": "Catppuccin Mocha (Blur)",
   "ui_font_size": 13,
   "buffer_font_size": 13,
   // Finder model width
@@ -68,6 +69,13 @@
   //   "version": "2",
   //   "provider": null
   // },
+  "auto_install_extensions": {
+    "html": true,
+    "nix": true,
+    "dockerfile": true,
+    "docker-compose": true,
+    "catppuccin-blur": true
+  },
   "language_models": {
     "ollama": {
       "api_url": "http://localhost:11434"
@@ -77,6 +85,9 @@
   "inlay_hints": {
     "enabled": true
   },
+  // Fortmat Code
+  "formatter": "auto",
+  "format_on_save": "on",
   // LSP
   "lsp": {
     "tailwindcss-language-server": {
@@ -108,21 +119,9 @@
     "env": {
       "EDITOR": "zed --wait"
     },
-    /*
-    "integrated.profiles.linux": {
-      "Host: ZSH": {
-        "path": "/usr/bin/flatpak-spawn",
-        "args": ["--host", "zsh"],
-        "overrideName": true
-      }
-    }
     "shell": {
-      "with_arguments": {
-        "program": "/usr/bin/flatpak-spawn",
-        "args": ["--host", "zsh"]
-      }
+      "program": "host-spawn"
     }
-    */
   },
   // File syntax highlighting
   "file_types": {
