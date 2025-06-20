@@ -21,7 +21,7 @@ from libqtile.backend.wayland import InputConfig
 from time import sleep
 
 mod = "mod4"
-terminal = "wezterm"
+terminal = "flatpak run dev.zed.Zed-Preview" # "wezterm"
 HOME = os.path.expanduser("~")
 SCRIPTS_DIR = f"{HOME}/.config/shell/scripts"
 
