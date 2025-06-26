@@ -8,6 +8,10 @@
 // from the command palette or from `Zed` application menu.
 {
   "buffer_line_height": "standard",
+  "minimap": {
+    "show": "always",
+    "current_line_highlight": "line"
+  },
   "git_panel": {
     "dock": "right"
   },
