@@ -1,6 +1,6 @@
 #!/bin/sh
 
-flakeDir = "${HOME}/.config/osnix"
+flakeDir="${HOME}/.config/osnix"
 if command -v nh >/dev/null 2>&1; then
   nh os switch --update --hostname "nixos" "${flakeDir}"
 else
