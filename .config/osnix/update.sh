@@ -1,11 +1,11 @@
 #!/bin/sh
 
-pushd "${HOME}/.config/osnix" &&
-# nix-store --gc &&
-# sudo umount -Rl /nix/store
-# sudo chown -R ${USER} /nix
-# nix-store --delete &&
-sudo nix --experimental-features "nix-command flakes" flake update --commit-lock-file --show-trace &&
-# sudo chown -R root /nix &&
-popd || exit
+pushd "${HOME}/.config/osnix" || exit 1
 
+if command -v nh >/dev/null 2>&1; then
+  nh os switch --update --hostname "nixos" "${HOME}/.config/osnix"
+else
+  sudo nix --experimental-features "nix-command flakes" flake update --commit-lock-file --show-trace
+fi
+
+popd || exit 1

@@ -27,7 +27,8 @@ in
      # Declarative Home Manager
      # inputs.home-manager.nixosModules.home-manager
      # FS Grofile
-     ./hardware-configuration.nix
+     # ./hardware-configuration.nix
+     /etc/nixos/hardware-configuration.nix
      # Include Machine Profile
      ./${RIG}
      # Include GUI Profile
@@ -181,6 +182,7 @@ in
         # initialPassword	= "password";	# Password for the user
         isNormalUser = true;
         extraGroups = [
+          "nixbld"
           "audio"
           "camera"
           "docker"
