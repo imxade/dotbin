@@ -1,12 +1,8 @@
 #!/bin/sh
 
-pushd "${HOME}/.config/osnix" || exit 1
-
+flakeDir="${HOME}/.config/osnix"
 if command -v nh >/dev/null 2>&1; then
-  nh os switch --hostname "nixos" "${HOME}/.config/osnix"
+  nh os switch --hostname "nixos" "${flakeDir}"
 else
-  sudo nixos-rebuild switch --impure --flake .#nixos --show-trace --option sandbox false
+  sudo nixos-rebuild switch --impure --flake  "${flakeDir}#nixos" --show-trace # --option sandbox false
 fi
-"
-
-popd || exit 1
