@@ -1,8 +1,3 @@
 #!/bin/sh
-pushd "${HOME}/.config/osnix" &&
-sudo su root -c "
-cp /etc/nixos/hardware-configuration.nix . && 
-nixos-rebuild switch --impure --flake .#nixos --show-trace --option sandbox false
 
-" &&
-popd || exit
+sudo nixos-rebuild switch --impure --show-trace  --flake "${HOME}/.config/osnix#nixos" --option sandbox false
