@@ -181,6 +181,7 @@ in
         # initialPassword	= "password";	# Password for the user
         isNormalUser = true;
         extraGroups = [
+          "nixbld"
           "audio"
           "camera"
           "docker"
