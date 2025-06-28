@@ -5,10 +5,7 @@
   inputs = rec {
 
     # set the channel
-    nixpkgs = { url = "nixpkgs/nixos-unstable"; };
-
-    # master channel for packages on the edge
-    nixmaster = { url = "github:NixOS/nixpkgs"; };
+    nixpkgs = { url = "github:nixos/nixpkgs/nixos-unstable"; };
 
     # Declaratve flatpak
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
