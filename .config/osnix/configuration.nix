@@ -55,7 +55,7 @@ in
     pkgs.nerd-fonts.caskaydia-cove
   ];
   programs = {
-    zsh = { enable = true; };
+    zsh.enable = true;
     nix-ld = {
       enable = true;
       libraries = with pkgs;
@@ -64,6 +64,13 @@ in
           # unpackaged program here
         ];
     };
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep 10";
+      flake = "/home/user/my-nixos-config";
+    };
+
   };
   security = {
     unprivilegedUsernsClone = true; # For flatpak
@@ -126,7 +133,7 @@ in
     };
     # Enable Automatic Garbage Collection.
     gc = {
-      automatic = true;
+      # automatic = true;
       dates = "weekly";
       options = "--delete-older-than +10";
       # options = "--delete-older-than 7d";
