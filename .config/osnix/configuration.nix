@@ -66,10 +66,10 @@ in
         ];
     };
     nh = {
-      enable = true;
+      # enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep 10";
-      flake = "/home/user/my-nixos-config";
+      flake = "/home/${USER}/.config/osnix";
     };
 
   };
@@ -134,10 +134,10 @@ in
     };
     # Enable Automatic Garbage Collection.
     gc = {
-      # automatic = true;
+      automatic = true;
       dates = "weekly";
-      options = "--delete-older-than +10";
-      # options = "--delete-older-than 7d";
+      # options = "--delete-older-than +10";
+      options = "--delete-older-than 10d";
     };
   };
 
