@@ -65,13 +65,14 @@ in
           # unpackaged program here
         ];
     };
-    # nh = {
-    #   enable = true;
-    #   clean.enable = true;
-    #   clean.extraArgs = "--keep 10";
-    #   flake = "/home/${USER}/.config/osnix";
-    # };
-
+    /*
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep 10";
+      flake = "/home/${USER}/.config/osnix";
+    };
+    */
   };
   security = {
     unprivilegedUsernsClone = true; # For flatpak

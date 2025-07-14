@@ -23,6 +23,7 @@ e() {
 
 # alias
 alias \
+  cd="z" \
   g="git" \
   gc="git commit -m" \
   dot="g --git-dir=$HOME/.dot --work-tree=$HOME" \
@@ -65,4 +66,3 @@ dotig() {
 dotdig() {
   dot update-index --no-assume-unchanged $@
 }
-
