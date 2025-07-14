@@ -86,6 +86,9 @@
     };
   };
 
+  # Persist login sessions on Brave
+  security.pam.services.login.enableGnomeKeyring = true;
+
   xdg = {
     portal = {
       enable = true;
