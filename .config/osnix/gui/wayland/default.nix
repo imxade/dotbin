@@ -11,6 +11,7 @@
       exiftool # Manipulate Metadata
       gammastep # Manage Screen Color Temperature
       wezterm
+      podman-compose
       /*
       zed-editor
       alacritty
@@ -122,6 +123,7 @@
   };
 
   virtualisation = {
+    containers.enable = true;
     podman = {
       enable = true;
       # Create a `docker` alias for podman, to use it as a drop-in replacement
