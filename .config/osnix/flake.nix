@@ -3,8 +3,10 @@
 
   # Define All Flake references to be used for building NixOS setup. These are dependencies.
   inputs = rec {
+    # determinate nix
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
 
-    # set the channel
+    # set the pkgs channel
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Declaratve flatpak
@@ -22,7 +24,7 @@
   };
 
   # Tell Flake what to use and what to do with the dependencies.
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, determinate ... }@inputs: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
@@ -30,6 +32,7 @@
         };
         modules = [
           ./configuration.nix
+          determinate.nixosModules.default
         ];
       };
     };
