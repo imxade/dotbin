@@ -34,7 +34,10 @@
   */
 
   # Configure the X11 windowing system.
-  services = {
+  services = {    
+    spice-vdagentd.enable = true;
+    lact.enable = true;
+
     xserver = {
       enable = false;
 
