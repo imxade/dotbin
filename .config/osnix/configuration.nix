@@ -34,7 +34,7 @@ in
      # Include GUI Profile
      ./${GUI}
      # Include Hardened Profile [Disables hibernation]
-     ./rig/hard
+     # ./rig/hard
      # Include Development Profile
      # ./dev
   ];
