@@ -11,6 +11,7 @@
       exiftool # Manipulate Metadata
       gammastep # Manage Screen Color Temperature
       wezterm
+      podman-compose
       /*
       zed-editor
       alacritty
@@ -34,7 +35,10 @@
   */
 
   # Configure the X11 windowing system.
-  services = {
+  services = {    
+    spice-vdagentd.enable = true;
+    lact.enable = true;
+
     xserver = {
       enable = false;
 
@@ -122,6 +126,7 @@
   };
 
   virtualisation = {
+    containers.enable = true;
     podman = {
       enable = true;
       # Create a `docker` alias for podman, to use it as a drop-in replacement

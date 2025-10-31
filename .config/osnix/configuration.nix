@@ -11,7 +11,7 @@ let
   DISK = Toml.DISK; # Disk for Boot Loader
   RUID = Toml.RUID; # UUID of Root device, For Hibernate
   FUID = Toml.FUID; # UUID of Fat partition holding grub.cfg
-  OFFSET = Toml.OFFSET; # Offset value of swapfile, For Hibernate
+  # OFFSET = Toml.OFFSET; # Offset value of swapfile, For Hibernate
   TOR_BRIDGE = Toml.TOR_BRIDGE; # Bridge line for tor daemon
   /*
   system = Toml.system; # Platform Architecture
@@ -34,14 +34,14 @@ in
      # Include GUI Profile
      ./${GUI}
      # Include Hardened Profile [Disables hibernation]
-     ./rig/hard
+     # ./rig/hard
      # Include Development Profile
      # ./dev
   ];
 
   fileSystems = {
     "/".options = [ "compress=zstd" "noatime" "space_cache=v2" ];
-    "/home".options = [ "subvol=home" ];
+    "/home".options = [ "subvol=home" "compress=zstd" "noatime" "space_cache=v2" ];
   };
   # Select internationalisation properties.
   i18n = { defaultLocale = "en_US.UTF-8"; };
@@ -180,7 +180,7 @@ in
   users = {
     users = {
       ${USER} = {
-        # initialPassword	= "password";	# Password for the user
+        initialPassword	= "password";	# Password for the user
         isNormalUser = true;
         extraGroups = [
           "nixbld"
