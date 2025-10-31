@@ -11,7 +11,7 @@ let
   DISK = Toml.DISK; # Disk for Boot Loader
   RUID = Toml.RUID; # UUID of Root device, For Hibernate
   FUID = Toml.FUID; # UUID of Fat partition holding grub.cfg
-  OFFSET = Toml.OFFSET; # Offset value of swapfile, For Hibernate
+  # OFFSET = Toml.OFFSET; # Offset value of swapfile, For Hibernate
   TOR_BRIDGE = Toml.TOR_BRIDGE; # Bridge line for tor daemon
   /*
   system = Toml.system; # Platform Architecture
