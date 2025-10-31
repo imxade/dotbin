@@ -41,7 +41,7 @@ in
 
   fileSystems = {
     "/".options = [ "compress=zstd" "noatime" "space_cache=v2" ];
-    "/home".options = [ "subvol=home" ];
+    "/home".options = [ "subvol=home" "compress=zstd" "noatime" "space_cache=v2" ];
   };
   # Select internationalisation properties.
   i18n = { defaultLocale = "en_US.UTF-8"; };
