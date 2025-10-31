@@ -24,7 +24,7 @@
   };
 
   # Tell Flake what to use and what to do with the dependencies.
-  outputs = { self, nixpkgs, determinate ... }@inputs: {
+  outputs = { self, nixpkgs, determinate, ... }@inputs: {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
