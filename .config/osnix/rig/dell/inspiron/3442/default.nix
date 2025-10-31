@@ -3,7 +3,7 @@
 {
   imports = [
     # "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/dell/inspiron/3442"
-    inputs.nixos-hardware.nixosModules.dell-inspiron-3442
+    # inputs.nixos-hardware.nixosModules.dell-inspiron-3442
   ];
 
   # SwapFile
@@ -38,6 +38,7 @@
     fwupd = { enable = true; };
     thermald = { enable = true; };
   };
+  */
 
   hardware = {
     enableAllFirmware = true;
@@ -50,19 +51,19 @@
   };
 
   boot = {
-    #	    # Better set the following inside ~/.asoundrc
-    #	    extraModprobeConfig = ''
-    #             # set hda-intel as default card
-    #    	      options snd slots=snd-hda-intel
-    #             # disable 1st card, enable 2nd card
-    #   	      options snd_hda_intel enable=0,1
-    #    	    '';
+    /*
+    # Better set the following inside ~/.asoundrc
+    extraModprobeConfig = ''
+            # set hda-intel as default card
+          options snd slots=snd-hda-intel
+            # disable 1st card, enable 2nd card
+         options snd_hda_intel enable=0,1
+        '';
+    kernelParams = [
+      "acpi_osi=!acpi_osi=\"Windows 2009\""
+    ];
+    */
     kernelModules = [ "wl" ];
     extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-    kernelParams = [
-      # "acpi_osi=!acpi_osi=\"Windows 2009\""
-    ];
   };
-  */
 }
-
