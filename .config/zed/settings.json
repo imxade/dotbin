@@ -62,8 +62,7 @@
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-3-7-sonnet"
-    },
-    "version": "2"
+    }
   },
   // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
   // "assistant": {
@@ -111,12 +110,14 @@
         "show_other_hints": true,
         "show_type_hints": true
       }
-    },
+    }
+    /*
     "Python": {
       "format_on_save": { "language_server": { "name": "ruff" } },
       "formatter": { "language_server": { "name": "ruff" } },
       "language_servers": ["pyright", "ruff"]
     }
+    */
   },
   // Use zed commit editor
   "terminal": {
@@ -177,8 +178,10 @@
   // Move some unnecessary panels to the left
   "notification_panel": {
     "dock": "left"
-  },
+  }
+  /*
   "chat_panel": {
     "dock": "left"
   }
+  */
 }
