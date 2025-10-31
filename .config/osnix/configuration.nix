@@ -180,7 +180,7 @@ in
   users = {
     users = {
       ${USER} = {
-        # initialPassword	= "password";	# Password for the user
+        initialPassword	= "password";	# Password for the user
         isNormalUser = true;
         extraGroups = [
           "nixbld"
