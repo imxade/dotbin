@@ -26,9 +26,6 @@ in
   imports = [
      # Declarative Home Manager
      # inputs.home-manager.nixosModules.home-manager
-     # FS Grofile
-     # ./hardware-configuration.nix
-     /etc/nixos/hardware-configuration.nix
      # Include Machine Profile
      ./${RIG}
      # Include GUI Profile

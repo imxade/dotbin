@@ -30,6 +30,15 @@
         };
         modules = [
           ./configuration.nix
+          /etc/nixos/hardware-configuration.nix
+        ];
+      };
+      iso = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./iso.nix
+          ./configuration.nix
         ];
       };
     };

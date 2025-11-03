@@ -11,8 +11,9 @@
       exiftool # Manipulate Metadata
       gammastep # Manage Screen Color Temperature
       wezterm
-      podman-compose
+      gparted
       /*
+      podman-compose
       zed-editor
       alacritty
       lapce
@@ -35,7 +36,7 @@
   */
 
   # Configure the X11 windowing system.
-  services = {    
+  services = {
     spice-vdagentd.enable = true;
     lact.enable = true;
 
@@ -64,15 +65,15 @@
         "com.github.tchx84.Flatseal"
         "org.gnome.Boxes"
         "dev.zed.Zed-Preview"
+        "net.lutris.Lutris"
+        "com.github.d4nj1.tlpui"
+        "com.github.xournalpp.xournalpp"
         /*
         "org.wezfurlong.wezterm"
 
-        "com.github.d4nj1.tlpui"
         "org.blender.Blender"
         "io.mpv.Mpv"
         "org.ryujinx.Ryujinx"
-        "com.github.xournalpp.xournalpp"
-        "net.lutris.Lutris"
         "org.cubocore.CoreKeyboard"
         "com.obsproject.Studio "
 
