@@ -5,4 +5,4 @@
 # sudo chown -R ${USER} /nix
 # nix-store --delete &&
 # nix --experimental-features "nix-command flakes" flake update --commit-lock-file --show-trace "${HOME}/.config/osnix"
-nix flake update --show-trace --flake "${HOME}/.config/osnix"
+sudo nix flake update --show-trace --flake "${HOME}/.config/osnix"
