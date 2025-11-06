@@ -65,10 +65,10 @@
         "com.github.tchx84.Flatseal"
         "org.gnome.Boxes"
         "dev.zed.Zed-Preview"
-        /*
         "net.lutris.Lutris"
-        "com.github.d4nj1.tlpui"
         "com.github.xournalpp.xournalpp"
+        /*
+        "com.github.d4nj1.tlpui"
         "org.wezfurlong.wezterm"
 
         "org.blender.Blender"
@@ -109,20 +109,21 @@
     # Enable Bluetooth
     bluetooth = {
       enable = true;
+      powerOnBoot = true;
+        /*
       settings = {
         Policy = {
           # Auto Enable Bluetooth
           AutoEnable = "true";
         };
-        /*
         General = {
           Enable = "Source,Sink,Media,Socket";
           ControllerMode = "bredr";
           # Bluetooth device always visible
           # DiscoverableTimeout = "0";
         };
-        */
       };
+        */
     };
   };
 
