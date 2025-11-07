@@ -142,7 +142,7 @@ in
   # Following options uses variables declared in value.toml
   networking = {
     # hostName = "${HOST}"; # Define your hostname
-    nameservers = [ "9.9.9.9" ];
+    # nameservers = [ "9.9.9.9" ];
     networkmanager.enable = true;
   };
   boot = {

@@ -12,6 +12,8 @@
       gammastep # Manage Screen Color Temperature
       wezterm
       gparted
+      aria2
+      python3
       /*
       podman-compose
       zed-editor
