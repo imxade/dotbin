@@ -7,7 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  // "autosave": "on_focus_change",
+  "autosave": "on_focus_change",
   "buffer_line_height": "standard",
   "minimap": {
     "show": "always",
