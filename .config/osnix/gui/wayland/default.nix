@@ -69,14 +69,16 @@
         "dev.zed.Zed-Preview"
         "net.lutris.Lutris"
         "com.github.xournalpp.xournalpp"
+        "org.godotengine.Godot"
+        "io.github.ryubing.Ryujinx"
         /*
+        "org.cubocore.CoreKeyboard"
+        "org.libretro.RetroArch"
         "com.github.d4nj1.tlpui"
         "org.wezfurlong.wezterm"
 
         "org.blender.Blender"
         "io.mpv.Mpv"
-        "org.ryujinx.Ryujinx"
-        "org.cubocore.CoreKeyboard"
         "com.obsproject.Studio "
 
         "com.helix_editor.Helix"
