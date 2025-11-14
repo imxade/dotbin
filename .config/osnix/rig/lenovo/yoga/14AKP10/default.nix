@@ -12,4 +12,5 @@
   boot = {
     kernelModules = [ "btusb" ];
   };
+  programs.gamemode.enable = true;
 }
