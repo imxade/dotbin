@@ -15,6 +15,7 @@
       cosmic-term
       cosmic-edit
       cosmic-store
+      cosmic-player
     ];
     /*
     systemPackages = with pkgs; [
@@ -23,4 +24,3 @@
     */
   };
 }
-

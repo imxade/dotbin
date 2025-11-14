@@ -71,7 +71,9 @@
         "com.github.xournalpp.xournalpp"
         "org.godotengine.Godot"
         "io.github.ryubing.Ryujinx"
+        "org.videolan.VLC"
         /*
+        "com.valvesoftware.Steam"
         "org.cubocore.CoreKeyboard"
         "org.libretro.RetroArch"
         "com.github.d4nj1.tlpui"
