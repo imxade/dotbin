@@ -107,7 +107,7 @@
         # xdg-desktop-portal-cosmic
         xdg-desktop-portal-gtk
       ];
-      config.common.default = "*";
+      config.common.default = "gtk";
     };
   };
 

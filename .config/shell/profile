@@ -8,7 +8,8 @@ export \
   XDG_CACHE_HOME="$HOME/.cache" \
   XDG_SESSION_TYPE=wayland \
   WLR_LIBINPUT_NO_DEVICES=1 \
-  WLR_NO_HARDWARE_CURSORS=1export PATH=$PATH:~/.local/bin:~/.nimble/bin \
+  WLR_NO_HARDWARE_CURSORS=1 \
+  PATH=$PATH:~/.local/bin:~/.nimble/bin \
   GDK_BACKEND=wayland,x11 \
   FLATPAK_ENABLE_SDK_EXT=* \
   EDITOR="e" \
