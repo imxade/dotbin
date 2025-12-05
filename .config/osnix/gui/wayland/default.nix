@@ -72,6 +72,7 @@
         "org.godotengine.Godot"
         "io.github.ryubing.Ryujinx"
         "org.videolan.VLC"
+        "com.obsproject.Studio"
         /*
         "com.valvesoftware.Steam"
         "org.cubocore.CoreKeyboard"
@@ -81,7 +82,6 @@
 
         "org.blender.Blender"
         "io.mpv.Mpv"
-        "com.obsproject.Studio "
 
         "com.helix_editor.Helix"
         "io.neovim.nvim"
@@ -103,11 +103,13 @@
   xdg = {
     portal = {
       enable = true;
+      /*
       extraPortals = with pkgs; [
         # xdg-desktop-portal-cosmic
         xdg-desktop-portal-gtk
       ];
       config.common.default = "gtk";
+      */
     };
   };
 
