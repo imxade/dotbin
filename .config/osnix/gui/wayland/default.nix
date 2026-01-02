@@ -77,6 +77,7 @@
         "it.mijorus.gearlever"
         /*
         "com.valvesoftware.Steam"
+        "com.heroicgameslauncher.hgl"
         "org.cubocore.CoreKeyboard"
         "org.libretro.RetroArch"
         "com.github.d4nj1.tlpui"
