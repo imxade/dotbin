@@ -68,6 +68,7 @@
         "org.gnome.Boxes"
         "dev.zed.Zed-Preview"
         "net.lutris.Lutris"
+        "io.github.benjamimgois.goverlay"
         "com.github.xournalpp.xournalpp"
         "org.godotengine.Godot"
         "io.github.ryubing.Ryujinx"
