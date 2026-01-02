@@ -74,6 +74,7 @@
         "io.github.ryubing.Ryujinx"
         "org.videolan.VLC"
         "com.obsproject.Studio"
+        "it.mijorus.gearlever"
         /*
         "com.valvesoftware.Steam"
         "org.cubocore.CoreKeyboard"
