@@ -75,6 +75,7 @@
         "org.videolan.VLC"
         "com.obsproject.Studio"
         "it.mijorus.gearlever"
+        "md.obsidian.Obsidian"
         /*
         "com.valvesoftware.Steam"
         "com.heroicgameslauncher.hgl"
