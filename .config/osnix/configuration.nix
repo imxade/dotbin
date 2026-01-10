@@ -27,7 +27,7 @@ in
      # Declarative Home Manager
      # inputs.home-manager.nixosModules.home-manager
      # Include Machine Profile
-     ./${RIG}
+     # ./${RIG}
      # Include GUI Profile
      ./${GUI}
      # Include Hardened Profile [Disables hibernation]
@@ -89,6 +89,7 @@ in
       allowSFTP = true;
       extraConfig = "  HostKeyAlgorithms +ssh-rsa\n";
     };
+    logrotate.checkConfig = false;
   };
   environment = {
     # Define Environment System Wide variables
