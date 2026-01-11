@@ -27,7 +27,7 @@ in
      # Declarative Home Manager
      # inputs.home-manager.nixosModules.home-manager
      # Include Machine Profile
-     # ./${RIG}
+     ./${RIG}
      # Include GUI Profile
      ./${GUI}
      # Include Hardened Profile [Disables hibernation]

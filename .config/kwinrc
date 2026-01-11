@@ -12,12 +12,18 @@ Rows=1
 BlurStrength=3
 NoiseStrength=0
 
+[Effect-overview]
+TouchBorderActivate=0
+
 [Effect-translucency]
 ComboboxPopups=70
 Dialogs=70
 Inactive=72
 Menus=68
 MoveResize=49
+
+[Effect-windowview]
+TouchBorderActivateAll=2
 
 [NightColor]
 Active=true
@@ -43,6 +49,13 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 
 [Tiling][92e842d7-5928-5c43-884a-4912e7cc82ed]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[TouchEdges]
+Bottom=ShowDesktop
+Left=ApplicationLauncher
+
+[Wayland]
+InputMethod[$e]=/run/current-system/sw/share/applications/com.github.maliit.keyboard.desktop
 
 [Xwayland]
 Scale=2

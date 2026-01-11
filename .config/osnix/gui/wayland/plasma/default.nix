@@ -6,6 +6,8 @@
   environment.systemPackages = with pkgs; [
     # sddm-sugar-dark
     kdePackages.qtmultimedia
+    # squeekboard
+    maliit-keyboard
   ];
 
   services = {
