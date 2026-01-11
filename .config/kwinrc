@@ -3,12 +3,21 @@ update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-
 
 [Desktops]
 Id_1=3d84e4c2-7c69-4e8e-a2c8-c0d8be3c93f0
-Number=1
+Id_2=5799ed3f-8ad9-4b94-88d7-42e722933f14
+Name_2=New Desktop
+Number=2
 Rows=1
 
 [Effect-blur]
 BlurStrength=3
 NoiseStrength=0
+
+[Effect-translucency]
+ComboboxPopups=70
+Dialogs=70
+Inactive=72
+Menus=68
+MoveResize=49
 
 [NightColor]
 Active=true
@@ -27,6 +36,9 @@ padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][3d84e4c2-7c69-4e8e-a2c8-c0d8be3c93f0][5ba1cbfb-6caa-42ed-a8ed-30f0d0d113d2]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][5799ed3f-8ad9-4b94-88d7-42e722933f14][5ba1cbfb-6caa-42ed-a8ed-30f0d0d113d2]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][92e842d7-5928-5c43-884a-4912e7cc82ed]
