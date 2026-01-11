@@ -27,7 +27,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][2][Applets][5][Configuration][General]
-launchers=file:///var/lib/flatpak/exports/share/applications/org.wezfurlong.wezterm.desktop,preferred://browser,preferred://filemanager,applications:systemsettings.desktop,applications:org.kde.discover.desktop
+launchers=preferred://browser,preferred://filemanager,applications:systemsettings.desktop,file:///var/lib/flatpak/exports/share/applications/dev.zed.Zed-Preview.desktop
 
 [Containments][2][Applets][50]
 immutability=1
@@ -38,8 +38,9 @@ immutability=1
 plugin=org.kde.plasma.cameraindicator
 
 [Containments][2][Applets][51][Configuration]
-popupHeight=400
-popupWidth=560
+PreloadWeight=60
+popupHeight=216
+popupWidth=217
 
 [Containments][2][Applets][6]
 immutability=1
@@ -103,7 +104,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][2][Applets][7][Applets][19][Configuration]
-PreloadWeight=55
+PreloadWeight=65
 
 [Containments][2][Applets][7][Applets][19][Configuration][General]
 migrated=true
@@ -158,6 +159,9 @@ PreloadWeight=55
 immutability=1
 plugin=org.kde.plasma.mediacontroller
 
+[Containments][2][Applets][7][Applets][40][Configuration]
+PreloadWeight=42
+
 [Containments][2][Applets][7][Applets][9]
 immutability=1
 plugin=org.kde.kdeconnect
@@ -177,39 +181,20 @@ DialogWidth=168
 AppletOrder=5;6;7;21;51;50
 
 [Containments][38]
-ItemGeometries-1440x900=Applet-42:176,224,448,448,0;Applet-41:1040,288,272,272,0;
+ItemGeometries-1440x900=Applet-55:480,80,416,160,0;
 ItemGeometries-1800x1125=
-ItemGeometriesHorizontal=Applet-42:176,224,448,448,0;Applet-41:1040,288,272,272,0;
+ItemGeometriesHorizontal=Applet-55:480,80,416,160,0;
 activityId=fe166986-f05c-4564-93b1-8dbeb2349aee
 formfactor=0
 immutability=1
 lastScreen=0
 location=0
 plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
+wallpaperplugin=luisbocanegra.smart.video.wallpaper.reborn
 
-[Containments][38][Applets][41]
+[Containments][38][Applets][55]
 immutability=1
-plugin=org.kde.plasma.analogclock
-
-[Containments][38][Applets][41][Configuration]
-PreloadWeight=34
-popupHeight=400
-popupWidth=560
-
-[Containments][38][Applets][42]
-immutability=1
-plugin=KdeControlStation
-
-[Containments][38][Applets][42][Configuration][Appearance]
-animations=true
-showPercentage=true
-transparency=true
-usePlasmaSliders=true
-
-[Containments][38][Applets][42][Configuration][ConfigDialog]
-DialogHeight=630
-DialogWidth=810
+plugin=com.github.prayag2.modernclock
 
 [Containments][38][ConfigDialog]
 DialogHeight=630
@@ -217,6 +202,9 @@ DialogWidth=810
 
 [Containments][38][Configuration]
 PreloadWeight=34
+
+[Containments][38][Wallpaper][luisbocanegra.smart.video.wallpaper.reborn][General]
+VideoUrls=[{"filename":"file:///home/x/Downloads/cozy-campfire-by-abi-toads.3840x2160.mp4","enabled":true,"duration":0,"customDuration":0,"playbackRate":0,"loop":false}]
 
 [Containments][38][Wallpaper][org.kde.image][General]
 Image=file:///home/x/.local/share/wallpapers/Sweet-Wallpapers/Sweet-space.png

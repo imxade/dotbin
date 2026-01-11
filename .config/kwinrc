@@ -6,10 +6,19 @@ Id_1=3d84e4c2-7c69-4e8e-a2c8-c0d8be3c93f0
 Number=1
 Rows=1
 
+[Effect-blur]
+BlurStrength=3
+NoiseStrength=0
+
 [NightColor]
 Active=true
 Mode=Constant
 NightTemperature=2900
+
+[Plugins]
+kwin4_effect_geometry_changeEnabled=true
+translucencyEnabled=true
+wobblywindowsEnabled=true
 
 [Tiling]
 padding=4
@@ -17,8 +26,16 @@ padding=4
 [Tiling][00b82236-dc4c-547a-b138-80431a9b6f3c]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
+[Tiling][3d84e4c2-7c69-4e8e-a2c8-c0d8be3c93f0][5ba1cbfb-6caa-42ed-a8ed-30f0d0d113d2]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][92e842d7-5928-5c43-884a-4912e7cc82ed]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Xwayland]
-Scale=1.25
+Scale=2
+
+[org.kde.kdecoration2]
+BorderSize=None
+BorderSizeAuto=false
+ButtonsOnLeft=MBFS

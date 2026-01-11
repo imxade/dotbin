@@ -1,10 +1,11 @@
 [PlasmaTransientsConfig]
-PreloadWeight=0
-popupHeight=400
-popupWidth=560
+PreloadWeight=34
 
 [PlasmaViews][Panel 2]
 floating=1
+
+[PlasmaViews][Panel 2][Defaults]
+thickness=36
 
 [PlasmaViews][Panel 53]
 floating=1

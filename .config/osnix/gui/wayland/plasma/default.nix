@@ -3,12 +3,18 @@
 {
   imports = [ ../default.nix ];
 
+  environment.systemPackages = with pkgs; [
+    # sddm-sugar-dark
+    kdePackages.qtmultimedia
+  ];
+
   services = {
     desktopManager.plasma6.enable = true;
     libinput.enable = true;
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
+      # theme = "${pkgs.sddm-sugar-dark.override { variants = [ "qt6" ]; }}/share/sddm/themes/sugar-dark";
     };
   };
 
