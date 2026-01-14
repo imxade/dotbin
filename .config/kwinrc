@@ -25,10 +25,13 @@ MoveResize=49
 [Effect-windowview]
 TouchBorderActivateAll=2
 
+[Input]
+TabletMode=on
+
 [NightColor]
 Active=true
 Mode=Constant
-NightTemperature=2900
+NightTemperature=3600
 
 [Plugins]
 kwin4_effect_geometry_changeEnabled=true
@@ -56,6 +59,7 @@ Left=ApplicationLauncher
 
 [Wayland]
 InputMethod[$e]=/run/current-system/sw/share/applications/com.github.maliit.keyboard.desktop
+VirtualKeyboardEnabled=true
 
 [Xwayland]
 Scale=2

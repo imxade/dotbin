@@ -39,12 +39,19 @@
 
   # Configure the X11 windowing system.
   services = {
+    logind.settings = {
+      Login = {
+        HandlePowerKey = "hibernate";
+        HandleLidSwitch = "hibernate";
+        HandleLidSwitchDocked = "hibernate";
+      };
+    };
+
     spice-vdagentd.enable = true;
     lact.enable = true;
 
     xserver = {
       enable = false;
-
       # Configure DesktopManager
       desktopManager = {
         xterm = {
@@ -67,7 +74,6 @@
         "com.github.tchx84.Flatseal"
         "org.gnome.Boxes"
         "dev.zed.Zed-Preview"
-        "net.lutris.Lutris"
         "io.github.benjamimgois.goverlay"
         "com.github.xournalpp.xournalpp"
         "org.godotengine.Godot"
@@ -76,7 +82,9 @@
         "com.obsproject.Studio"
         "it.mijorus.gearlever"
         "md.obsidian.Obsidian"
+        "com.heroicgameslauncher.hgl"
         /*
+        "net.lutris.Lutris"
         "com.valvesoftware.Steam"
         "com.heroicgameslauncher.hgl"
         "org.cubocore.CoreKeyboard"

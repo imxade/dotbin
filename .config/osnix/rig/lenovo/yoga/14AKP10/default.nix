@@ -3,6 +3,7 @@
   hardware = {
     amdgpu.overdrive.enable = true;
     enableRedistributableFirmware = true;
+    sensor.iio.enable = true;  # Enables iio-sensor-proxy
   };
 
   /*
