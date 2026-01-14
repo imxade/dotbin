@@ -102,6 +102,9 @@ plugin=org.kde.plasma.keyboardlayout
 immutability=1
 plugin=org.kde.plasma.manage-inputmethod
 
+[Containments][2][Applets][7][Applets][15][Configuration]
+PreloadWeight=55
+
 [Containments][2][Applets][7][Applets][16]
 immutability=1
 plugin=org.kde.plasma.notifications
@@ -196,9 +199,9 @@ DialogWidth=168
 AppletOrder=5;57;6;7;21;51;50
 
 [Containments][38]
-ItemGeometries-1440x900=Applet-55:480,80,416,160,0;
+ItemGeometries-1440x900=Applet-55:480,80,512,160,0;
 ItemGeometries-1800x1125=
-ItemGeometriesHorizontal=Applet-55:480,80,416,160,0;
+ItemGeometriesHorizontal=Applet-55:480,80,512,160,0;
 activityId=fe166986-f05c-4564-93b1-8dbeb2349aee
 formfactor=0
 immutability=1
@@ -227,22 +230,6 @@ VideoUrls=[{"filename":"file:///home/x/Downloads/cozy-campfire-by-abi-toads.3840
 Image=file:///home/x/.local/share/wallpapers/Sweet-Wallpapers/Sweet-space.png
 SlidePaths=/home/x/.local/share/wallpapers/,/nix/store/y7487p0s2nmmfj7pv3j673dsx4pwn7l4-breeze-6.5.2/share/wallpapers/,/run/current-system/sw/share/wallpapers/
 
-[Containments][53]
-activityId=
-formfactor=2
-immutability=1
-lastScreen=0
-location=3
-plugin=org.kde.panel
-wallpaperplugin=org.kde.image
-
-[Containments][53][Applets][54]
-immutability=1
-plugin=org.kde.plasma.appmenu
-
-[Containments][53][General]
-AppletOrder=54
-
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=
+screenMapping=desktop:/todo.txt,0,fe166986-f05c-4564-93b1-8dbeb2349aee
