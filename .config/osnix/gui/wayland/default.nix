@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
+    # ./cursor-script-compat.nix
   ];
 
   environment = {
@@ -14,12 +15,13 @@
       gparted
       aria2
       python3
+      appimage-run
 
+      /*
       # AI IDE
       antigravity-fhs
       google-chrome
 
-      /*
       podman-compose
       zed-editor
       alacritty
@@ -156,7 +158,15 @@
 
   virtualisation = {
     containers.enable = true;
+
     /*
+    virtualbox.host = {
+      # Enable VirtualBox host
+      enable = true;
+
+      # Needed for USB (webcam, mic, etc.)
+      enableExtensionPack = true;
+    };
     podman = {
       enable = true;
       # Create a `docker` alias for podman, to use it as a drop-in replacement
@@ -180,4 +190,55 @@
       };
     };
   };
+
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+
+    # GTK / GLib stack
+    glib
+    atk
+    pango
+    cairo
+    gdk-pixbuf
+    gtk3
+
+    # DBus / system
+    dbus
+    expat
+
+    # X11 stack  ← THIS FIXES libX11.so.6
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXcomposite
+    xorg.libXdamage
+    xorg.libXrandr
+    xorg.libXtst
+    xorg.libXi
+    xorg.libXfixes
+    xorg.libXrender
+    xorg.libXScrnSaver
+    xorg.libXinerama
+    xorg.libxcb
+    xorg.libXext
+
+    # Graphics
+    libdrm
+    libgbm
+    mesa
+
+    # Audio
+    alsa-lib
+    pulseaudio
+    pipewire
+
+    # Wayland (harmless even on X11)
+    wayland
+    libxkbcommon
+
+    # Electron / Chromium
+    nss
+    nspr
+    cups
+  ];
+
 }
