@@ -14,6 +14,11 @@
       gparted
       aria2
       python3
+
+      # AI IDE
+      antigravity-fhs
+      google-chrome
+
       /*
       podman-compose
       zed-editor
@@ -83,7 +88,9 @@
         "it.mijorus.gearlever"
         "md.obsidian.Obsidian"
         "com.heroicgameslauncher.hgl"
+        "ink.whis.Whis"
         /*
+        "com.google.Chrome"
         "net.lutris.Lutris"
         "com.valvesoftware.Steam"
         "com.heroicgameslauncher.hgl"

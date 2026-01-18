@@ -6,6 +6,9 @@
     sensor.iio.enable = true;  # Enables iio-sensor-proxy
   };
 
+  networking.networkmanager = {
+    wifi.powersave = false;  # Disable powersave (3=auto default)
+  };
   /*
   boot = {
     kernelModules = [ "btusb" ];
