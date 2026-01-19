@@ -11,14 +11,14 @@
   "buffer_line_height": "standard",
   "minimap": {
     "show": "always",
-    "current_line_highlight": "line"
+    "current_line_highlight": "line",
   },
   "git_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   // "icon_theme": "Catppuccin Mocha",
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "zed",
   },
   "base_keymap": "VSCode",
   "theme": "Catppuccin Mocha (Blur)",
@@ -26,43 +26,46 @@
   "buffer_font_size": 13,
   // Finder model width
   "file_finder": {
-    "modal_width": "medium"
+    "modal_width": "medium",
   },
   // NOTE: Change the font family to your preference
   // "buffer_font_family": "Maple Mono NF",
   // Vim mode settings
   "vim_mode": true,
   "vim": {
-    "enable_vim_sneak": true
+    "enable_vim_sneak": true,
   },
   // use relative line numbers
   "relative_line_numbers": "enabled",
   "tab_bar": {
-    "show": true
+    "show": true,
   },
   "scrollbar": {
-    "show": "never"
+    "show": "never",
   },
   // Only show error on tab
   "tabs": {
-    "show_diagnostics": "errors"
+    "show_diagnostics": "errors",
   },
   // Indentation, rainbow indentation
   "indent_guides": {
     "enabled": true,
-    "coloring": "indent_aware"
+    "coloring": "indent_aware",
   },
   // NOTE: Zen mode, refer https://github.com/zed-industries/zed/issues/4382 when it's resolved
   "centered_layout": {
     "left_padding": 0.15,
-    "right_padding": 0.15
+    "right_padding": 0.15,
   },
   // Use Copilot Chat AI as default
   "agent": {
+    "enable_feedback": false,
+    "single_file_review": false,
+    "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-3-7-sonnet"
-    }
+      "provider": "google",
+      "model": "gemini-2.5-flash",
+    },
   },
   // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos
   // "assistant": {
@@ -78,16 +81,16 @@
     "nix": true,
     "dockerfile": true,
     "docker-compose": true,
-    "catppuccin-blur": true
+    "catppuccin-blur": true,
   },
   "language_models": {
     "ollama": {
-      "api_url": "http://localhost:11434"
-    }
+      "api_url": "http://localhost:11434",
+    },
   },
   // Inlay hints preconfigured by Zed: Go, Rust, Typescript and Svelte
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
   },
   // Fortmat Code
   "formatter": "auto",
@@ -96,9 +99,9 @@
   "lsp": {
     "tailwindcss-language-server": {
       "settings": {
-        "classAttributes": ["class", "className", "ngClass", "styles"]
-      }
-    }
+        "classAttributes": ["class", "className", "ngClass", "styles"],
+      },
+    },
   },
   "languages": {
     // Refer https://zed.dev/docs/languages/javascript and https://zed.dev/docs/languages/typescript for more info
@@ -108,9 +111,9 @@
         "enabled": true,
         "show_parameter_hints": false,
         "show_other_hints": true,
-        "show_type_hints": true
-      }
-    }
+        "show_type_hints": true,
+      },
+    },
     /*
     "Python": {
       "format_on_save": { "language_server": { "name": "ruff" } },
@@ -123,16 +126,16 @@
   "terminal": {
     // "font_family": "Maple Mono NF",
     "env": {
-      "EDITOR": "zed --wait"
+      "EDITOR": "zed --wait",
     },
     "shell": {
-      "program": "host-spawn"
-    }
+      "program": "host-spawn",
+    },
   },
   // File syntax highlighting
   "file_types": {
     "Dockerfile": ["Dockerfile", "Dockerfile.*"],
-    "JSON": ["json", "jsonc", "*.code-snippets"]
+    "JSON": ["json", "jsonc", "*.code-snippets"],
   },
   // File scan exclusions, hide on the file explorer and search
   "file_scan_exclusions": [
@@ -156,29 +159,29 @@
     "**/.tap",
     "**/.nyc_output",
     "**/report",
-    "**/node_modules"
+    "**/node_modules",
   ],
   // Turn off telemetry
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   // Move all panel to the right
   "project_panel": {
     "button": true,
     "dock": "right",
-    "git_status": true
+    "git_status": true,
   },
   "outline_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   // Move some unnecessary panels to the left
   "notification_panel": {
-    "dock": "left"
-  }
+    "dock": "left",
+  },
   /*
   "chat_panel": {
     "dock": "left"
