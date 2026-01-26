@@ -4,19 +4,30 @@
   imports = [ ../default.nix ];
 
   environment.systemPackages = with pkgs; [
-    # sddm-sugar-dark
     kdePackages.qtmultimedia
-    # squeekboard
     maliit-keyboard
+    # sddm-sugar-dark
+    # squeekboard
+    # kdePackages.qtvirtualkeyboard
   ];
+
+  systemd.services.display-manager.environment = {
+      QT_IM_MODULE = "qtvirtualkeyboard";
+      QT_VIRTUALKEYBOARD_DESKTOP_DISABLE = "0";
+  };
 
   services = {
     desktopManager.plasma6.enable = true;
     libinput.enable = true;
+
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
-      # theme = "${pkgs.sddm-sugar-dark.override { variants = [ "qt6" ]; }}/share/sddm/themes/sugar-dark";
+
+      settings = { General = { InputMethod = "qtvirtualkeyboard"; }; };
+      extraPackages = [
+          pkgs.kdePackages.qtvirtualkeyboard
+      ];
     };
   };
 
@@ -32,6 +43,9 @@
       kpat # KPatience offers a selection of solitaire card games
       ksudoku # KSudoku is a logic-based symbol placement puzzle
       ktorrent # Powerful BitTorrent client
+      kate
+      okular
+
     ];
   };
 }
