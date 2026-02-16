@@ -63,8 +63,8 @@
     "single_file_review": false,
     "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "google",
-      "model": "gemini-2.5-flash",
+      "provider": "ollama",
+      "model": "qwen3:8b",
     },
   },
   // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos

@@ -6,6 +6,11 @@
     # ./cursor-script-compat.nix
   ];
 
+  networking.firewall.allowedTCPPorts = [
+    3000
+    33333 # RemoteTouchpad
+  ];
+
   environment = {
     # List packages installed in xorg profile.
     systemPackages = with pkgs; [
@@ -15,13 +20,16 @@
       gparted
       aria2
       python3
+      waydroid-helper
       appimage-run
+      git-lfs
+      qtscrcpy
 
-      /*
       # AI IDE
       antigravity-fhs
       google-chrome
 
+      /*
       podman-compose
       zed-editor
       alacritty
@@ -84,14 +92,15 @@
         "io.github.benjamimgois.goverlay"
         "com.github.xournalpp.xournalpp"
         "org.godotengine.Godot"
-        "io.github.ryubing.Ryujinx"
         "org.videolan.VLC"
         "com.obsproject.Studio"
-        "it.mijorus.gearlever"
         "md.obsidian.Obsidian"
         "com.heroicgameslauncher.hgl"
-        "ink.whis.Whis"
         /*
+        "ink.whis.Whis"
+        "io.github.ryubing.Ryujinx"
+        "com.github.unrud.RemoteTouchpad"
+        "it.mijorus.gearlever"
         "com.google.Chrome"
         "net.lutris.Lutris"
         "com.valvesoftware.Steam"

@@ -13,12 +13,14 @@
     # hardware channel
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
+    /*
     # enable home-manager
     home-manager = {
       url = "github:nix-community/home-manager";
       # tell home manager to use the nixpkgs channel set above.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    */
   };
 
   # Tell Flake what to use and what to do with the dependencies.
