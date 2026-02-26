@@ -195,6 +195,7 @@ in
           "seatd"
           "video"
           "wheel"
+          "ydotool"
         ];
         shell = pkgs.zsh; # Default shell
       };

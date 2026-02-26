@@ -200,54 +200,56 @@
     };
   };
 
-  programs.nix-ld.libraries = with pkgs; [
-    stdenv.cc.cc
+  programs = {
+    ydotool.enable = true;
+    nix-ld.libraries = with pkgs; [
+      stdenv.cc.cc
 
-    # GTK / GLib stack
-    glib
-    atk
-    pango
-    cairo
-    gdk-pixbuf
-    gtk3
+      # GTK / GLib stack
+      glib
+      atk
+      pango
+      cairo
+      gdk-pixbuf
+      gtk3
 
-    # DBus / system
-    dbus
-    expat
+      # DBus / system
+      dbus
+      expat
 
-    # X11 stack  ← THIS FIXES libX11.so.6
-    xorg.libX11
-    xorg.libXcursor
-    xorg.libXcomposite
-    xorg.libXdamage
-    xorg.libXrandr
-    xorg.libXtst
-    xorg.libXi
-    xorg.libXfixes
-    xorg.libXrender
-    xorg.libXScrnSaver
-    xorg.libXinerama
-    xorg.libxcb
-    xorg.libXext
+      # X11 stack  ← THIS FIXES libX11.so.6
+      libx11
+      libxcursor
+      libxcomposite
+      libxdamage
+      libxrandr
+      libxtst
+      libxi
+      libxfixes
+      libxrender
+      libxscrnsaver
+      libxinerama
+      libxcb
+      libxext
 
-    # Graphics
-    libdrm
-    libgbm
-    mesa
+      # Graphics
+      libdrm
+      libgbm
+      mesa
 
-    # Audio
-    alsa-lib
-    pulseaudio
-    pipewire
+      # Audio
+      alsa-lib
+      pulseaudio
+      pipewire
 
-    # Wayland (harmless even on X11)
-    wayland
-    libxkbcommon
+      # Wayland (harmless even on X11)
+      wayland
+      libxkbcommon
 
-    # Electron / Chromium
-    nss
-    nspr
-    cups
-  ];
-
+      # Electron / Chromium
+      nss
+      nspr
+      cups
+    ];
+  };
 }

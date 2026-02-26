@@ -177,7 +177,7 @@ immutability=1
 plugin=org.kde.plasma.brightness
 
 [Containments][2][Applets][7][Applets][39][Configuration]
-PreloadWeight=31
+PreloadWeight=36
 
 [Containments][2][Applets][7][Applets][40]
 immutability=1
@@ -230,7 +230,7 @@ PreloadWeight=34
 
 [Containments][38][Wallpaper][luisbocanegra.smart.video.wallpaper.reborn][General]
 LastVideo=file:///home/x/Downloads/cozy-campfire-by-abi-toads.3840x2160.mp4
-LastVideoPosition=9633
+LastVideoPosition=5800
 VideoUrls=[{"filename":"file:///home/x/Downloads/cozy-campfire-by-abi-toads.3840x2160.mp4","enabled":true,"duration":0,"customDuration":0,"playbackRate":0,"loop":false}]
 
 [Containments][38][Wallpaper][org.kde.image][General]
