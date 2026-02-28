@@ -86,8 +86,6 @@
 
       packages = [
         "com.brave.Browser"
-        "com.github.tchx84.Flatseal"
-        "org.gnome.Boxes"
         "dev.zed.Zed-Preview"
         "io.github.benjamimgois.goverlay"
         "com.github.xournalpp.xournalpp"
@@ -97,6 +95,8 @@
         "md.obsidian.Obsidian"
         "com.heroicgameslauncher.hgl"
         /*
+        "com.github.tchx84.Flatseal"
+        "org.gnome.Boxes"
         "ink.whis.Whis"
         "io.github.ryubing.Ryujinx"
         "com.github.unrud.RemoteTouchpad"
@@ -168,7 +168,6 @@
   virtualisation = {
     containers.enable = true;
 
-    /*
     virtualbox.host = {
       # Enable VirtualBox host
       enable = true;
@@ -176,6 +175,7 @@
       # Needed for USB (webcam, mic, etc.)
       enableExtensionPack = true;
     };
+    /*
     podman = {
       enable = true;
       # Create a `docker` alias for podman, to use it as a drop-in replacement
