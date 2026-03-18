@@ -7,6 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "edit_predictions": {
+    "provider": "zed",
+  },
   "autosave": "on_focus_change",
   "buffer_line_height": "standard",
   "minimap": {
@@ -17,11 +20,8 @@
     "dock": "right",
   },
   // "icon_theme": "Catppuccin Mocha",
-  "features": {
-    "edit_prediction_provider": "zed",
-  },
   "base_keymap": "VSCode",
-  "theme": "Catppuccin Mocha (Blur)",
+  "theme": "Vesper Blur",
   "ui_font_size": 13,
   "buffer_font_size": 13,
   // Finder model width
@@ -59,9 +59,11 @@
   },
   // Use Copilot Chat AI as default
   "agent": {
+    "tool_permissions": {
+      "default": "allow",
+    },
     "enable_feedback": false,
     "single_file_review": false,
-    "always_allow_tool_actions": true,
     "default_model": {
       "provider": "ollama",
       "model": "qwen3:8b",
@@ -82,6 +84,7 @@
     "dockerfile": true,
     "docker-compose": true,
     "catppuccin-blur": true,
+    "vesper-blur": true,
   },
   "language_models": {
     "ollama": {
