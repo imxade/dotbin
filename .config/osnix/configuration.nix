@@ -90,6 +90,12 @@ in
       extraConfig = "  HostKeyAlgorithms +ssh-rsa\n";
     };
     logrotate.checkConfig = false;
+    cron = {
+      enable = true;
+      systemCronJobs = [
+        "0 20 * * * sh /home/${USER}/.config/cron.sh"
+      ];
+    };
   };
   environment = {
     # Define Environment System Wide variables

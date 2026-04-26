@@ -7,6 +7,11 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
   "edit_predictions": {
     "provider": "zed",
   },
@@ -59,6 +64,7 @@
   },
   // Use Copilot Chat AI as default
   "agent": {
+    "dock": "left",
     "tool_permissions": {
       "default": "allow",
     },
@@ -179,7 +185,7 @@
     "dock": "right",
   },
   "collaboration_panel": {
-    "dock": "left",
+    "dock": "right",
   },
   // Move some unnecessary panels to the left
   "notification_panel": {
