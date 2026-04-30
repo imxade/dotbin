@@ -25,6 +25,8 @@ e() {
 alias \
   cd="z" \
   g="git" \
+  nr="npm run" \
+  act-ci='act --container-architecture linux/amd64' \
   gc="git commit -m" \
   dot="g --git-dir=$HOME/.dot --work-tree=$HOME" \
   dcm="dot add -u; dot commit --amend -m" \
