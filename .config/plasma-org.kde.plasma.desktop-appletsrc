@@ -191,7 +191,7 @@ DialogWidth=810
 
 [Containments][38][Wallpaper][luisbocanegra.smart.video.wallpaper.reborn][General]
 LastVideo=file:///home/x/Downloads/cozy-campfire-by-abi-toads.3840x2160.mp4
-LastVideoPosition=8400
+LastVideoPosition=9133
 VideoUrls=[{"filename":"file:///home/x/Downloads/cozy-campfire-by-abi-toads.3840x2160.mp4","enabled":true,"duration":0,"customDuration":0,"playbackRate":0,"loop":false}]
 
 [Containments][38][Wallpaper][org.kde.image][General]
@@ -209,4 +209,4 @@ wallpaperplugin=org.kde.image
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/todo.txt,0,fe166986-f05c-4564-93b1-8dbeb2349aee
+screenMapping=

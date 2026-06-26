@@ -63,7 +63,7 @@ Left=ApplicationLauncher
 
 [Wayland]
 InputMethod[$e]=/run/current-system/sw/share/applications/com.github.maliit.keyboard.desktop
-VirtualKeyboardEnabled=true
+VirtualKeyboardEnabled=false
 
 [Xwayland]
 Scale=2
