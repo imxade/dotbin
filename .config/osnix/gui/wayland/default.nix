@@ -54,6 +54,9 @@
 
   # Configure the X11 windowing system.
   services = {
+    udev.extraRules = ''
+      KERNEL=="uinput", MODE="0660", GROUP="input", SYMLINK+="uinput"
+    '';
     logind.settings = {
       Login = {
         HandlePowerKey = "hibernate";
