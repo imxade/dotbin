@@ -1,0 +1,19 @@
+[Desktop Entry]
+Actions=NewWorkspace;
+Categories=Utility;TextEditor;Development;IDE;
+Comment=A high-performance, multiplayer code editor.
+Exec=flatpak run --branch=stable --arch=x86_64 --command=zed-wrapper --file-forwarding dev.zed.Zed-Preview @@u %U @@
+GenericName=Text Editor
+Icon=dev.zed.Zed-Preview
+Keywords=zed;
+MimeType=text/plain;application/x-zerosize;x-scheme-handler/zed;
+Name=Zed Preview
+StartupNotify=true
+Type=Application
+Version=1.0
+X-Desktop-File-Install-Version=0.28
+X-Flatpak=dev.zed.Zed-Preview
+
+[Desktop Action NewWorkspace]
+Exec=flatpak run --branch=stable --arch=x86_64 --command=zed --file-forwarding dev.zed.Zed-Preview --new @@u %U @@
+Name=Open a new workspace
