@@ -28,6 +28,8 @@
       # AI IDE
       antigravity-fhs
       google-chrome
+      nodejs
+      # open-webui
 
       /*
       podman-compose
@@ -65,6 +67,15 @@
       };
     };
 
+    /*
+    ollama = {
+      enable = true;
+      loadModels = [
+        # "qwen3.6:27b"
+      ];
+    };
+    */
+
     spice-vdagentd.enable = true;
     lact.enable = true;
 
@@ -95,9 +106,11 @@
         "org.godotengine.Godot"
         "org.videolan.VLC"
         "com.obsproject.Studio"
-        "md.obsidian.Obsidian"
         "com.heroicgameslauncher.hgl"
+        "ai.lmstudio.lm-studio"
         /*
+        "com.openwebui.open-webui"
+        "md.obsidian.Obsidian"
         "com.github.tchx84.Flatseal"
         "org.gnome.Boxes"
         "ink.whis.Whis"
