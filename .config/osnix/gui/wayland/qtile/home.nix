@@ -25,12 +25,6 @@
       # Editor
       # helix
 
-      # Monitor
-      bottom
-
-      # Utility
-      zoxide
-
       # LSP
       # lldb
       # awk-language-server

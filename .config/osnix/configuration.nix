@@ -113,7 +113,6 @@ in
       evil-helix # Text Editor
       libarchive # bsdtar : Utility to work with archives
       zoxide
-      bottom
     ];
     /*
     # Create file /etc/current-system-packages with List of all Packages

@@ -19,7 +19,7 @@
       wezterm
       gparted
       aria2
-      python3
+      # python3
       waydroid-helper
       appimage-run
       git-lfs
@@ -29,7 +29,10 @@
       antigravity-fhs
       google-chrome
       nodejs
-      # open-webui
+
+      # Monitor
+      bottom
+      nvtop
 
       /*
       podman-compose
@@ -77,7 +80,7 @@
     */
 
     spice-vdagentd.enable = true;
-    lact.enable = true;
+    # lact.enable = true;
 
     xserver = {
       enable = false;
