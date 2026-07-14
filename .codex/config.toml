@@ -1,0 +1,51 @@
+approval_policy = "never"
+sandbox_mode = "workspace-write"
+personality = "pragmatic"
+model = "gpt-5.6-sol"
+model_reasoning_effort = "low"
+service_tier = "priority"
+
+[projects."/home/x/Downloads/project/portagent"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/o2c-graph"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/register"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/autoreel"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/redditapi"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/kitsy"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/owncode"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/vercel"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/harbur"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/gsoc"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/sams"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/8th"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/streem"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/streem2"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/research_compute"]
+trust_level = "trusted"

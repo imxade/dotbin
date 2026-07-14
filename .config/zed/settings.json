@@ -15,6 +15,9 @@
     }
   },
   "edit_predictions": {
+    "ollama": {
+      "model": "qwen2.5-coder:7b-base"
+    },
     "provider": "zed",
   },
   "autosave": "on_focus_change",
@@ -28,7 +31,7 @@
   },
   // "icon_theme": "Catppuccin Mocha",
   "base_keymap": "VSCode",
-  "theme": "Catppuccin Mocha (Blur) [Heavy]",
+  "theme": "Catppuccin Macchiato (Blur) [Heavy]",
   "ui_font_size": 13,
   "buffer_font_size": 13,
   // Finder model width
@@ -66,6 +69,12 @@
   },
   // Use Copilot Chat AI as default
   "agent": {
+    "auto_compact": {
+      "threshold": "90%"
+    },
+    "sandbox_permissions": {
+      "allow_unsandboxed": true
+    },
     "dock": "right",
     "tool_permissions": {
       "default": "allow",
@@ -75,7 +84,7 @@
     "default_model": {
       "enable_thinking": false,
       "provider": "lmstudio",
-      "model": "qwen/qwen3.5-9b",
+      "model": "qwen3.6-27b-uncensored-hauhaucs-aggressive@iq3_xs",
     },
   },
   // Uncomment below to use local AI with Ollama, refer https://zed.dev/docs/language-model-integration?highlight=ollama#using-ollama-on-macos

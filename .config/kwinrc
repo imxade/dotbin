@@ -34,6 +34,7 @@ Mode=Constant
 NightTemperature=3600
 
 [Plugins]
+blurEnabled=true
 kwin4_effect_geometry_changeEnabled=true
 wobblywindowsEnabled=true
 
