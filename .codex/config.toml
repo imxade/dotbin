@@ -3,7 +3,7 @@ sandbox_mode = "workspace-write"
 personality = "pragmatic"
 model = "gpt-5.6-sol"
 model_reasoning_effort = "low"
-service_tier = "priority"
+service_tier = "default"
 
 [projects."/home/x/Downloads/project/portagent"]
 trust_level = "trusted"
