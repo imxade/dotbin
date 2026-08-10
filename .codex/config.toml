@@ -2,7 +2,7 @@ approval_policy = "never"
 sandbox_mode = "workspace-write"
 personality = "pragmatic"
 model = "gpt-5.6-sol"
-model_reasoning_effort = "low"
+model_reasoning_effort = "high"
 service_tier = "default"
 
 [projects."/home/x/Downloads/project/portagent"]
@@ -49,3 +49,42 @@ trust_level = "trusted"
 
 [projects."/home/x/Downloads/project/research_compute"]
 trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/directhire"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/nixhost"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/nixhost-master"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/ogh-site"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/ai-api"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/DOC-v2.17-final"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/reward-router"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/daisyui"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/nixhost-android"]
+trust_level = "trusted"
+
+[tool_suggest]
+disabled_tools = [{ type = "plugin", id = "github@openai-curated-remote" }]
+
+[apps.connector_openai_plugin_management]
+enabled = false
+
+[apps.connector_20205bf7d4e99a89d7154bb849718324]
+enabled = false
+
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"

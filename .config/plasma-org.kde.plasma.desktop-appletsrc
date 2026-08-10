@@ -27,7 +27,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][2][Applets][5][Configuration][General]
-launchers=preferred://browser,preferred://filemanager,applications:systemsettings.desktop,file:///var/lib/flatpak/exports/share/applications/dev.zed.Zed-Preview.desktop,applications:antigravity-url-handler.desktop,file:///home/x/.cache/appimage-run/2cd19ee9a7afc540d47131dfaef39dd55e75c64feebbf78810e0f22ab6f031e2/open-webui.desktop,applications:ai.lmstudio.lm-studio.desktop
+launchers=preferred://browser,applications:systemsettings.desktop,file:///var/lib/flatpak/exports/share/applications/dev.zed.Zed-Preview.desktop,applications:ai.lmstudio.lm-studio.desktop
 
 [Containments][2][Applets][50]
 immutability=1

@@ -26,13 +26,14 @@
       qtscrcpy
 
       # AI IDE
-      antigravity-fhs
+      antigravity-ide
       google-chrome
       nodejs
+      gh
 
       # Monitor
       bottom
-      nvtop
+      nvtopPackages.full
 
       /*
       podman-compose
