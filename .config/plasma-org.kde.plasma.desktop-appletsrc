@@ -27,7 +27,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][2][Applets][5][Configuration][General]
-launchers=preferred://browser,applications:systemsettings.desktop,file:///var/lib/flatpak/exports/share/applications/dev.zed.Zed-Preview.desktop,applications:ai.lmstudio.lm-studio.desktop
+launchers=preferred://browser,applications:systemsettings.desktop,file:///var/lib/flatpak/exports/share/applications/dev.zed.Zed-Preview.desktop,applications:ai.lmstudio.lm-studio.desktop,applications:antigravity-ide.desktop,file:///nix/store/jxi9r5kmqmi352rc0kvlkyk6yndgih9f-system-path/share/applications/org.kde.dolphin.desktop
 
 [Containments][2][Applets][50]
 immutability=1

@@ -6,10 +6,14 @@
     # ./cursor-script-compat.nix
   ];
 
-  networking.firewall.allowedTCPPorts = [
+  networking.firewall = { 
+    allowedTCPPorts = [
     3000
-    33333 # RemoteTouchpad
   ];
+    allowedUDPPortRanges = [
+    { from = 4000; to = 4100; }
+  ];
+  };
 
   environment = {
     # List packages installed in xorg profile.
@@ -26,7 +30,8 @@
       qtscrcpy
 
       # AI IDE
-      antigravity-ide
+      antigravity-ide-fhs
+      chromium
       google-chrome
       nodejs
       gh
@@ -57,6 +62,8 @@
     };
   };
   */
+
+  hardware.uinput.enable = true;
 
   # Configure the X11 windowing system.
   services = {
@@ -221,7 +228,7 @@
   };
 
   programs = {
-    ydotool.enable = true;
+    # ydotool.enable = true;
     nix-ld.libraries = with pkgs; [
       stdenv.cc.cc
 

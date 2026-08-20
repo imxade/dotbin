@@ -77,6 +77,18 @@ trust_level = "trusted"
 [projects."/home/x/Downloads/project/nixhost-android"]
 trust_level = "trusted"
 
+[projects."/home/x/Downloads/project/Rein"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/digital-works-marketplace"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/Interview"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project"]
+trust_level = "trusted"
+
 [tool_suggest]
 disabled_tools = [{ type = "plugin", id = "github@openai-curated-remote" }]
 

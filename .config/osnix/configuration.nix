@@ -201,6 +201,7 @@ in
           "video"
           "wheel"
           "ydotool"
+          "uinput"
         ];
         shell = pkgs.zsh; # Default shell
       };
