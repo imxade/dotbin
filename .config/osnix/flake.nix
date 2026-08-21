@@ -14,6 +14,9 @@
     # Disk partitioning / installation
     disko.url = "github:nix-community/disko";
 
+    # NixShip
+    nixship.url = "github:imxade/nixship";
+
     /*
     # Home Manager
     home-manager = {
@@ -70,7 +73,8 @@
         modules = [
           disko.nixosModules.disko
 
-          ./oracle/free.nix
+          ./oracle
+          ./service/nixship
         ];
       };
 
