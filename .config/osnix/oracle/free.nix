@@ -206,7 +206,6 @@
     git
     curl
     wget
-    btop
     htop
     evil-helix
   ];
