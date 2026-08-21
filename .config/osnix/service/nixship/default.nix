@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  nixship = inputs.nixship.packages.${pkgs.system}.default;
+  nixship = inputs.nixship.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   # ==========================================================

@@ -89,6 +89,9 @@ trust_level = "trusted"
 [projects."/home/x/Downloads/project"]
 trust_level = "trusted"
 
+[projects."/home/x/Downloads/project/nixship"]
+trust_level = "trusted"
+
 [tool_suggest]
 disabled_tools = [{ type = "plugin", id = "github@openai-curated-remote" }]
 

@@ -3,10 +3,6 @@
 {
   # ==========================================================
   # VIRTUAL MACHINE HARDWARE
-  #
-  # OCI Ampere A1 uses a virtualized/virtio device model.
-  # qemu-guest.nix provides the required initrd drivers for
-  # virtio storage and networking.
   # ==========================================================
 
   imports = [
@@ -23,11 +19,6 @@
 
   # ==========================================================
   # NETWORK
-  #
-  # Keep OCI networking on DHCP.
-  #
-  # net.ifnames=0 gives the interface the predictable name
-  # eth0, matching the OCI/NixOS cloud setup.
   # ==========================================================
 
   networking.useDHCP = true;
@@ -45,29 +36,13 @@
 
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Keep only a small number of bootable generations.
+  # This limits /boot growth while retaining rollback capability.
+  boot.loader.systemd-boot.configurationLimit = 3;
+
 
   # ==========================================================
   # DISK
-  #
-  # Oracle A1 boot volume:
-  #
-  #   /dev/sda
-  #
-  # Layout:
-  #
-  #   /dev/sda1   512 MiB EFI
-  #   /dev/sda2   remainder Btrfs
-  #
-  # Btrfs subvolumes:
-  #
-  #   /root -> /
-  #   /home -> /home
-  #   /nix  -> /nix
-  #
-  # Disko generates the corresponding mount configuration.
-  #
-  # WARNING:
-  # This disk is completely erased during installation.
   # ==========================================================
 
   disko.devices.disk.main = {
@@ -147,11 +122,6 @@
 
   # ==========================================================
   # SSH
-  #
-  # The public key is installed separately by
-  # nixos-anywhere --extra-files.
-  #
-  # No SSH key is stored in this configuration.
   # ==========================================================
 
   services.openssh.enable = true;
@@ -165,12 +135,6 @@
 
   # ==========================================================
   # x86_64 USERSPACE EMULATION
-  #
-  # The machine itself remains:
-  #
-  #   aarch64-linux
-  #
-  # Only x86_64 Linux executables use QEMU/binfmt.
   # ==========================================================
 
   boot.binfmt.emulatedSystems = [
@@ -182,13 +146,35 @@
   # NIX
   # ==========================================================
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
 
-  # cache.nixos.org is the default substituter.
+    # Deduplicate identical files as they are added.
+    # This saves space at the cost of some extra work during
+    # store additions.
+    auto-optimise-store = true;
+  };
 
+
+  # Periodically perform a full store optimisation.
+  #
+  # This scans the store and hard-links identical files.
+  nix.optimise = {
+    automatic = true;
+
+    dates = [
+      "03:45"
+    ];
+  };
+
+
+  # Automatically remove old/unreferenced Nix store paths.
+  #
+  # 14 days is conservative enough to retain rollback history
+  # while keeping the 47 GB VM from accumulating indefinitely.
   nix.gc = {
     automatic = true;
 
