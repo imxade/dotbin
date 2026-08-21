@@ -41,7 +41,7 @@
 
         modules = [
           ./configuration.nix
-          ./hardware-configuration.nix
+          /etc/nixos/hardware-configuration.nix
         ];
       };
 

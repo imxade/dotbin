@@ -118,11 +118,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1787283622,
-        "narHash": "sha256-6EKtfAGJOu/LOSeMKeJGLZcQ0IrGTUDekQnqAE7ZVUY=",
+        "lastModified": 1787330011,
+        "narHash": "sha256-E2Pu0dOY9agbYdOJp8Z/OQJvmOvz0ZnV8i7Q2eCp3Ac=",
         "owner": "imxade",
         "repo": "nixship",
-        "rev": "9d87cc84c06c4a19ef5204484fdbd739f289366b",
+        "rev": "e3f18998b9272c2a18af18eda030a6b8c78606e5",
         "type": "github"
       },
       "original": {
