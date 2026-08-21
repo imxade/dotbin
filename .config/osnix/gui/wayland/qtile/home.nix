@@ -25,12 +25,6 @@
       # Editor
       # helix
 
-      # Monitor
-      bottom
-
-      # Utility
-      zoxide
-
       # LSP
       # lldb
       # awk-language-server
@@ -49,7 +43,6 @@
     ];
   };
 
-  programs = { home-manager = { enable = true; }; };
+  # programs = { home-manager = { enable = true; }; };
 
 }
-

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Categories=Development;Utility;
+Comment=Use the chat UI or local server to experiment and develop with local LLMs.
+Exec=flatpak run --branch=stable --arch=x86_64 --command=lmstudio --file-forwarding ai.lmstudio.lm-studio @@u %U @@
+Icon=ai.lmstudio.lm-studio
+Keywords=developer;llm;
+MimeType=x-scheme-handler/lmstudio;
+Name=LM-Studio
+StartupWMClass=LM-Studio
+Terminal=false
+Type=Application
+X-Flatpak=ai.lmstudio.lm-studio

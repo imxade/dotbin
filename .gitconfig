@@ -16,3 +16,9 @@
 	helper = store
 [http]
 	postBuffer = 157286400
+[credential "https://github.com"]
+	helper = 
+	helper = !/nix/store/7ayrbzjnm88xn12lfv99c1sqprlc2bwr-gh-2.97.0/bin/.gh-wrapped auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/nix/store/7ayrbzjnm88xn12lfv99c1sqprlc2bwr-gh-2.97.0/bin/.gh-wrapped auth git-credential

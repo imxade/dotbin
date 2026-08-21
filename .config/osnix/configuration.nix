@@ -27,7 +27,7 @@ in
      # Declarative Home Manager
      # inputs.home-manager.nixosModules.home-manager
      # Include Machine Profile
-     # ./${RIG}
+     ./${RIG}
      # Include GUI Profile
      ./${GUI}
      # Include Hardened Profile [Disables hibernation]
@@ -90,6 +90,12 @@ in
       extraConfig = "  HostKeyAlgorithms +ssh-rsa\n";
     };
     logrotate.checkConfig = false;
+    cron = {
+      enable = true;
+      systemCronJobs = [
+        "0 20 * * * sh /home/${USER}/.config/cron.sh"
+      ];
+    };
   };
   environment = {
     # Define Environment System Wide variables
@@ -107,7 +113,6 @@ in
       evil-helix # Text Editor
       libarchive # bsdtar : Utility to work with archives
       zoxide
-      bottom
     ];
     /*
     # Create file /etc/current-system-packages with List of all Packages
@@ -195,6 +200,8 @@ in
           "seatd"
           "video"
           "wheel"
+          "ydotool"
+          "uinput"
         ];
         shell = pkgs.zsh; # Default shell
       };

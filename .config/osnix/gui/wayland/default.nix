@@ -3,7 +3,17 @@
 {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
+    # ./cursor-script-compat.nix
   ];
+
+  networking.firewall = { 
+    allowedTCPPorts = [
+    3000
+  ];
+    allowedUDPPortRanges = [
+    { from = 4000; to = 4100; }
+  ];
+  };
 
   environment = {
     # List packages installed in xorg profile.
@@ -13,7 +23,23 @@
       wezterm
       gparted
       aria2
-      python3
+      # python3
+      waydroid-helper
+      appimage-run
+      git-lfs
+      qtscrcpy
+
+      # AI IDE
+      antigravity-ide-fhs
+      chromium
+      google-chrome
+      nodejs
+      gh
+
+      # Monitor
+      bottom
+      nvtopPackages.full
+
       /*
       podman-compose
       zed-editor
@@ -37,14 +63,35 @@
   };
   */
 
+  hardware.uinput.enable = true;
+
   # Configure the X11 windowing system.
   services = {
+    udev.extraRules = ''
+      KERNEL=="uinput", MODE="0660", GROUP="input", SYMLINK+="uinput"
+    '';
+    logind.settings = {
+      Login = {
+        HandlePowerKey = "hibernate";
+        HandleLidSwitch = "hibernate";
+        HandleLidSwitchDocked = "hibernate";
+      };
+    };
+
+    /*
+    ollama = {
+      enable = true;
+      loadModels = [
+        # "qwen3.6:27b"
+      ];
+    };
+    */
+
     spice-vdagentd.enable = true;
-    lact.enable = true;
+    # lact.enable = true;
 
     xserver = {
       enable = false;
-
       # Configure DesktopManager
       desktopManager = {
         xterm = {
@@ -64,19 +111,25 @@
 
       packages = [
         "com.brave.Browser"
-        "com.github.tchx84.Flatseal"
-        "org.gnome.Boxes"
         "dev.zed.Zed-Preview"
-        "net.lutris.Lutris"
         "io.github.benjamimgois.goverlay"
         "com.github.xournalpp.xournalpp"
         "org.godotengine.Godot"
-        "io.github.ryubing.Ryujinx"
         "org.videolan.VLC"
         "com.obsproject.Studio"
-        "it.mijorus.gearlever"
-        "md.obsidian.Obsidian"
+        "com.heroicgameslauncher.hgl"
+        "ai.lmstudio.lm-studio"
         /*
+        "com.openwebui.open-webui"
+        "md.obsidian.Obsidian"
+        "com.github.tchx84.Flatseal"
+        "org.gnome.Boxes"
+        "ink.whis.Whis"
+        "io.github.ryubing.Ryujinx"
+        "com.github.unrud.RemoteTouchpad"
+        "it.mijorus.gearlever"
+        "com.google.Chrome"
+        "net.lutris.Lutris"
         "com.valvesoftware.Steam"
         "com.heroicgameslauncher.hgl"
         "org.cubocore.CoreKeyboard"
@@ -141,6 +194,14 @@
 
   virtualisation = {
     containers.enable = true;
+
+    virtualbox.host = {
+      # Enable VirtualBox host
+      enable = true;
+
+      # Needed for USB (webcam, mic, etc.)
+      enableExtensionPack = true;
+    };
     /*
     podman = {
       enable = true;
@@ -164,5 +225,58 @@
         setSocketVariable = true;
       };
     };
+  };
+
+  programs = {
+    # ydotool.enable = true;
+    nix-ld.libraries = with pkgs; [
+      stdenv.cc.cc
+
+      # GTK / GLib stack
+      glib
+      atk
+      pango
+      cairo
+      gdk-pixbuf
+      gtk3
+
+      # DBus / system
+      dbus
+      expat
+
+      # X11 stack  ← THIS FIXES libX11.so.6
+      libx11
+      libxcursor
+      libxcomposite
+      libxdamage
+      libxrandr
+      libxtst
+      libxi
+      libxfixes
+      libxrender
+      libxscrnsaver
+      libxinerama
+      libxcb
+      libxext
+
+      # Graphics
+      libdrm
+      libgbm
+      mesa
+
+      # Audio
+      alsa-lib
+      pulseaudio
+      pipewire
+
+      # Wayland (harmless even on X11)
+      wayland
+      libxkbcommon
+
+      # Electron / Chromium
+      nss
+      nspr
+      cups
+    ];
   };
 }

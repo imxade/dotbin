@@ -12,3 +12,6 @@
 	merge = refs/heads/main
 [pull]
 	rebase = true
+[branch "kde"]
+	remote = origin
+	merge = refs/heads/kde

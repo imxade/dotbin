@@ -15,12 +15,6 @@
       # helix
       # evil-helix
 
-      # Monitor
-      bottom
-
-      # Utility
-      zoxide
-
       # LSP
       # lldb
       # awk-language-server
@@ -37,9 +31,8 @@
     ];
   };
 
-  programs = { home-manager = { enable = true; }; };
+  # programs = { home-manager = { enable = true; }; };
   systemd.user.enable = true;
   xdg.enable = true;
 
 }
-

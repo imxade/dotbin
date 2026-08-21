@@ -1,41 +1,91 @@
 {
   description = "Have Some Flake";
 
-  # Define All Flake references to be used for building NixOS setup. These are dependencies.
-  inputs = rec {
-
-    # set the channel
+  inputs = {
+    # Main package/channel
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Declaratve flatpak
+    # Declarative Flatpak
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
-    # hardware channel
+    # Hardware-specific modules
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    # enable home-manager
+    # Disk partitioning / installation
+    disko.url = "github:nix-community/disko";
+
+    /*
+    # Home Manager
     home-manager = {
       url = "github:nix-community/home-manager";
-      # tell home manager to use the nixpkgs channel set above.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    */
   };
 
-  # Tell Flake what to use and what to do with the dependencies.
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, disko, ... }@inputs: {
+
     nixosConfigurations = {
+
+      # ======================================================
+      # PERSONAL MACHINE
+      # ======================================================
+
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
         };
+
         modules = [
           ./configuration.nix
-          /etc/nixos/hardware-configuration.nix
+          ./hardware-configuration.nix
         ];
       };
+
+
+      # ======================================================
+      # ORACLE CLOUD AMPERE A1 - ALWAYS FREE PROFILE
+      #
+      # Target:
+      #   VM.Standard.A1.Flex
+      #   aarch64-linux
+      #
+      # Filesystem:
+      #   GPT
+      #   EFI
+      #   Btrfs
+      #   root/home/nix subvolumes
+      #
+      # x86_64:
+      #   transparent userspace emulation via binfmt/QEMU
+      # ======================================================
+
+      oracle-free = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+
+        specialArgs = {
+          inherit inputs;
+        };
+
+        modules = [
+          disko.nixosModules.disko
+
+          ./oracle/free.nix
+        ];
+      };
+
+
+      # ======================================================
+      # ISO
+      # ======================================================
+
       iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+
+        specialArgs = {
+          inherit inputs;
+        };
+
         modules = [
           ./iso.nix
           ./configuration.nix

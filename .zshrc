@@ -44,3 +44,8 @@ bindkey -s '^O' " & disown && exit\n"
 . .config/shell/scripts/guix.sh &> /dev/null
 # zoxide
 eval "$(zoxide init zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/x/.lmstudio/bin"
+# End of LM Studio CLI section
+
