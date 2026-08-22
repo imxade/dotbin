@@ -74,4 +74,5 @@ Scale=2
 BorderSize=None
 BorderSizeAuto=false
 ButtonsOnLeft=MBFS
-library=org.kde.kwin.aurorae.v2
+library=org.kde.breeze
+theme=Breeze

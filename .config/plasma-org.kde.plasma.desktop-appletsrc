@@ -27,42 +27,15 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][2][Applets][5][Configuration][General]
-launchers=preferred://browser,applications:systemsettings.desktop,file:///var/lib/flatpak/exports/share/applications/dev.zed.Zed-Preview.desktop,applications:ai.lmstudio.lm-studio.desktop,applications:antigravity-ide.desktop,file:///nix/store/jxi9r5kmqmi352rc0kvlkyk6yndgih9f-system-path/share/applications/org.kde.dolphin.desktop
-
-[Containments][2][Applets][50]
-immutability=1
-plugin=AndromedaLauncher
-
-[Containments][2][Applets][51]
-immutability=1
-plugin=org.kde.plasma.cameraindicator
-
-[Containments][2][Applets][51][Configuration]
-popupHeight=216
-popupWidth=217
-
-[Containments][2][Applets][57]
-immutability=1
-plugin=org.dhruv8sh.kara
-
-[Containments][2][Applets][57][Configuration]
-popupHeight=432
-popupWidth=433
-
-[Containments][2][Applets][57][Configuration][ConfigDialog]
-DialogHeight=630
-DialogWidth=810
-
-[Containments][2][Applets][57][Configuration][general]
-highlightType=1
-type=0
-
-[Containments][2][Applets][57][Configuration][type2]
-labelSource=0
+launchers=applications:systemsettings.desktop,file:///var/lib/flatpak/exports/share/applications/dev.zed.Zed-Preview.desktop,applications:ai.lmstudio.lm-studio.desktop,applications:antigravity-ide.desktop,file:///nix/store/jxi9r5kmqmi352rc0kvlkyk6yndgih9f-system-path/share/applications/org.kde.dolphin.desktop
 
 [Containments][2][Applets][6]
 immutability=1
 plugin=org.kde.plasma.marginsseparator
+
+[Containments][2][Applets][67]
+immutability=1
+plugin=AndromedaLauncher
 
 [Containments][2][Applets][7]
 activityId=
@@ -166,14 +139,12 @@ DialogHeight=864
 DialogWidth=168
 
 [Containments][2][General]
-AppletOrder=5;57;6;7;21;51;50
+AppletOrder=5;6;7;21;67
 
-[Containments][38]
-ItemGeometries-1440x900=Applet-55:480,80,640,160,0;
-ItemGeometries-1800x1125=
-ItemGeometries-1920x1080=Applet-55:480,80,528,160,0;
-ItemGeometriesHorizontal=Applet-55:480,80,640,160,0;
-activityId=fe166986-f05c-4564-93b1-8dbeb2349aee
+[Containments][59]
+ItemGeometries-1440x900=Applet-66:384,112,528,160,0;
+ItemGeometriesHorizontal=Applet-66:384,112,528,160,0;
+activityId=e5574b41-b529-4c12-beb7-a5e9f0aa6cae
 formfactor=0
 immutability=1
 lastScreen=0
@@ -181,31 +152,20 @@ location=0
 plugin=org.kde.plasma.folder
 wallpaperplugin=luisbocanegra.smart.video.wallpaper.reborn
 
-[Containments][38][Applets][55]
+[Containments][59][Applets][66]
 immutability=1
 plugin=com.github.prayag2.modernclock
 
-[Containments][38][ConfigDialog]
-DialogHeight=630
-DialogWidth=810
-
-[Containments][38][Wallpaper][luisbocanegra.smart.video.wallpaper.reborn][General]
-LastVideo=file:///home/x/Downloads/cozy-campfire-by-abi-toads.3840x2160.mp4
-LastVideoPosition=7466
-VideoUrls=[{"filename":"file:///home/x/Downloads/cozy-campfire-by-abi-toads.3840x2160.mp4","enabled":true,"duration":0,"customDuration":0,"playbackRate":1,"loop":false}]
-
-[Containments][38][Wallpaper][org.kde.image][General]
-Image=file:///home/x/.local/share/wallpapers/Sweet-Wallpapers/Sweet-space.png
-SlidePaths=/home/x/.local/share/wallpapers/,/nix/store/y7487p0s2nmmfj7pv3j673dsx4pwn7l4-breeze-6.5.2/share/wallpapers/,/run/current-system/sw/share/wallpapers/
-
-[Containments][58]
-activityId=fe166986-f05c-4564-93b1-8dbeb2349aee
-formfactor=0
-immutability=1
-lastScreen=1
-location=0
-plugin=org.kde.plasma.folder
-wallpaperplugin=org.kde.image
+[Containments][59][Wallpaper][luisbocanegra.smart.video.wallpaper.reborn][General]
+AlternativePlaybackRateMode=3
+BatteryPausesVideo=false
+LastVideo=https://motionbgs.com/dl/4k/8823/
+LastVideoPosition=0
+PauseBatteryLevel=0
+PauseMode=3
+PlaybackRate=1
+ResumeLastVideo=false
+VideoUrls=[{"filename":"https://motionbgs.com/dl/4k/8823/","enabled":true,"duration":0,"customDuration":0,"playbackRate":1,"alternativePlaybackRate":1,"loop":true}]
 
 [ScreenMapping]
 itemsOnDisabledScreens=
