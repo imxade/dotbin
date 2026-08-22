@@ -1,4 +1,9 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 
 {
   # Include Universal wayland Config
@@ -18,9 +23,9 @@
       cosmic-player
     ];
     /*
-    systemPackages = with pkgs; [
-      cosmic-ext-tweaks
-    ];
+      systemPackages = with pkgs; [
+        cosmic-ext-tweaks
+      ];
     */
   };
 }

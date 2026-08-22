@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -22,7 +28,16 @@
   boot.resumeDevice = lib.mkForce "";
   boot.loader.grub.enable = lib.mkForce false;
   boot.loader.timeout = lib.mkForce 10;
-  boot.supportedFilesystems = lib.mkForce [ "btrfs" "reiserfs" "vfat" "f2fs" "xfs" "ntfs" "cifs" "ext4" ];
+  boot.supportedFilesystems = lib.mkForce [
+    "btrfs"
+    "reiserfs"
+    "vfat"
+    "f2fs"
+    "xfs"
+    "ntfs"
+    "cifs"
+    "ext4"
+  ];
   services.btrfs.autoScrub.enable = lib.mkForce false;
   environment.etc."skel".source = ./home;
 
@@ -42,7 +57,7 @@
     # List packages installed in xorg profile.
     systemPackages = with pkgs; [
       gparted
-      brave		# Browser
+      brave # Browser
       hw-probe
       perlPackages.Clone
     ];

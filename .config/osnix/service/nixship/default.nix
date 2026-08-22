@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   nixship = inputs.nixship.packages.${pkgs.stdenv.hostPlatform.system}.default;
@@ -8,7 +14,7 @@ in
   # NIX SHIP
   # ==========================================================
 
-  users.groups.nixship = {};
+  users.groups.nixship = { };
 
   users.users.nixship = {
     isSystemUser = true;
@@ -18,7 +24,6 @@ in
     createHome = true;
   };
 
-
   # ==========================================================
   # PERSISTENT DATA
   # ==========================================================
@@ -27,7 +32,6 @@ in
     "d /var/lib/nixship 0750 nixship nixship - -"
     "d /var/lib/nixship/data 0750 nixship nixship - -"
   ];
-
 
   # ==========================================================
   # SOURCE CHECKOUT
@@ -71,7 +75,6 @@ in
       chown -R nixship:nixship "$repo"
     '';
   };
-
 
   # ==========================================================
   # NIX SHIP SERVICE
@@ -122,7 +125,6 @@ in
     };
   };
 
-
   # ==========================================================
   # PERIODIC GIT UPDATE
   #
@@ -161,7 +163,6 @@ in
     '';
   };
 
-
   systemd.timers.nixship-update = {
     description = "Periodically update Nix Ship";
 
@@ -175,7 +176,6 @@ in
       Persistent = true;
     };
   };
-
 
   # ==========================================================
   # FIREWALL

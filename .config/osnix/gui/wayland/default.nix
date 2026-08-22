@@ -1,4 +1,10 @@
-{ inputs, lib, pkgs, config, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -6,13 +12,16 @@
     # ./cursor-script-compat.nix
   ];
 
-  networking.firewall = { 
+  networking.firewall = {
     allowedTCPPorts = [
-    3000
-  ];
+      3000
+    ];
     allowedUDPPortRanges = [
-    { from = 4000; to = 4100; }
-  ];
+      {
+        from = 4000;
+        to = 4100;
+      }
+    ];
   };
 
   environment = {
@@ -41,13 +50,13 @@
       nvtopPackages.full
 
       /*
-      podman-compose
-      zed-editor
-      alacritty
-      lapce
-      seatd  # elogind Replacement
-      brave		# Browser
-      swtpm		# Virtual TPM
+        podman-compose
+        zed-editor
+        alacritty
+        lapce
+        seatd  # elogind Replacement
+        brave		# Browser
+        swtpm		# Virtual TPM
       */
     ];
 
@@ -55,12 +64,12 @@
   };
 
   /*
-  sound = { # ALSA sound enable
-    enable = false;
-    mediaKeys = { # Keyboard Media Keys
-      enable = true;
+    sound = { # ALSA sound enable
+      enable = false;
+      mediaKeys = { # Keyboard Media Keys
+        enable = true;
+      };
     };
-  };
   */
 
   hardware.uinput.enable = true;
@@ -79,12 +88,12 @@
     };
 
     /*
-    ollama = {
-      enable = true;
-      loadModels = [
-        # "qwen3.6:27b"
-      ];
-    };
+      ollama = {
+        enable = true;
+        loadModels = [
+          # "qwen3.6:27b"
+        ];
+      };
     */
 
     spice-vdagentd.enable = true;
@@ -120,35 +129,35 @@
         "com.heroicgameslauncher.hgl"
         "ai.lmstudio.lm-studio"
         /*
-        "com.openwebui.open-webui"
-        "md.obsidian.Obsidian"
-        "com.github.tchx84.Flatseal"
-        "org.gnome.Boxes"
-        "ink.whis.Whis"
-        "io.github.ryubing.Ryujinx"
-        "com.github.unrud.RemoteTouchpad"
-        "it.mijorus.gearlever"
-        "com.google.Chrome"
-        "net.lutris.Lutris"
-        "com.valvesoftware.Steam"
-        "com.heroicgameslauncher.hgl"
-        "org.cubocore.CoreKeyboard"
-        "org.libretro.RetroArch"
-        "com.github.d4nj1.tlpui"
-        "org.wezfurlong.wezterm"
+          "com.openwebui.open-webui"
+          "md.obsidian.Obsidian"
+          "com.github.tchx84.Flatseal"
+          "org.gnome.Boxes"
+          "ink.whis.Whis"
+          "io.github.ryubing.Ryujinx"
+          "com.github.unrud.RemoteTouchpad"
+          "it.mijorus.gearlever"
+          "com.google.Chrome"
+          "net.lutris.Lutris"
+          "com.valvesoftware.Steam"
+          "com.heroicgameslauncher.hgl"
+          "org.cubocore.CoreKeyboard"
+          "org.libretro.RetroArch"
+          "com.github.d4nj1.tlpui"
+          "org.wezfurlong.wezterm"
 
-        "org.blender.Blender"
-        "io.mpv.Mpv"
+          "org.blender.Blender"
+          "io.mpv.Mpv"
 
-        "com.helix_editor.Helix"
-        "io.neovim.nvim"
-        "dev.lapce.lapce"
-        "com.vscodium.codium"
+          "com.helix_editor.Helix"
+          "io.neovim.nvim"
+          "dev.lapce.lapce"
+          "com.vscodium.codium"
 
-        "org.freedesktop.Sdk.Extension.typescript"
-        "org.freedesktop.Sdk.Extension.rust-stable"
-        "org.freedesktop.Sdk.Extension.llvm20"
-        "org.freedesktop.Sdk.Extension.node24"
+          "org.freedesktop.Sdk.Extension.typescript"
+          "org.freedesktop.Sdk.Extension.rust-stable"
+          "org.freedesktop.Sdk.Extension.llvm20"
+          "org.freedesktop.Sdk.Extension.node24"
         */
       ];
     };
@@ -161,11 +170,11 @@
     portal = {
       enable = true;
       /*
-      extraPortals = with pkgs; [
-        # xdg-desktop-portal-cosmic
-        xdg-desktop-portal-gtk
-      ];
-      config.common.default = "gtk";
+        extraPortals = with pkgs; [
+          # xdg-desktop-portal-cosmic
+          xdg-desktop-portal-gtk
+        ];
+        config.common.default = "gtk";
       */
     };
   };
@@ -175,20 +184,20 @@
     bluetooth = {
       enable = true;
       powerOnBoot = true;
-        /*
-      settings = {
-        Policy = {
-          # Auto Enable Bluetooth
-          AutoEnable = "true";
+      /*
+        settings = {
+          Policy = {
+            # Auto Enable Bluetooth
+            AutoEnable = "true";
+          };
+          General = {
+            Enable = "Source,Sink,Media,Socket";
+            ControllerMode = "bredr";
+            # Bluetooth device always visible
+            # DiscoverableTimeout = "0";
+          };
         };
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-          ControllerMode = "bredr";
-          # Bluetooth device always visible
-          # DiscoverableTimeout = "0";
-        };
-      };
-        */
+      */
     };
   };
 
@@ -203,19 +212,19 @@
       enableExtensionPack = true;
     };
     /*
-    podman = {
-      enable = true;
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      # dockerCompat = true;
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-    libvirtd = {
-      enable = true;
-      qemu = {
-        swtpm = { enable = false; };
+      podman = {
+        enable = true;
+        # Create a `docker` alias for podman, to use it as a drop-in replacement
+        # dockerCompat = true;
+        # Required for containers under podman-compose to be able to talk to each other.
+        defaultNetwork.settings.dns_enabled = true;
       };
-    };
+      libvirtd = {
+        enable = true;
+        qemu = {
+          swtpm = { enable = false; };
+        };
+      };
     */
     waydroid.enable = true;
     docker = {

@@ -1,4 +1,9 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 
 {
   # Include Universal xorg Config
@@ -14,7 +19,6 @@
     ];
   };
 
-
   # Configure the X11 windowing system.
   services = {
     logind = {
@@ -24,17 +28,24 @@
       enable = true; # enable tlp recommended for laptops
       settings = { };
     };
-    pipewire = { # Pipewire for Audio
+    pipewire = {
+      # Pipewire for Audio
       enable = true;
       alsa = {
         enable = true;
         support32Bit = true;
       };
-      pulse = { enable = true; };
+      pulse = {
+        enable = true;
+      };
     };
     xserver = {
       # Configure WindowManager
-      windowManager = { qtile = { enable = true; }; };
+      windowManager = {
+        qtile = {
+          enable = true;
+        };
+      };
     };
     # Configure DisplayManager
     displayManager = {

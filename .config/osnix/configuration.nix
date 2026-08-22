@@ -1,4 +1,12 @@
-{ inputs, lib, pkgs, config, system, nixpkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  config,
+  system,
+  nixpkgs,
+  ...
+}:
 # Read 'Keys' with their 'Values' from value.toml
 let
   # Modify value.toml, instead of Modifying Variables here
@@ -14,34 +22,45 @@ let
   # OFFSET = Toml.OFFSET; # Offset value of swapfile, For Hibernate
   TOR_BRIDGE = Toml.TOR_BRIDGE; # Bridge line for tor daemon
   /*
-  system = Toml.system; # Platform Architecture
-  pkgs = import nixpkgs {
-    inherit system;
-    config = { allowUnfree = true; };
-  };
+    system = Toml.system; # Platform Architecture
+    pkgs = import nixpkgs {
+      inherit system;
+      config = { allowUnfree = true; };
+    };
   */
   # Use Above Variables in ...
 in
 {
   imports = [
-     # Declarative Home Manager
-     # inputs.home-manager.nixosModules.home-manager
-     # Include Machine Profile
-     ./${RIG}
-     # Include GUI Profile
-     ./${GUI}
-     # Include Hardened Profile [Disables hibernation]
-     # ./rig/hard
-     # Include Development Profile
-     # ./dev
+    # Declarative Home Manager
+    # inputs.home-manager.nixosModules.home-manager
+    # Include Machine Profile
+    ./${RIG}
+    # Include GUI Profile
+    ./${GUI}
+    # Include Hardened Profile [Disables hibernation]
+    # ./rig/hard
+    # Include Development Profile
+    # ./dev
   ];
 
   fileSystems = {
-    "/".options = [ "compress=zstd" "noatime" "space_cache=v2" ];
-    "/home".options = [ "subvol=home" "compress=zstd" "noatime" "space_cache=v2" ];
+    "/".options = [
+      "compress=zstd"
+      "noatime"
+      "space_cache=v2"
+    ];
+    "/home".options = [
+      "subvol=home"
+      "compress=zstd"
+      "noatime"
+      "space_cache=v2"
+    ];
   };
   # Select internationalisation properties.
-  i18n = { defaultLocale = "en_US.UTF-8"; };
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+  };
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
@@ -56,19 +75,18 @@ in
     zsh.enable = true;
     nix-ld = {
       enable = true;
-      libraries = with pkgs;
-        [
-          # Add any missing dynamic libs for
-          # unpackaged program here
-        ];
+      libraries = with pkgs; [
+        # Add any missing dynamic libs for
+        # unpackaged program here
+      ];
     };
     /*
-    nh = {
-      enable = true;
-      clean.enable = true;
-      clean.extraArgs = "--keep 10";
-      flake = "/home/${USER}/.config/osnix";
-    };
+      nh = {
+        enable = true;
+        clean.enable = true;
+        clean.extraArgs = "--keep 10";
+        flake = "/home/${USER}/.config/osnix";
+      };
     */
   };
   security = {
@@ -101,9 +119,9 @@ in
     # Define Environment System Wide variables
     variables = {
       # fixes libstdc++ issues and libgl.so issues
-      LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/:/run/opengl-driver/lib/";
+      LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib/:/run/opengl-driver/lib/";
       # fixes xcb issues :
-      QT_PLUGIN_PATH="${pkgs.qt5.qtbase}/${pkgs.qt5.qtbase.qtPluginPrefix}";
+      QT_PLUGIN_PATH = "${pkgs.qt5.qtbase}/${pkgs.qt5.qtbase.qtPluginPrefix}";
     };
     # List packages installed in system profile.
     defaultPackages = [ ]; # Do not install anything by default
@@ -115,18 +133,18 @@ in
       zoxide
     ];
     /*
-    # Create file /etc/current-system-packages with List of all Packages
-    etc = {
-      "current-system-packages" = {
-        text = let
-          packages = builtins.map (p: "${p.name}")
-            config.environment.systemPackages;
-          sortedUnique =
-            builtins.sort builtins.lessThan (lib.unique packages);
-          formatted = builtins.concatStringsSep "\n" sortedUnique;
-        in formatted;
+      # Create file /etc/current-system-packages with List of all Packages
+      etc = {
+        "current-system-packages" = {
+          text = let
+            packages = builtins.map (p: "${p.name}")
+              config.environment.systemPackages;
+            sortedUnique =
+              builtins.sort builtins.lessThan (lib.unique packages);
+            formatted = builtins.concatStringsSep "\n" sortedUnique;
+          in formatted;
+        };
       };
-    };
     */
   };
   nixpkgs.config.allowUnfree = true;
@@ -134,7 +152,10 @@ in
     # Enable Automatic Optimisation.
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
     # Enable Automatic Garbage Collection.
     gc = {
@@ -183,7 +204,7 @@ in
   users = {
     users = {
       ${USER} = {
-        initialPassword	= "password";	# Password for the user
+        initialPassword = "password"; # Password for the user
         isNormalUser = true;
         extraGroups = [
           "nixbld"
@@ -228,17 +249,16 @@ in
       };
       settings = {
         /*
-        SOCKSPort = [
-          {
-            port = 9090;
-          }
-        ];
-        Bridge = "obfs4 IP:ORPort [fingerprint]";
+          SOCKSPort = [
+            {
+              port = 9090;
+            }
+          ];
+          Bridge = "obfs4 IP:ORPort [fingerprint]";
         */
         UseBridges = true;
         Bridge = "${TOR_BRIDGE}";
-        ClientTransportPlugin =
-          "obfs4 exec ${pkgs.obfs4}/bin/obfs4proxy";
+        ClientTransportPlugin = "obfs4 exec ${pkgs.obfs4}/bin/obfs4proxy";
       };
     };
   };
@@ -260,20 +280,20 @@ in
     stateVersion = "21.11"; # Do not modify
   };
   /*
-  home-manager = {
-    useUserPackages = true;
-    useGlobalPkgs = true;
-    users = {
-      ${USER} = { lib, pkgs, config, system, nixpkgs, ... }: {
-        imports = [({
-          home = {
-            username = "${USER}";
-            homeDirectory = "/home/${USER}";
-            stateVersion = "21.11"; # Do not modify
-          };
-        })] ++ [ (import ./${GUI}/home.nix) ];
+    home-manager = {
+      useUserPackages = true;
+      useGlobalPkgs = true;
+      users = {
+        ${USER} = { lib, pkgs, config, system, nixpkgs, ... }: {
+          imports = [({
+            home = {
+              username = "${USER}";
+              homeDirectory = "/home/${USER}";
+              stateVersion = "21.11"; # Do not modify
+            };
+          })] ++ [ (import ./${GUI}/home.nix) ];
+        };
       };
     };
-  };
   */
 }

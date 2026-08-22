@@ -18,83 +18,88 @@
     nixship.url = "github:imxade/nixship";
 
     /*
-    # Home Manager
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+      # Home Manager
+      home-manager = {
+        url = "github:nix-community/home-manager";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
     */
   };
 
-  outputs = { self, nixpkgs, disko, ... }@inputs: {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      disko,
+      ...
+    }@inputs:
+    {
 
-    nixosConfigurations = {
+      nixosConfigurations = {
 
-      # ======================================================
-      # PERSONAL MACHINE
-      # ======================================================
+        # ======================================================
+        # PERSONAL MACHINE
+        # ======================================================
 
-      nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
+        nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+
+          modules = [
+            ./configuration.nix
+            /etc/nixos/hardware-configuration.nix
+          ];
         };
 
-        modules = [
-          ./configuration.nix
-          /etc/nixos/hardware-configuration.nix
-        ];
-      };
+        # ======================================================
+        # ORACLE CLOUD AMPERE A1 - ALWAYS FREE PROFILE
+        #
+        # Target:
+        #   VM.Standard.A1.Flex
+        #   aarch64-linux
+        #
+        # Filesystem:
+        #   GPT
+        #   EFI
+        #   Btrfs
+        #   root/home/nix subvolumes
+        #
+        # x86_64:
+        #   transparent userspace emulation via binfmt/QEMU
+        # ======================================================
 
+        oracle-free = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
 
-      # ======================================================
-      # ORACLE CLOUD AMPERE A1 - ALWAYS FREE PROFILE
-      #
-      # Target:
-      #   VM.Standard.A1.Flex
-      #   aarch64-linux
-      #
-      # Filesystem:
-      #   GPT
-      #   EFI
-      #   Btrfs
-      #   root/home/nix subvolumes
-      #
-      # x86_64:
-      #   transparent userspace emulation via binfmt/QEMU
-      # ======================================================
+          specialArgs = {
+            inherit inputs;
+          };
 
-      oracle-free = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
+          modules = [
+            disko.nixosModules.disko
 
-        specialArgs = {
-          inherit inputs;
+            ./oracle
+            ./service/nixship
+          ];
         };
 
-        modules = [
-          disko.nixosModules.disko
+        # ======================================================
+        # ISO
+        # ======================================================
 
-          ./oracle
-          ./service/nixship
-        ];
-      };
+        iso = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
 
+          specialArgs = {
+            inherit inputs;
+          };
 
-      # ======================================================
-      # ISO
-      # ======================================================
-
-      iso = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        specialArgs = {
-          inherit inputs;
+          modules = [
+            ./iso.nix
+            ./configuration.nix
+          ];
         };
-
-        modules = [
-          ./iso.nix
-          ./configuration.nix
-        ];
       };
     };
-  };
 }

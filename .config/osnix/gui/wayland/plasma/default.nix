@@ -1,4 +1,9 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 
 {
   imports = [ ../default.nix ];
@@ -12,8 +17,8 @@
   ];
 
   systemd.services.display-manager.environment = {
-      QT_IM_MODULE = "qtvirtualkeyboard";
-      QT_VIRTUALKEYBOARD_DESKTOP_DISABLE = "0";
+    QT_IM_MODULE = "qtvirtualkeyboard";
+    QT_VIRTUALKEYBOARD_DESKTOP_DISABLE = "0";
   };
 
   services = {
@@ -24,9 +29,13 @@
       enable = true;
       wayland.enable = true;
 
-      settings = { General = { InputMethod = "qtvirtualkeyboard"; }; };
+      settings = {
+        General = {
+          InputMethod = "qtvirtualkeyboard";
+        };
+      };
       extraPackages = [
-          pkgs.kdePackages.qtvirtualkeyboard
+        pkgs.kdePackages.qtvirtualkeyboard
       ];
     };
   };

@@ -1,4 +1,10 @@
-{ inputs, lib, pkgs, config, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -7,10 +13,12 @@
   ];
 
   # SwapFile
-  swapDevices = [{
-    device = "/.swap";
-    size = 5 * 1024;
-  }];
+  swapDevices = [
+    {
+      device = "/.swap";
+      size = 5 * 1024;
+    }
+  ];
 
   environment = {
     # List packages installed for inspiron_3442
@@ -26,18 +34,18 @@
   };
 
   /*
-  networking = {
-    interfaces = {
-      wlp6s0 	  = {
-      useDHCP = true;
+    networking = {
+      interfaces = {
+        wlp6s0 	  = {
+        useDHCP = true;
+        };
       };
     };
-  };
 
-  services = {
-    fwupd = { enable = true; };
-    thermald = { enable = true; };
-  };
+    services = {
+      fwupd = { enable = true; };
+      thermald = { enable = true; };
+    };
   */
 
   hardware = {
@@ -52,16 +60,16 @@
 
   boot = {
     /*
-    # Better set the following inside ~/.asoundrc
-    extraModprobeConfig = ''
-            # set hda-intel as default card
-          options snd slots=snd-hda-intel
-            # disable 1st card, enable 2nd card
-         options snd_hda_intel enable=0,1
-        '';
-    kernelParams = [
-      "acpi_osi=!acpi_osi=\"Windows 2009\""
-    ];
+      # Better set the following inside ~/.asoundrc
+      extraModprobeConfig = ''
+              # set hda-intel as default card
+            options snd slots=snd-hda-intel
+              # disable 1st card, enable 2nd card
+           options snd_hda_intel enable=0,1
+          '';
+      kernelParams = [
+        "acpi_osi=!acpi_osi=\"Windows 2009\""
+      ];
     */
     kernelModules = [ "wl" ];
     extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
