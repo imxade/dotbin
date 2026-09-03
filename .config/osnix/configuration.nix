@@ -90,7 +90,6 @@ in
     */
   };
   security = {
-    unprivilegedUsernsClone = true; # For flatpak
     apparmor.enable = lib.mkForce false;
     rtkit.enable = true;
     # sudo.enable = false; # Disable sudo

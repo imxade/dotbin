@@ -1,8 +1,8 @@
 approval_policy = "never"
 sandbox_mode = "workspace-write"
 personality = "pragmatic"
-model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
+model = "gpt-5.6-terra"
+model_reasoning_effort = "medium"
 service_tier = "default"
 
 [projects."/home/x/Downloads/project/portagent"]
