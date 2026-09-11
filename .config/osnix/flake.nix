@@ -17,6 +17,12 @@
     # NixShip
     nixship.url = "github:imxade/nixship";
 
+    # BrowserOS
+    browseros-nix = {
+      url = "github:imxade/browseros-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     /*
       # Home Manager
       home-manager = {

@@ -7,6 +7,11 @@
 }:
 
 {
+  nixpkgs.config.allowUnfree = true;
+  documentation.enable = false;
+  documentation.doc.enable = false;
+  documentation.man.enable = false;
+  documentation.info.enable = false;
   # ==========================================================
   # VIRTUAL MACHINE HARDWARE
   # ==========================================================
@@ -214,6 +219,14 @@
   # ==========================================================
 
   i18n.defaultLocale = "en_US.UTF-8";
+
+  # ==========================================================
+  # BROWSER PROFILE / SESSION SYNC
+  # ==========================================================
+
+  systemd.tmpfiles.rules = [
+    "d /var/lib/browser-session 0777 root root -"
+  ];
 
   # ==========================================================
   # STATE VERSION

@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "browseros-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789481221,
+        "narHash": "sha256-Xb+747CPfzjr1lCYAsbmvGbckAhVSrBzbMRzejd5W/k=",
+        "owner": "imxade",
+        "repo": "browseros-nix",
+        "rev": "01c55700b1f35d03d0c25838e3e2954d4a2ee8fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "imxade",
+        "repo": "browseros-nix",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -83,11 +103,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1788179007,
-        "narHash": "sha256-hn1oU2rue2SYK8dAr8+WNZWtbsz1S2W5mnHlSEuh3bo=",
+        "lastModified": 1789149629,
+        "narHash": "sha256-H6GwaZzZf+4npqv0tph94w9tZddSjFjmQrVsW0z78uk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "34ab99075ac4f7e40cf037eef32cb1c360bb85e9",
+        "rev": "eaad089433ca2bb662274377d33df3d0e51ef28b",
         "type": "github"
       },
       "original": {
@@ -133,6 +153,7 @@
     },
     "root": {
       "inputs": {
+        "browseros-nix": "browseros-nix",
         "disko": "disko",
         "nix-flatpak": "nix-flatpak",
         "nixos-hardware": "nixos-hardware",

@@ -1,105 +1,97 @@
-approval_policy = "never"
-sandbox_mode = "workspace-write"
-personality = "pragmatic"
-model = "gpt-5.6-terra"
-model_reasoning_effort = "medium"
+# ============================================================
+# Core model settings
+# ============================================================
+
+model = "gpt-6-astra"
+model_reasoning_effort = "low"
+model_reasoning_summary = "none"
+model_verbosity = "low"
+
 service_tier = "default"
 
-[projects."/home/x/Downloads/project/portagent"]
-trust_level = "trusted"
+# Pragmatic is already fairly concise.
+# Change to "none" if you want absolutely minimal style instructions.
+personality = "pragmatic"
 
-[projects."/home/x/Downloads/project/o2c-graph"]
-trust_level = "trusted"
 
-[projects."/home/x/Downloads/project/register"]
-trust_level = "trusted"
+# ============================================================
+# Local execution
+# ============================================================
 
-[projects."/home/x/Downloads/project/autoreel"]
-trust_level = "trusted"
+# Never interrupt for command approval.
+approval_policy = "never"
 
-[projects."/home/x/Downloads/project/redditapi"]
-trust_level = "trusted"
+# Allow Codex to modify files only inside the workspace.
+sandbox_mode = "workspace-write"
 
-[projects."/home/x/Downloads/project/kitsy"]
-trust_level = "trusted"
 
-[projects."/home/x/Downloads/project/owncode"]
-trust_level = "trusted"
+# ============================================================
+# Web search
+# ============================================================
 
-[projects."/home/x/Downloads/project/vercel"]
-trust_level = "trusted"
+# Prevent Codex from doing web searches unless you change this.
+# This avoids search calls and the additional retrieved context.
+web_search = "disabled"
 
-[projects."/home/x/Downloads/project/harbur"]
-trust_level = "trusted"
 
-[projects."/home/x/Downloads/project/gsoc"]
-trust_level = "trusted"
+# ============================================================
+# Multi-agent / subagent orchestration
+# ============================================================
 
-[projects."/home/x/Downloads/project/sams"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/8th"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/streem"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/streem2"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/research_compute"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/directhire"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/nixhost"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/nixhost-master"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/ogh-site"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/ai-api"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/DOC-v2.17-final"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/reward-router"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/daisyui"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/nixhost-android"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/Rein"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/digital-works-marketplace"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/Interview"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project"]
-trust_level = "trusted"
-
-[projects."/home/x/Downloads/project/nixship"]
-trust_level = "trusted"
-
-[tool_suggest]
-disabled_tools = [{ type = "plugin", id = "github@openai-curated-remote" }]
-
-[apps.connector_openai_plugin_management]
+[agents]
 enabled = false
 
-[apps.connector_20205bf7d4e99a89d7154bb849718324]
+[features]
+# No legacy multi-agent orchestration.
+multi_agent = false
+multi_agent_mode = false
+
+# Disable external apps / connectors / plugins.
+apps = false
+connectors = false
+plugins = false
+remote_plugin = false
+recommended_plugins = false
+
+# Disable persistent/model memory features.
+memories = false
+memory_tool = false
+
+# Do not search for additional skills automatically.
+skill_search = false
+
+# Prevent skills from installing MCP dependencies.
+skill_mcp_dependency_install = false
+
+# Disable capabilities that are unnecessary for normal
+# VS Code coding and can expose additional tool surfaces.
+browser_use = false
+browser_use_external = false
+computer_use = false
+image_generation = false
+imagegenext = false
+search_tool = false
+
+# KEEP THESE ENABLED.
+# They are useful for normal local coding and can actually
+# make repeated terminal operations more efficient.
+shell_snapshot = true
+shell_tool = true
+
+
+# Multi-agent V2 has its own nested configuration and takes
+# precedence over [agents] when enabled.
+[features.multi_agent_v2]
 enabled = false
 
-[mcp_servers.openaiDeveloperDocs]
-url = "https://developers.openai.com/mcp"
+
+# ============================================================
+# Apps / connectors
+# ============================================================
+
+# Disable every app/connector by default.
+[apps._default]
+enabled = false
+
+
+

@@ -12,8 +12,9 @@ EOF
     exit 1
 }
 
-SSH_KEY=""
-TARGET=""
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SSH_KEY="${ORACLE_KEY:-}"
+TARGET="${ORACLE_TARGET:-}"
 
 while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -36,6 +37,13 @@ while [ "$#" -gt 0 ]; do
             ;;
     esac
 done
+
+if [ -z "$SSH_KEY" ] && [ -f "$SCRIPT_DIR/oracle.key" ]; then
+    SSH_KEY="$SCRIPT_DIR/oracle.key"
+fi
+if [ -z "$TARGET" ]; then
+    TARGET="root@132.226.187.186"
+fi
 
 [ -n "$SSH_KEY" ] || usage
 [ -n "$TARGET" ] || usage
@@ -61,10 +69,11 @@ echo "Preparing osnix configuration..."
 
 cp -a "$OSNIX_DIR/." "$TMP_DIR/"
 
-# Never copy private keys to the VM.
+# Never copy private keys or build symlinks to the VM.
 find "$TMP_DIR" -type f \
     \( -name '*.key' -o -name '*.pem' -o -name 'oracle.key' \) \
     -delete
+find "$TMP_DIR" -type l -name 'result*' -delete 2>/dev/null || true
 
 echo "Copying osnix to $TARGET:$REMOTE_DIR..."
 
@@ -93,5 +102,47 @@ ssh \
     -o UserKnownHostsFile=/dev/null \
     "$TARGET" \
     "nixos-rebuild switch --flake '$REMOTE_DIR#oracle-free'"
+
+# ==========================================================
+# SYNC BROWSER SESSIONS (All 4 portal logins)
+# ==========================================================
+LOCAL_SESSIONS=""
+if [ -d "${HOME}/.job-apply-mcp/sessions" ]; then
+    LOCAL_SESSIONS="${HOME}/.job-apply-mcp/sessions"
+elif [ -d "/var/lib/browser-session" ]; then
+    LOCAL_SESSIONS="/var/lib/browser-session"
+fi
+
+REMOTE_SESSIONS="/var/lib/browser-session"
+
+if [ -n "$LOCAL_SESSIONS" ] && ls "$LOCAL_SESSIONS"/*.json >/dev/null 2>&1; then
+    echo "Syncing browser sessions from $LOCAL_SESSIONS to $TARGET:$REMOTE_SESSIONS..."
+    ssh \
+        -i "$SSH_KEY" \
+        -o IdentitiesOnly=yes \
+        -o StrictHostKeyChecking=no \
+        -o UserKnownHostsFile=/dev/null \
+        "$TARGET" \
+        "mkdir -p '$REMOTE_SESSIONS'"
+
+    scp \
+        -i "$SSH_KEY" \
+        -o IdentitiesOnly=yes \
+        -o StrictHostKeyChecking=no \
+        -o UserKnownHostsFile=/dev/null \
+        "$LOCAL_SESSIONS"/*.json \
+        "$TARGET:$REMOTE_SESSIONS/"
+
+    ssh \
+        -i "$SSH_KEY" \
+        -o IdentitiesOnly=yes \
+        -o StrictHostKeyChecking=no \
+        -o UserKnownHostsFile=/dev/null \
+        "$TARGET" \
+        "chmod 777 '$REMOTE_SESSIONS' && chmod 666 '$REMOTE_SESSIONS'/*.json 2>/dev/null || true"
+    echo "Browser sessions synced successfully."
+else
+    echo "Notice: No browser session cookies found locally, skipping session sync."
+fi
 
 echo "Done."

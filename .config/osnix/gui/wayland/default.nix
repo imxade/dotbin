@@ -40,10 +40,17 @@
 
       # AI IDE
       antigravity-ide-fhs
+      nodejs
+
+      # Browser
+      brave
       chromium
       google-chrome
-      nodejs
+      inputs.browseros-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+      
+      # Dev 
       gh
+      azure-cli
 
       # Monitor
       bottom
@@ -55,7 +62,6 @@
         alacritty
         lapce
         seatd  # elogind Replacement
-        brave		# Browser
         swtpm		# Virtual TPM
       */
     ];
