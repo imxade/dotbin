@@ -212,7 +212,7 @@
 
     virtualbox.host = {
       # Enable VirtualBox host
-      enable = true;
+      # enable = true;
 
       # Needed for USB (webcam, mic, etc.)
       enableExtensionPack = true;

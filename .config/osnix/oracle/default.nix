@@ -12,6 +12,7 @@
   documentation.doc.enable = false;
   documentation.man.enable = false;
   documentation.info.enable = false;
+
   # ==========================================================
   # VIRTUAL MACHINE HARDWARE
   # ==========================================================
@@ -45,7 +46,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Keep only a small number of bootable generations.
-  # This limits /boot growth while retaining rollback capability.
   boot.loader.systemd-boot.configurationLimit = 3;
 
   # ==========================================================
@@ -138,14 +138,6 @@
   };
 
   # ==========================================================
-  # x86_64 USERSPACE EMULATION
-  # ==========================================================
-
-  boot.binfmt.emulatedSystems = [
-    # "x86_64-linux"
-  ];
-
-  # ==========================================================
   # NIX
   # ==========================================================
 
@@ -155,15 +147,9 @@
       "flakes"
     ];
 
-    # Deduplicate identical files as they are added.
-    # This saves space at the cost of some extra work during
-    # store additions.
     auto-optimise-store = true;
   };
 
-  # Periodically perform a full store optimisation.
-  #
-  # This scans the store and hard-links identical files.
   nix.optimise = {
     automatic = true;
 
@@ -172,10 +158,6 @@
     ];
   };
 
-  # Automatically remove old/unreferenced Nix store paths.
-  #
-  # 14 days is conservative enough to retain rollback history
-  # while keeping the 47 GB VM from accumulating indefinitely.
   nix.gc = {
     automatic = true;
 
@@ -185,7 +167,7 @@
   };
 
   # ==========================================================
-  # BASIC UTILITIES
+  # BASIC UTILITIES & RUNTIMES
   # ==========================================================
 
   environment.systemPackages = with pkgs; [
@@ -194,6 +176,8 @@
     wget
     htop
     evil-helix
+    google-chrome
+    sqlite
   ];
 
   # ==========================================================
@@ -209,15 +193,10 @@
   };
 
   # ==========================================================
-  # TIME
+  # TIME & LOCALE
   # ==========================================================
 
   time.timeZone = "Asia/Kolkata";
-
-  # ==========================================================
-  # LOCALE
-  # ==========================================================
-
   i18n.defaultLocale = "en_US.UTF-8";
 
   # ==========================================================
