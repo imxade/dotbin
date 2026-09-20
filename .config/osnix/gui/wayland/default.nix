@@ -38,17 +38,19 @@
       git-lfs
       qtscrcpy
 
-      # AI IDE
+      # AI & Agent Tooling
       antigravity-ide-fhs
-      nodejs
+      antigravity-cli
 
       # Browser
       brave
       chromium
       google-chrome
       inputs.browseros-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
-      
-      # Dev 
+
+      # Dev & Package Managers
+      nodejs
+      pnpm
       gh
       azure-cli
 
