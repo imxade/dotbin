@@ -41,6 +41,7 @@
       # AI & Agent Tooling
       antigravity-ide-fhs
       antigravity-cli
+      codex
 
       # Browser
       brave

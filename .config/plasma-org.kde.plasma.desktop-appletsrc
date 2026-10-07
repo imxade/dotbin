@@ -27,7 +27,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][2][Applets][5][Configuration][General]
-launchers=applications:antigravity-ide.desktop,file:///nix/store/jxi9r5kmqmi352rc0kvlkyk6yndgih9f-system-path/share/applications/org.kde.dolphin.desktop,file:///var/lib/flatpak/exports/share/applications/com.brave.Browser.desktop,applications:org.wezfurlong.wezterm.desktop
+launchers=applications:antigravity-ide.desktop,file:///var/lib/flatpak/exports/share/applications/com.brave.Browser.desktop,applications:org.wezfurlong.wezterm.desktop,applications:google-chrome.desktop,applications:org.kde.dolphin.desktop
 
 [Containments][2][Applets][6]
 immutability=1
@@ -144,6 +144,7 @@ AppletOrder=5;6;7;21;67
 
 [Containments][59]
 ItemGeometries-1440x900=Applet-66:384,112,640,160,0;
+ItemGeometries-960x540=Applet-66:272,112,624,160,0;
 ItemGeometriesHorizontal=Applet-66:384,112,640,160,0;
 activityId=e5574b41-b529-4c12-beb7-a5e9f0aa6cae
 formfactor=0
@@ -161,7 +162,7 @@ plugin=com.github.prayag2.modernclock
 AlternativePlaybackRateMode=3
 BatteryPausesVideo=false
 LastVideo=https://motionbgs.com/dl/4k/8823/
-LastVideoPosition=0
+LastVideoPosition=10000
 PauseBatteryLevel=0
 PauseMode=3
 PlaybackRate=1

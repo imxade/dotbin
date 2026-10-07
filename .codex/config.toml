@@ -2,124 +2,14 @@
 # Core model settings
 # ============================================================
 
-model = "gpt-6-astra"
-model_reasoning_effort = "low"
+model = "gpt-5.6-luna"
+model_reasoning_effort = "xhigh"
 plan_mode_reasoning_effort = "minimal"
 model_reasoning_summary = "none"
 model_verbosity = "low"
 
 service_tier = "default"
 personality = "pragmatic"
-
-
-# ============================================================
-# Global Codex -> Antigravity orchestration policy
-# ============================================================
-
-developer_instructions = """
-Act primarily as a lightweight coordinator and final reviewer.
-Minimize Codex token usage without compromising final verification quality.
-
-For trivial requests, handle them directly.
-
-For every non-trivial engineering task:
-
-1. REQUIREMENTS / PLANNING
-   - Do only enough local reasoning to formulate the task precisely.
-   - Delegate substantive requirements analysis, architecture, debugging
-     strategy, and difficult planning to the local Antigravity CLI (`agy`).
-   - Do not hard-code Antigravity model version strings.
-   - Before the first delegated model call for a task, use `agy models` to
-     discover the currently available models.
-   - Prefer the newest suitable available Claude-family reasoning/thinking
-     model for difficult planning and requirements analysis.
-   - Resolve the exact model slug from the live `agy models` output.
-
-2. IMPLEMENTATION
-   - Delegate substantial repository investigation, implementation,
-     refactoring, debugging, test creation, and test execution to Antigravity.
-   - Prefer the newest suitable available Gemini Flash-family model for
-     implementation and other heavy coding work.
-   - Use the highest appropriate AGY reasoning/effort option exposed by the
-     currently installed CLI when the task benefits from it.
-   - Run delegated work non-interactively with `agy -p`.
-   - Prefer structured output when useful for reliable success/failure
-     detection.
-
-3. AGY APPROVALS
-   - Antigravity is globally configured to auto-approve tools and artifact
-     writes. Do not ask the user for routine AGY approvals.
-   - If a headless AGY run nevertheless blocks or fails specifically because
-     it is waiting for a tool/artifact approval, retry the same delegated run
-     with `--dangerously-skip-permissions`.
-   - Do not use that retry for unrelated authentication, quota, command,
-     filesystem, or test failures.
-
-4. FAILURE-AWARE MODEL FALLBACK
-   - Check AGY exit status and error/status output after every delegated run.
-   - If the preferred Claude-family model is unavailable, rate-limited,
-     quota-exhausted, or reports an equivalent capacity/limit error:
-       * do not ask the user what to do;
-       * refresh the live model list with `agy models`;
-       * choose the newest suitable available Gemini Flash-family model;
-       * retry the interrupted planning/reasoning task;
-       * use Gemini Flash for both planning and implementation for the
-         remainder of the current task unless availability changes.
-   - If any selected AGY model later becomes unavailable or quota-exhausted,
-     refresh `agy models`, choose the next best suitable available model, and
-     continue automatically.
-   - Do not classify authentication failures, malformed commands, permission
-     configuration problems, filesystem failures, build/test failures, or
-     ordinary code errors as model quota exhaustion.
-   - Only involve the user for a genuine blocker that cannot be resolved
-     automatically.
-
-5. CODEX REVIEW
-   - Codex is always responsible for final acceptance.
-   - After every substantive AGY implementation step, review the actual git
-     diff and relevant build/test/lint/typecheck evidence.
-   - Review for requirement compliance, correctness, regressions,
-     security-sensitive mistakes, edge cases, and missing tests.
-   - Use targeted reads of changed/relevant files rather than broadly
-     re-exploring the repository.
-   - Do not redo AGY's full reasoning or implementation merely to review it.
-
-6. ITERATION
-   - If review finds a concrete issue, send a focused correction back to AGY.
-   - Prefer continuing the same AGY conversation when useful and supported by
-     the current CLI, so context does not need to be resent unnecessarily.
-   - Review the corrected result again.
-   - Continue the AGY implementation -> Codex review -> AGY correction loop
-     until the requirements are satisfied and relevant validation passes.
-   - Do not stop merely because the first AGY invocation completed.
-   - Prefer asking AGY to fix substantive issues instead of writing those
-     fixes yourself.
-
-7. TOKEN / CONTEXT EFFICIENCY
-   - Keep Codex planning short and targeted.
-   - Spend Codex effort mainly on:
-       * precise task formulation,
-       * model/fallback selection,
-       * reviewing diffs and validation evidence,
-       * identifying concrete deficiencies,
-       * deciding whether another AGY iteration is required,
-       * concise final reporting.
-   - Do not independently repeat analysis already completed successfully by
-     AGY.
-   - Do not perform substantial implementation yourself while a suitable AGY
-     model is available.
-   - Do not raise Codex reasoning effort just because a task is hard; delegate
-     the difficult reasoning to AGY and review the evidence it produces.
-
-8. TOOL POLICY
-   - Use the local Antigravity CLI (`agy`) for delegated model work.
-   - Do not use Claude Code, a standalone Gemini CLI, direct Anthropic/Gemini
-     APIs, MCP servers, external agent services, or Codex subagents for this
-     orchestration.
-   - Codex is the coordinator/reviewer; Antigravity performs the expensive
-     planning, investigation, implementation, debugging, and testing.
-"""
-
 
 # ============================================================
 # Local execution / approvals
@@ -153,3 +43,28 @@ skill_mcp_dependency_install = false
 shell_snapshot = true
 shell_tool = true
 unified_exec = true
+
+[projects."/home/x"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/galaxy"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/course-platform"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/profily"]
+trust_level = "trusted"
+
+[projects."/home/x/Downloads/project/reward-router"]
+trust_level = "trusted"
+
+[projects."/tmp/inject"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+gpt-6-astra = 2
+
+[[skills.config]]
+path = "/home/x/.agents/skills/graphify/SKILL.md"
+enabled = false

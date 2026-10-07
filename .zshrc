@@ -49,3 +49,10 @@ eval "$(zoxide init zsh)"
 export PATH="$PATH:/home/x/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
