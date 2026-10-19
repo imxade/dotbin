@@ -48,6 +48,26 @@ oc_apply() {
     --target "$ORACLE_TARGET"
 }
 
+oc_tunnel() {
+  if [ "${1:-}" = "-a" ] || [ "${1:-}" = "--all" ]; then
+    oc 'sqlite3 -column -header /var/lib/nixship/data/platform.sqlite "SELECT target_type, local_port, url, status FROM quick_tunnels WHERE status = '\''running'\'';"'
+  elif [ "${1:-}" = "-o" ] || [ "${1:-}" = "--open" ]; then
+    local url
+    url=$(oc 'sqlite3 /var/lib/nixship/data/platform.sqlite "SELECT url FROM quick_tunnels WHERE key = '\''dashboard'\'' AND status = '\''running'\'';"' 2>/dev/null | grep -E '^https?://')
+    if [ -n "$url" ]; then
+      echo "Opening $url ..."
+      xdg-open "$url" >/dev/null 2>&1 &
+    else
+      echo "No active dashboard tunnel found." >&2
+    fi
+  else
+    oc 'sqlite3 /var/lib/nixship/data/platform.sqlite "SELECT url FROM quick_tunnels WHERE key = '\''dashboard'\'' AND status = '\''running'\'';"'
+  fi
+}
+
+alias oc_url="oc_tunnel"
+alias nixship_url="oc_tunnel"
+
 # aliases
 
 alias \
