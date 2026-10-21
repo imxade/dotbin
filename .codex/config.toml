@@ -62,6 +62,9 @@ trust_level = "trusted"
 [projects."/tmp/inject"]
 trust_level = "trusted"
 
+[projects."/home/x/Downloads/project/floci-nix"]
+trust_level = "trusted"
+
 [tui.model_availability_nux]
 gpt-6-astra = 2
 

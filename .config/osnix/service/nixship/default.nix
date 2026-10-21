@@ -8,6 +8,9 @@
 
 let
   nixship = inputs.nixship.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  # ARM64 image pinned by digest. It installs Docker-owned binfmt handlers for
+  # the amd64 SQL Server image without adding a global NixOS emulator profile.
+  binfmtImage = "tonistiigi/binfmt@sha256:b4c6a09270133b3c5b4dff94f83067df4dd27eced195fc6a1dbad102999e24dd";
 in
 {
   # ==========================================================
@@ -80,6 +83,36 @@ in
   # NIX SHIP SERVICE
   # ==========================================================
 
+  systemd.services.nixship-docker-binfmt = {
+    description = "Register Docker amd64 emulation for Nix Ship workloads";
+
+    wantedBy = [
+      "multi-user.target"
+    ];
+
+    after = [
+      "docker.service"
+    ];
+
+    requires = [
+      "docker.service"
+    ];
+
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+      RemainAfterExit = true;
+    };
+
+    script = ''
+      set -eu
+      if ! ${pkgs.util-linux}/bin/mountpoint -q /proc/sys/fs/binfmt_misc; then
+        ${pkgs.util-linux}/bin/mount -t binfmt_misc binfmt_misc /proc/sys/fs/binfmt_misc
+      fi
+      ${pkgs.docker}/bin/docker run --privileged --rm ${binfmtImage} --install amd64
+    '';
+  };
+
   systemd.services.nixship = {
     description = "Nix Ship deployment control plane";
 
@@ -91,6 +124,8 @@ in
       "network-online.target"
       "nix-daemon.service"
       "nixship-repository.service"
+      "docker.service"
+      "nixship-docker-binfmt.service"
     ];
 
     wants = [
@@ -99,6 +134,8 @@ in
 
     requires = [
       "nixship-repository.service"
+      "docker.service"
+      "nixship-docker-binfmt.service"
     ];
 
     serviceConfig = {
@@ -106,6 +143,7 @@ in
 
       User = "nixship";
       Group = "nixship";
+      SupplementaryGroups = [ "docker" ];
 
       WorkingDirectory = "/var/lib/nixship/repository";
 
