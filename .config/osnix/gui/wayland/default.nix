@@ -39,16 +39,20 @@
       qtscrcpy
 
       # AI & Agent Tooling
+      inputs.antigravity-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
       antigravity-ide-fhs
       antigravity-cli
-      # codex
+      /*
+      codex
       opencode-desktop
+      opencode
+      */
 
       # Browser
       brave
       chromium
       google-chrome
-      inputs.browseros-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
+      # inputs.browseros-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       # Dev & Package Managers
       nodejs

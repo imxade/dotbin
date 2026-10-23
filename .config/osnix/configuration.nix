@@ -71,6 +71,9 @@ in
     # pkgs.nerd-fonts.jetbrains-mono
     pkgs.nerd-fonts.caskaydia-cove
   ];
+
+  # nixpkgs.config.problems.handlers.fabric.broken = "warn"; # or "ignore"
+  
   programs = {
     zsh.enable = true;
     nix-ld = {
