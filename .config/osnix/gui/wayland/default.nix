@@ -24,6 +24,8 @@
     ];
   };
 
+ # nixpkgs.config.problems.handlers.fabric.broken = "warn"; # or "ignore"
+
   environment = {
     # List packages installed in xorg profile.
     systemPackages = with pkgs; [
@@ -49,7 +51,7 @@
       */
 
       # Browser
-      brave
+      # brave
       chromium
       google-chrome
       # inputs.browseros-nix.packages.${pkgs.stdenv.hostPlatform.system}.default

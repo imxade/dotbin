@@ -71,8 +71,6 @@ in
     # pkgs.nerd-fonts.jetbrains-mono
     pkgs.nerd-fonts.caskaydia-cove
   ];
-
-  # nixpkgs.config.problems.handlers.fabric.broken = "warn"; # or "ignore"
   
   programs = {
     zsh.enable = true;
@@ -178,7 +176,6 @@ in
     # Hibernate Options
     # kernelParams = [ "resume_offset=${OFFSET}" ];
     resumeDevice = "/dev/disk/by-uuid/${RUID}";
-    initrd.systemd.enable = true;
     # Configure boot loader
     loader = {
       grub = {
