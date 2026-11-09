@@ -61,6 +61,7 @@
       pnpm
       gh
       azure-cli
+      kubevirt
 
       # Monitor
       bottom
@@ -101,6 +102,11 @@
         HandleLidSwitch = "hibernate";
         HandleLidSwitchDocked = "hibernate";
       };
+    };
+
+    k3s = {
+      enable = true;
+      role = "server";
     };
 
     /*
