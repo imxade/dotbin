@@ -107,6 +107,9 @@
     k3s = {
       enable = true;
       role = "server";
+      extraFlags = [
+        "--write-kubeconfig-mode=0644"
+      ];
     };
 
     /*
@@ -247,8 +250,6 @@
           swtpm = { enable = false; };
         };
       };
-    */
-    waydroid.enable = true;
     docker = {
       enable = true;
       rootless = {
@@ -256,6 +257,8 @@
         setSocketVariable = true;
       };
     };
+    */
+    waydroid.enable = true;
   };
 
   programs = {

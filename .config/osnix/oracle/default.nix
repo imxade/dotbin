@@ -136,12 +136,23 @@
     KbdInteractiveAuthentication = false;
     PermitRootLogin = "prohibit-password";
   };
+  
+  services = {
+    k3s = {
+      enable = true;
+      role = "server";
+      extraFlags = [
+        "--write-kubeconfig-mode=0644"
+      ];
+    };
+  };
+
 
   # ==========================================================
   # DOCKER
   # ==========================================================
 
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
   # ==========================================================
   # NIX
@@ -180,7 +191,6 @@
     git
     curl
     wget
-    docker
     htop
     evil-helix
     google-chrome

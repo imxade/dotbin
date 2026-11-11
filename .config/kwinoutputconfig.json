@@ -6,26 +6,17 @@
                 "allowDdcCi": true,
                 "allowSdrSoftwareBrightness": false,
                 "autoBrightnessCurve": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
+                    [
+                        0,
+                        1
+                    ]
                 ],
                 "autoRotation": "InTabletMode",
                 "automaticBrightness": false,
-                "brightness": 0.25,
+                "brightness": 0.23,
                 "colorPowerTradeoff": "PreferEfficiency",
                 "colorProfileSource": "sRGB",
                 "connectorName": "eDP-1",
-                "customModes": [
-                ],
                 "detectedDdcCi": false,
                 "edidHash": "5a31ab9cff9a67330c865731828bb3fd",
                 "edidIdentifier": "SDC 16899 0 0 2024 0",
@@ -36,10 +27,21 @@
                 "iccProfilePath": "",
                 "maxBitsPerColor": 0,
                 "mode": {
-                    "flags": 0,
-                    "height": 1800,
-                    "refreshRate": 120000,
-                    "width": 2880
+                    "cvt": {
+                        "clock": 709633,
+                        "flags": 10,
+                        "hdisplay": 2880,
+                        "hskew": 0,
+                        "hsyncEnd": 2920,
+                        "hsyncStart": 2888,
+                        "htotal": 3080,
+                        "vdisplay": 1800,
+                        "vscan": 0,
+                        "vsyncEnd": 1896,
+                        "vsyncStart": 1880,
+                        "vtotal": 1920
+                    },
+                    "flags": 0
                 },
                 "overscan": 0,
                 "rgbRange": "Automatic",
@@ -57,17 +59,10 @@
                 "allowDdcCi": true,
                 "allowSdrSoftwareBrightness": true,
                 "autoBrightnessCurve": [
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
+                    [
+                        0,
+                        1
+                    ]
                 ],
                 "autoRotation": "InTabletMode",
                 "automaticBrightness": false,
@@ -75,8 +70,6 @@
                 "colorPowerTradeoff": "PreferEfficiency",
                 "colorProfileSource": "sRGB",
                 "connectorName": "Virtual-virtual-xdp-kde-org.chromium.Chromium",
-                "customModes": [
-                ],
                 "detectedDdcCi": false,
                 "edrPolicy": "always",
                 "hdrColorProfileSource": "EDID",
